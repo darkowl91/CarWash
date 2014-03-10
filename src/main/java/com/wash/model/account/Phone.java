@@ -43,7 +43,6 @@ public class Phone implements Serializable {
         this.operator = operator;
     }
 
-
     public String getPhoneValue() {
         return phoneValue;
     }
@@ -52,7 +51,6 @@ public class Phone implements Serializable {
         this.phoneValue = phoneValue;
     }
 
-
     public String getType() {
         return type;
     }
@@ -60,7 +58,6 @@ public class Phone implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
-
 
     public User getUser() {
         return user;
