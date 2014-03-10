@@ -5,28 +5,19 @@ import org.apache.commons.codec.binary.Base64;
 import java.io.UnsupportedEncodingException;
 
 public final class ImageUtil {
-    private static ImageUtil instance = null;
 
-    private ImageUtil() {
-    }
-
-    public static ImageUtil getInstance() {
-        if (instance == null) {
-            instance = new ImageUtil();
-        }
-        return instance;
-    }
+    public static final String ISO = "ISO-8859-2";
 
     /**
-     * Encode byte image to byte string ISO-8859-2
+     * Encode byte picture to byte string ISO-8859-2
      *
-     * @param image
-     * @param ifNull
-     * @return
+     * @param picture byte array
+     * @param ifNull  value will be returned if conversion fails
+     * @return encoded string
      */
-    public String getEncoded(byte[] image, String ifNull) {
+    public static String getEncoded(byte[] picture, String iso, String ifNull) {
         try {
-            return new String(Base64.encodeBase64(image), "ISO-8859-2");
+            return new String(Base64.encodeBase64(picture), iso);
         } catch (UnsupportedEncodingException e) {
             return ifNull;
         }
