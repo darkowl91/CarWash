@@ -1,46 +1,48 @@
 package com.wash.model.account;
 
-import com.wash.model.BaseEntity;
-import com.wash.programm.util.ImageUtil;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "USER_PICTURE", schema = "carservice")
-public class UserPicture extends BaseEntity {
+@Table(name = "USER_PICTURE", schema = "CarWash")
+public class UserPicture implements Serializable {
 
-    @Column(name = "PICTURE_NAME")
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(name = "IMAGE_NAME")
     private String pictureName;
 
-    @Column(name = "IMAGE", columnDefinition = "mediumblob")
-    private byte[] image;
-
-    @Transient
-    private String imageAsString;
+    @Column(name = "PICTURE", columnDefinition = "mediumblob")
+    private byte[] picture;
 
     public UserPicture() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPictureName() {
         return pictureName;
     }
 
-    public void setPictureName(String pictureName) {
-        this.pictureName = pictureName;
+    public void setPictureName(String imageName) {
+        this.pictureName = imageName;
     }
 
-    public byte[] getImage() {
-        return image;
+    public byte[] getPicture() {
+        return picture;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setPicture(byte[] image) {
+        this.picture = image;
     }
 
-    public String getImageAsString() {
-        return ImageUtil.getInstance().getEncoded(image, "");
-    }
 }

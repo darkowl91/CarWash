@@ -1,14 +1,18 @@
 package com.wash.model.account;
 
-import com.wash.model.BaseEntity;
-
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
 @Entity
-@Table(name = "USER", schema = "carservice")
-public class User extends BaseEntity {
+@Table(name = "USER", schema = "carwash")
+public class User implements Serializable {
+
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @Column(name = "USERNAME")
     private String username;
@@ -41,10 +45,15 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Phone> phones;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Authority> authorities;
-
     public User() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -125,14 +134,6 @@ public class User extends BaseEntity {
 
     public void setPhones(List<Phone> phones) {
         this.phones = phones;
-    }
-
-    public List<Authority> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(List<Authority> authorities) {
-        this.authorities = authorities;
     }
 
 }

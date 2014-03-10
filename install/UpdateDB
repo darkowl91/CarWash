@@ -13,11 +13,4 @@ INSERT INTO carwash.user (ID, BIRTHDAY, EMAIL, ENABLED, FIRSTNAME, LASTNAME, PAS
 INSERT INTO carwash.user (ID, BIRTHDAY, EMAIL, ENABLED, FIRSTNAME, LASTNAME, PASSWORD, REGISTRATION_DATE, USERNAME, picture_ID) VALUES (6, null, 'Evgenii@mail.ru', true, 'Евгений', 'Качунов', '123', '2014-03-09', 'Evgen', 4);
 INSERT INTO carwash.user (ID, BIRTHDAY, EMAIL, ENABLED, FIRSTNAME, LASTNAME, PASSWORD, REGISTRATION_DATE, USERNAME, picture_ID) VALUES (7, null, 'vit@gmail.com', true, 'Виталий', 'Захарченко', '123', '2014-03-09', 'Vital', 5);
 #ROLES
-INSERT INTO carwash.authorities (ID, AUTHORITY, user_ID) VALUES (1, 'ROLE_USER', 1);
-INSERT INTO carwash.authorities (ID, AUTHORITY, user_ID) VALUES (2, 'ROLE_ADMIN', 2);
-INSERT INTO carwash.authorities (ID, AUTHORITY, user_ID) VALUES (3, 'ROLE_USER', 3);
-INSERT INTO carwash.authorities (ID, AUTHORITY, user_ID) VALUES (4, 'ROLE_USER', 4);
-INSERT INTO carwash.authorities (ID, AUTHORITY, user_ID) VALUES (5, 'ROLE_USER', 5);
-INSERT INTO carwash.authorities (ID, AUTHORITY, user_ID) VALUES (6, 'ROLE_USER', 6);
-INSERT INTO carwash.authorities (ID, AUTHORITY, user_ID) VALUES (7, 'ROLE_USER', 7);
 #USER_PHONES

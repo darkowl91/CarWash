@@ -1,15 +1,16 @@
 package com.wash.model.account;
 
-import com.wash.model.BaseEntity;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "PHONE", schema = "carservice")
-public class Phone extends BaseEntity {
+@Table(name = "PHONE", schema = "CarWash")
+public class Phone implements Serializable {
+
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @Column(name = "OPERATOR")
     private String operator;
@@ -26,11 +27,12 @@ public class Phone extends BaseEntity {
     public Phone() {
     }
 
-    public Phone(String operator, String phoneValue, String type, User user) {
-        this.operator = operator;
-        this.phoneValue = phoneValue;
-        this.type = type;
-        this.user = user;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getOperator() {
@@ -67,4 +69,5 @@ public class Phone extends BaseEntity {
     public void setUser(User user) {
         this.user = user;
     }
+
 }
