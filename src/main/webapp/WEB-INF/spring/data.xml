@@ -28,16 +28,16 @@
     </bean>
 
     <!-- DataSource properties -->
-    <bean id="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-          p:location="/WEB-INF/jdbc.properties"/>
+    <context:property-placeholder
+		location="classpath:schema/schema_install.properties"
+		system-properties-mode="FALLBACK" />
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-          p:driverClassName="${jdbc.driverClassName}"
-          p:url="${jdbc.databaseurl}"
-          p:username="${jdbc.username}"
-          p:password="${jdbc.password}"/>
+          p:driverClassName="${driver}"
+          p:url="${url}"
+          p:username="${username}"
+          p:password="${password}"/>
           
     <bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -51,10 +51,10 @@
                 <!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
-                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
-                <prop key="hibernate.connection.CharSet">${connection.charSet}</prop>
-                <prop key="hibernate.connection.characterEncoding">${connection.charSet}</prop>
-                <prop key="hibernate.connection.useUnicode">${connection.charSet}</prop>
+                <prop key="hibernate.dialect">${dialect}</prop>
+                <prop key="hibernate.connection.CharSet">${charSet}</prop>
+                <prop key="hibernate.connection.characterEncoding">${charSet}</prop>
+                <prop key="hibernate.connection.useUnicode">${charSet}</prop>
             </props>
 		</property>
 	</bean>
