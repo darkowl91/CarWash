@@ -5,10 +5,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!-- Настраивает управление транзакциями с помощью аннотации @Transactional -->
+    <!-- Transactions -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
-    <!-- Менеджер транзакций -->
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
@@ -20,12 +18,11 @@
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
-    <!-- Настройки бина dataSource будем хранить в отдельном файле -->
+    <!-- DataSource properties -->
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
           p:location="/WEB-INF/jdbc.properties"/>
 
-    <!-- Непосредственно бин dataSource -->
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource"
           p:driverClassName="${jdbc.driverClassName}"
@@ -33,7 +30,7 @@
           p:username="${jdbc.username}"
           p:password="${jdbc.password}"/>
 
-    <!-- Настройки фабрики сессий Хибернейта -->
+    <!-- Session configuration -->
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
@@ -43,7 +40,7 @@
             <props>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="format_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.dialect">${jdbc.dialect}</prop>
                 <prop key="hibernate.connection.CharSet">${connection.charSet}</prop>
                 <prop key="hibernate.connection.characterEncoding">${connection.charSet}</prop>
