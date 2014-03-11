@@ -7,7 +7,9 @@ import java.io.Serializable;
 @Table(name = "USER_PICTURE", schema = "CarWash")
 public class UserPicture implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 208655328884793926L;
+
+	@Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
