@@ -19,6 +19,7 @@
 		<spring-data-jpa.version>1.4.1.RELEASE</spring-data-jpa.version>
 		<jackson.version>1.9.13</jackson.version>
 		<log4j.version>1.2.17</log4j.version>
+		<org.slf4j-version>1.5.10</org.slf4j-version>
 		<jdk.version>1.7</jdk.version>
 		<org.apache.tiles-version>2.2.2</org.apache.tiles-version>		
 		<org.aspectj-version>1.6.9</org.aspectj-version>
@@ -186,6 +187,23 @@
         </dependency>
 
         <!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
