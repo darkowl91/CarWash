@@ -1,37 +1,39 @@
-<beans:beans xmlns="http://www.springframework.org/schema/security"
-             xmlns:beans="http://www.springframework.org/schema/beans"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-http://www.springframework.org/schema/security
-http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/security 
+	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-    <http access-denied-page="/error403.jsp">
+    <security:http access-denied-page="/error403.jsp">
         <!--<intercept-url pattern="/index*" access="ROLE_USER,ROLE_ANONYMOUS"/>-->
         <!--<intercept-url pattern="/*" access="ROLE_USER"/>-->
         <!--<intercept-url pattern="/delete/*" access="ROLE_ADMIN"/>-->
-        <form-login login-page="/" default-target-url="/logIn"
+        <security:form-login login-page="/" default-target-url="/logIn"
                     authentication-failure-url="/?error=true"/>
-        <logout logout-success-url="/logOut"/>
+        <security:logout logout-success-url="/logOut"/>
 
-        <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
-        <remember-me/>
-    </http>
+        <security:anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
+        <security:remember-me/>
+    </security:http>
 
     <!--Spring security tags-->
-    <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
+    <bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
 
-    <authentication-manager>
-        <authentication-provider>
-            <jdbc-user-service data-source-ref="dataSource"
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:jdbc-user-service data-source-ref="dataSource"
 
                                users-by-username-query="select username, password, enabled  from user where username=?"
 
                                authorities-by-username-query="select us.username, au.authority from user us , authorities au where us.id = au.user_id and us.USERNAME =?"
 
                     />
-        </authentication-provider>
-    </authentication-manager>
+        </security:authentication-provider>
+    </security:authentication-manager>
 
 
-</beans:beans>
+</beans>
