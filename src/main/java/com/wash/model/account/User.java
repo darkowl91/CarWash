@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.List;
 
 @Entity
-@Table(name = "USER", schema = "carwash")
+@Table(name = "USER", schema = "CarWash")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 2353242890222909519L;
