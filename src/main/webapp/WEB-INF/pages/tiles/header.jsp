@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="navbar transparent navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
@@ -21,10 +22,8 @@
 							<li><a href="services.html">Services</a></li>
 							<li><a href="portfolio.html">Portfolio</a></li>
 							<li><a href="portfolio-item.html">Portfolio Item</a></li>
-							<li><a href="coming-soon.html">Coming Soon</a></li>
 							<li><a href="sign-in.html">Sign in</a></li>
 							<li><a href="sign-up.html">Sign up</a></li>
-							<li><a href="backgrounds.html">Backgrounds</a></li>
 						</ul></li>
 					<li><a href="pricing.html">PRICING</a></li>
 					<li><a href="contact.html">CONTACT US</a></li>

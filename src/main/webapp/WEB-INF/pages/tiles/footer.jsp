@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!-- starts footer -->
 <footer id="footer">
@@ -40,7 +41,7 @@
 			</div>
 			<div class="span4 contact">
 				<h3 class="footer_header">Contact</h3>
-				<form action="#" method="post" />
+				<form action="#" method="post">
 				<input type="text" placeholder="Your name" /> <input type="text"
 					placeholder="Your email" />
 				<textarea rows="3" placeholder="Message"></textarea>
