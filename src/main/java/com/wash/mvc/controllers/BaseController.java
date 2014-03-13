@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class BaseController {
+public abstract class BaseController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/")
-    public String startPage() {
-        return "carWash.adverts";
-    }
+	@RequestMapping(method = RequestMethod.GET, value = "/")
+	public String startPage() {
+		return "carWash.welcome";
+	}
 }
