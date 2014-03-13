@@ -1,11 +1,11 @@
-package com.wash.model.account;
+package com.wash.model.picture;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "USER_PICTURE", schema = "CarWash")
-public class UserPicture implements Serializable {
+@Table(name = "PICTURE", schema = "CarWash")
+public class Picture implements Serializable {
 
 	private static final long serialVersionUID = 208655328884793926L;
 
@@ -14,13 +14,13 @@ public class UserPicture implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "IMAGE_NAME")
+    @Column(name = "PICTURE_NAME")
     private String pictureName;
 
     @Column(name = "PICTURE", columnDefinition = "mediumblob")
     private byte[] picture;
 
-    public UserPicture() {
+    public Picture() {
     }
 
     public Long getId() {
