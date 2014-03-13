@@ -2,16 +2,20 @@ package com.wash.model.advertisement;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.wash.model.picture.Picture;
 
 @Entity
 @Table(name="NEWS", schema = "CarWash")
@@ -37,7 +41,9 @@ public class News implements Serializable {
 	@Column(name = "CONTENT")
     private String content;
 	
-    private List<NewsPicture> pictures;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id")
+    private Picture picture;
 
     public Long getId() {
         return id;
@@ -79,11 +85,36 @@ public class News implements Serializable {
         this.content = content;
     }
 
-    public List<NewsPicture> getPictures() {
-        return pictures;
+    public Picture getPicture() {
+        return picture;
     }
 
-    public void setPictures(List<NewsPicture> pictures) {
-        this.pictures = pictures;
+    public void setPicture(Picture picture) {
+        this.picture = picture;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		News other = (News) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 }
