@@ -6,8 +6,8 @@
 <tiles-definitions>
     <!-- BASE_LAYOUT -->
     <definition name="carWash.mainLayout" template="/WEB-INF/pages/layouts/mainLayout.jsp">
-    	<put-attribute name="header" value="/WEB-INF/pages/layouts/tiles/header.jsp"/>
-        <put-attribute name="footer" value="/WEB-INF/pages/layouts/tiles/footer.jsp"/>
+    	<put-attribute name="header" value="/WEB-INF/pages/tiles/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp"/>
     </definition>
     
     <!-- WELCOME_PAGE -->

@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public abstract class BaseController {
+public class BaseController {
 
-	@RequestMapping(method = RequestMethod.GET, value = "/")
+	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String startPage() {
 		return "carWash.welcome";
 	}
