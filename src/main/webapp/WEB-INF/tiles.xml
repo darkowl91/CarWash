@@ -4,8 +4,17 @@
         "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 
 <tiles-definitions>
-    <definition name="mainLayout" template="/WEB-INF/pages/layouts/mainLayout.jsp">
-        <
+    <!-- BASE_LAYOUT -->
+    <definition name="carWash.mainLayout" template="/WEB-INF/pages/layouts/mainLayout.jsp">
+    	<put-attribute name="header" value="/WEB-INF/pages/layouts/tiles/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/pages/layouts/tiles/footer.jsp"/>
     </definition>
+    
+    <!-- WELCOME_PAGE -->
+    <definition name="carWash.welcome" extends="carWash.mainLayout">
+    </definition>
+    
+
+	
 
 </tiles-definitions>
