@@ -1,15 +1,42 @@
 package com.wash.model.advertisement;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
-public class News {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-    private Long id;
+@Entity
+@Table(name="NEWS", schema = "CarWash")
+public class News implements Serializable {
+
+	private static final long serialVersionUID = 5618996323287858344L;
+	
+	@Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@Column(name = "DATE")
+	@Temporal(TemporalType.TIMESTAMP)
     private Calendar date;
+	
+	@Column(name = "TITLE")
     private String title;
+	
+	@Column(name = "DECRIPTION")
     private String description;
+	
+	@Column(name = "CONTENT")
     private String content;
+	
     private List<NewsPicture> pictures;
 
     public Long getId() {

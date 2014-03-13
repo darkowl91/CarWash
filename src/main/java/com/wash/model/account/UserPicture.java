@@ -14,7 +14,7 @@ public class UserPicture implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "IMAGE_NAME")
+    @Column(name = "PICTURE_NAME")
     private String pictureName;
 
     @Column(name = "PICTURE", columnDefinition = "mediumblob")

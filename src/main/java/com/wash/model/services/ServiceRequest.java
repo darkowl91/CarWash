@@ -2,15 +2,39 @@ package com.wash.model.services;
 
 import com.wash.model.account.User;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
-public class ServiceRequest {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-    private Long id;
+@Entity
+@Table(name="SERVICE_REQUEST", schema = "CarWash")
+public class ServiceRequest implements Serializable {
+
+	private static final long serialVersionUID = -8735706153008836518L;
+	
+	@Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@Column(name = "DATE")
+	@Temporal(TemporalType.TIMESTAMP)
     private Calendar date;
-    private List<Service> service;
-    private User user;
+    
+	private List<Service> service;
+    
+	private User user;
+    
+    @Column(name = "APPROVED")
     private boolean isApproved;
 
     public Long getId() {
