@@ -31,6 +31,6 @@
 <script src="<c:url value="/resources/js/theme.js"/>"></script>
 <!-- Page Specific Scripts -->
 <%--TODO: move it to specific page (dunamicly add js for page)--%>
-<script type="text/javascript" src="<c:url value="/resourcesF/js/index-slider.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/index-slider.js"/>"></script>
 </body>
 </html>
