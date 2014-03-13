@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,13 +17,14 @@
     <%--TODO: move it to specific page (dunamicly add css for page)--%>
     <link href="<c:url value="/WEB-INF/css/index.css"/>" rel="stylesheet" type="text/css" media="screen"/>
     <!--[if lt IE 9]>
-    <script src="/WEB-INF/js/html5.js"></script>
+    	<script src="/WEB-INF/js/html5.js"></script>
     <![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
-<body>
-
-
+<body class="pull_top">
+	<tiles:insertAttribute name="header"/>
+	
+	<tiles:insertAttribute name="footer"/>
 <!-- Scripts -->
 <script src="<c:url value="/WEB-INF/js/jquery-latest.js"/>"></script>
 <script src="<c:url value="/WEB-INF/js/bootstrap.min.js"/>"></script>
