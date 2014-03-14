@@ -18,7 +18,7 @@ public class Phone implements Serializable {
     @Column(name = "OPERATOR")
     private String operator;
 
-    @Column(name = "PHONE_VALUE", nullable = false)
+    @Column(name = "PHONE_VALUE", nullable = false, unique = true)
     private String phoneValue;
 
     @Column(name = "PHONE_TYPE")

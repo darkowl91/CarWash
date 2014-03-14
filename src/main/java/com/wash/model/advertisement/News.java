@@ -32,7 +32,7 @@ public class News implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
     private Calendar date;
 	
-	@Column(name = "TITLE")
+	@Column(name = "TITLE", nullable = false)
     private String title;
 	
 	@Column(name = "DECRIPTION")

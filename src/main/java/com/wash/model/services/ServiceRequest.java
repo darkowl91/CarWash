@@ -39,7 +39,7 @@ public class ServiceRequest implements Serializable {
     
 	@OneToMany(mappedBy = "serviceRequest", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @BatchSize(size = 10)
-	private List<Service> service;
+	private List<Service> services;
     
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_ID", nullable = false)
@@ -64,12 +64,12 @@ public class ServiceRequest implements Serializable {
         this.date = date;
     }
 
-    public List<Service> getService() {
-        return service;
+    public List<Service> getServices() {
+        return services;
     }
 
-    public void setService(List<Service> service) {
-        this.service = service;
+    public void setServices(List<Service> services) {
+        this.services = services;
     }
 
     public User getUser() {
