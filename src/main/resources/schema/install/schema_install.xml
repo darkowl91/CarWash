@@ -9,11 +9,11 @@
 			<column name="ID" type="bigint" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<!-- <column name="BIRTHDAY" type="datatime" />
+			<column name="BIRTHDAY" type="datetime"/>
 			<column name="EMAIL" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
-			<column name="ENABLED" type="bit" />
+			<column name="ENABLED" type="tinyint(1)" />
 			<column name="FIRSTNAME" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
@@ -23,13 +23,125 @@
 			<column name="PASSWORD" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
-			<column name="REGISTRATION_DATE" type="datatime" />
+			<column name="REGISTRATION_DATE" type="datetime" />
 			<column name="USERNAME" type="varchar(255)">
 				<constraints nullable="false" />
-			</column> -->
+			</column>
+			<column name="AUTHORITY_ID" type="bigint">
+				<constraints nullable="false" />
+			</column>
+			<column name="PICTURE_ID" type="bigint" />
 		</createTable>
 		<rollback>
 			<dropTable tableName="USER"/>
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="2" author="Ilya_Kukushkin">
+		<createTable tableName="AUTHORITY">
+			<column name="ID" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="NAME" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<rollback>
+			<dropTable tableName="AUTHORITY"/>
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="3" author="Ilya_Kukushkin">
+		<createTable tableName="PHONE">
+			<column name="ID" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="OPERATOR" type="varchar(255)" />
+			<column name="PHONE_VALUE" type="varchar(255)">
+				<constraints nullable="false" unique="true" />
+			</column>
+			<column name="PHONE_TYPE" type="varchar(255)" />
+			<column name="USER_ID" type="bigint">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<rollback>
+			<dropTable tableName="PHONE"/>
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="4" author="Ilya_Kukushkin">
+		<createTable tableName="NEWS">
+			<column name="ID" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="DATE" type="datetime" />
+			<column name="TITLE" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="DECRIPTION" type="varchar(255)" />
+			<column name="CONTENT" type="varchar(2048)" />
+			<column name="PICTURE_ID" type="bigint" />
+		</createTable>
+		<rollback>
+			<dropTable tableName="NEWS"/>
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="5" author="Ilya_Kukushkin">
+		<createTable tableName="PICTURE">
+			<column name="ID" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="PICTURE_NAME" type="varchar(255)" >
+				<constraints nullable="false" />
+			</column>
+			<column name="PICTURE" type="mediumblob">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<rollback>
+			<dropTable tableName="PICTURE"/>
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="6" author="Ilya_Kukushkin">
+		<createTable tableName="SERVICE">
+			<column name="ID" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="NAME" type="varchar(255)" >
+				<constraints nullable="false" />
+			</column>
+			<column name="DECRIPTION" type="varchar(2048)" />
+			<column name="PRICE" type="decimal(19,2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="WARRANTY" type="datetime" />
+			<column name="SERVICE_REQUEST_ID" type="bigint">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<rollback>
+			<dropTable tableName="SERVICE"/>
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="7" author="Ilya_Kukushkin">
+		<createTable tableName="SERVICE_REQUEST">
+			<column name="ID" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="DATE" type="datetime" >
+				<constraints nullable="false" />
+			</column>
+			<column name="APPROVED" type="tinyint(1)" />
+			<column name="USER_ID" type="bigint">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<rollback>
+			<dropTable tableName="SERVICE_REQUEST"/>
 		</rollback>
 	</changeSet>
 
