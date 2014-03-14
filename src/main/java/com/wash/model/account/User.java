@@ -51,7 +51,7 @@ public class User implements Serializable {
 	private Calendar registrationDate;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ROLE_ID", nullable = false)
+	@JoinColumn(name = "AUTHORITY_ID", nullable = false)
 	private Authority authority;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
