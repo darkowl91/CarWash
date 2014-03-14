@@ -42,7 +42,7 @@ public class ServiceRequest implements Serializable {
 	private List<Service> service;
     
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "USER_ID", nullable = false)
 	private User user;
     
     @Column(name = "APPROVED")

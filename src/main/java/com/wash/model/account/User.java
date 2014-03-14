@@ -25,7 +25,7 @@ public class User implements Serializable {
 	private String username;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "PICTURE_ID")
 	private Picture picture;
 
 	@Column(name = "PASSWORD", nullable = false)
@@ -51,7 +51,7 @@ public class User implements Serializable {
 	private Calendar registrationDate;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "ROLE_ID", nullable = false)
 	private Authority authority;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

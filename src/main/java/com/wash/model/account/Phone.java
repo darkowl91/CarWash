@@ -25,7 +25,7 @@ public class Phone implements Serializable {
     private String type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "USER_ID", nullable = false)
     private User user;
 
     public Phone() {
