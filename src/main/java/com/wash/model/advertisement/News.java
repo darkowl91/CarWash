@@ -32,7 +32,7 @@ public class News implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
     private Calendar date;
 	
-	@Column(name = "TITLE")
+	@Column(name = "TITLE", nullable = false)
     private String title;
 	
 	@Column(name = "DECRIPTION")
@@ -42,7 +42,7 @@ public class News implements Serializable {
     private String content;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "PICTURE_ID")
     private Picture picture;
 
     public Long getId() {

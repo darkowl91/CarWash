@@ -38,7 +38,7 @@ public class Service implements Serializable {
 	private Calendar warranty;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "SERVICE_REQUEST_ID", nullable = false)
 	private ServiceRequest serviceRequest;
 
     public Long getId() {

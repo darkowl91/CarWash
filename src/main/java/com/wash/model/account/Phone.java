@@ -18,14 +18,14 @@ public class Phone implements Serializable {
     @Column(name = "OPERATOR")
     private String operator;
 
-    @Column(name = "PHONE_VALUE", nullable = false)
+    @Column(name = "PHONE_VALUE", nullable = false, unique = true)
     private String phoneValue;
 
     @Column(name = "PHONE_TYPE")
     private String type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "USER_ID", nullable = false)
     private User user;
 
     public Phone() {

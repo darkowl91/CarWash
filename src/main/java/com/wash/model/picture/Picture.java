@@ -14,10 +14,10 @@ public class Picture implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "PICTURE_NAME")
+    @Column(name = "PICTURE_NAME", nullable = false)
     private String pictureName;
 
-    @Column(name = "PICTURE", columnDefinition = "mediumblob")
+    @Column(name = "PICTURE", columnDefinition = "mediumblob", nullable = false)
     private byte[] picture;
 
     public Picture() {
