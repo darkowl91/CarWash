@@ -358,13 +358,13 @@ header {
 }
 
 .socialicons {
-    background: url('../img/socialicons.png') no-repeat;
+    background: url('/resources/img/socialicons.png') no-repeat;
     width: 265px;
     height: 36px;
 }
 
 .socialicons_h {
-    background: url('../img/socialicons_h.png') no-repeat;
+    background: url('/resources/img/socialicons_h.png') no-repeat;
     width: 265px;
     height: 36px;
 }
