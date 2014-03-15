@@ -12,6 +12,7 @@
     
     <!-- WELCOME_PAGE -->
     <definition name="carWash.welcome" extends="carWash.mainLayout">
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/welcome.jsp"/>
     </definition>
     
 

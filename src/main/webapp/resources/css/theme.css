@@ -4,7 +4,7 @@ html {
 
 body {
     position: relative;
-    background: #DDDCE2 url(../img/body_bg.jpg) repeat left top;
+    background: #DDDCE2 url(/resources/img/body_bg.jpg) repeat left top;
     -webkit-font-smoothing: antialiased;
     font-family: 'Lato', sans-serif !important;
     padding-top: 107px;
@@ -423,13 +423,13 @@ header {
 }
 
 .social_icon {
-    background: url("../img/social_icons.png") no-repeat;
+    background: url("/resources/img/social_icons.png") no-repeat;
     width: 110px;
     height: 18px;
 }
 
 .contact_social {
-    background: url("../img/contact_social.png") no-repeat;
+    background: url("/resources/img/contact_social.png") no-repeat;
     width: 180px;
     height: 34px;
 }
