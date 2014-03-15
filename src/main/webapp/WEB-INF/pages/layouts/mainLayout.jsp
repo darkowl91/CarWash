@@ -14,8 +14,7 @@
     <!-- Add custom CSS here -->
     <link href="<c:url value="/resources/css/theme.css/"/>" rel="stylesheet" type="text/css"/>
     <!-- Page Specific CSS -->
-    <%--TODO: move it to specific page (dunamicly add css for page)--%>
-    <link href="<c:url value="/resources/css/index.css"/>" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="<tiles:insertAttribute name="page_specific_css"/>" rel="stylesheet" type="text/css" media="screen"/>
     <!--[if lt IE 9]>
     	<script src="/WEB-INF/js/html5.js"></script>
     <![endif]-->
@@ -32,7 +31,6 @@
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/theme.js"/>"></script>
 <!-- Page Specific Scripts -->
-<%--TODO: move it to specific page (dunamicly add js for page)--%>
-<script type="text/javascript" src="<c:url value="/resources/js/index-slider.js"/>"></script>
+<script type="text/javascript" src="<tiles:insertAttribute name="page_specific_js"/>"></script>
 </body>
 </html>

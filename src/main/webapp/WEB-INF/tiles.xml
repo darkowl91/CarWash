@@ -12,7 +12,9 @@
     
     <!-- WELCOME_PAGE -->
     <definition name="carWash.welcome" extends="carWash.mainLayout">
+        <put-attribute name="page_specific_css" value="/resources/css/index.css" type="string" />
         <put-attribute name="content" value="/WEB-INF/pages/tiles/welcome.jsp"/>
+        <put-attribute name="page_specific_js" value="/resources/js/index-slider.js" type="string" />
     </definition>
     
 
