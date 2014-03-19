@@ -145,4 +145,13 @@
 		</rollback>
 	</changeSet>
 
+	<changeSet id="8" author="Ilya_Kukushkin">
+		<sqlFile path="src/main/resources/schema/sql/install_data_1.sql" />
+		<rollback>
+			<delete tableName="picture"/>
+			<delete tableName="user" />
+			<delete tableName="authority" />
+		</rollback>
+	</changeSet>
+
 </databaseChangeLog>
