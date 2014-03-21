@@ -17,7 +17,7 @@
     <!-- Page Specific CSS -->
     <link href="<tiles:getAsString name="page_specific_css" ignore="true"/>" rel="stylesheet" type="text/css" media="screen"/>
     <!--[if lt IE 9]>
-    	<script src="/WEB-INF/js/html5.js"></script>
+    <script src="<c:url value="/resources/js/html5.js"/>"></script>
     <![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
