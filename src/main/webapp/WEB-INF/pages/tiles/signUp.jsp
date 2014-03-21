@@ -28,3 +28,34 @@
         </div>
     </div>
 </div>
+<div id="sign_up2">
+    <div class="container">
+        <div class="section_header">
+            <h3>Sign up <span>(option 2)</span></h3>
+        </div>
+        <div class="row login">
+            <div class="span5 left_box">
+                <h4>Create your account</h4>
+
+                <div class="perk_box">
+                    <div class="perk">
+                        <span class="icos ico1"></span>
+
+                        <p><strong>Lorem alteration</strong> in some form injected humour these randomised words .</p>
+                    </div>
+                    <div class="perk">
+                        <span class="icos ico2"></span>
+
+                        <p><strong>There are many variations</strong> of passages of Lorem alteration in some form
+                            injected humour these randomised words.</p>
+                    </div>
+                    <div class="perk">
+                        <span class="icos ico3"></span>
+
+                        <p><strong>Alteration in some form</strong> injected humour these randomised words.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
