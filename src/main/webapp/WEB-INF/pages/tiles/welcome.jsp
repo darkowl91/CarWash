@@ -20,41 +20,35 @@
     <article class="slide" id="showcasing"
 
              style="background: url('<c:url value="/resources/img/backgrounds/landscape.png"/>') repeat-x top center;">
-        <img class="asset left-30 sp600 t120 z1" src="<c:url value="/resources/img/slides/scene1/macbook.png"/>"/>
+        <img class="asset left-30 sp600 t120 z1" src="<c:url value="/resources/img/slides/scene1/s1.png"/>"/>
 
         <div class="info">
-            <h2>Beautiful theme for showcasing your works.</h2>
+            <h2><spring:message code="carWash.welcome.paint"/> </h2>
         </div>
     </article>
 
     <article class="slide" id="ideas" style="background: url('<c:url value="/resources/img/backgrounds/aqua.jpg"/>') repeat-x top center;">
         <div class="info">
-            <h2>We love to turn ideas into beautiful things.</h2>
+            <h2><spring:message code="carWash.welcome.repair"/></h2>
         </div>
-        <img class="asset left-480 sp600 t260 z1" src="<c:url value="/resources/img/slides/scene2/left.png"/>"/>
-        <img class="asset left-210 sp600 t213 z2" src="<c:url value="/resources/img/slides/scene2/middle.png"/>"/>
-        <img class="asset left60 sp600 t260 z1" src="<c:url value="/resources/img/slides/scene2/right.png"/>"/>
+        <img class="asset left-480 sp600 t260 z1" src="<c:url value="/resources/img/slides/scene2/s2_left.png"/>"/>
+        <img class="asset left-210 sp600 t213 z2" src="<c:url value="/resources/img/slides/scene2/s2_middle.png"/>"/>
     </article>
 
     <article class="slide" id="tour" style="background: url('<c:url value="/resources/img/backgrounds/color-splash.jpg"/>') repeat-x top center;">
-        <img class="asset left-472 sp650 t210 z3" src="<c:url value="/resources/img/slides/scene3/ipad.png"/>"/>
-        <img class="asset left-365 sp600 t270 z4" src="<c:url value="/resources/img/slides/scene3/iphone.png"/>"/>
-        <img class="asset left-350 sp450 t135 z2" src="<c:url value="/resources/img/slides/scene3/desktop.png"/>"/>
-        <img class="asset left-185 sp550 t220 z1" src="<c:url value="/resources/img/slides/scene3/macbook.png"/>"/>
-
+        <img class="asset left-472 sp650 t210 z3" src="<c:url value="/resources/img/slides/scene3/s3_down.png"/>"/>
         <div class="info">
-            <h2>Fully Responsive theme</h2>
-            <a href="features.html">TOUR THE PRODUCT</a>
+            <h2><spring:message code="carWash.welcome.polish"/></h2>
+            <a href="features.html"><spring:message code="carWash.welcome.orderService"/></a>
         </div>
     </article>
     <article class="slide" id="responsive" style="background: url('<c:url value="/resources/img/backgrounds/indigo.jpg"/>') repeat-x top center;">
-        <img class="asset left-472 sp600 t120 z3" src="<c:url value="/resources/img/slides/scene4/html5.png"/>"/>
-        <img class="asset left-190 sp500 t120 z2" src="<c:url value="/resources/img/slides/scene4/css3.png"/>"/>
+        <img class="asset left-472 sp600 t120 z3" src="<c:url value="/resources/img/slides/scene4/s4.png"/>"/>
 
         <div class="info">
             <h2>
-                Responsive <strong>HTML5 & CSS3</strong>
-                Theme
+                <spring:message code="carWash.welcome.quality"/><strong> <spring:message code="carWash.welcome.repairPaint"/></strong>
+                <spring:message code="carWash.welcome.auto"/>
             </h2>
         </div>
     </article>

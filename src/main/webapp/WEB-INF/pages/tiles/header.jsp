@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="navbar transparent navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
@@ -7,17 +9,19 @@
 			<a class="btn btn-navbar" data-toggle="collapse"
 				data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 				class="icon-bar"></span> <span class="icon-bar"></span>
-			</a> <a class="brand" href="index.html"> <strong><spring:message code="carWash.welcome.carWash"/></strong>
+			</a> <a class="brand" href="<c:url value="/"/>"> <strong><spring:message code="carWash.welcome.carWash"/></strong>
 			</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav pull-right">
-					<li><a href="index.html" class="active"><spring:message code="carWash.welcome.home"/></a></li>
+					<li><a href="<c:url value="/"/>" class="active"><spring:message code="carWash.welcome.home"/></a></li>
 					<li><a href="about-us.html"><spring:message code="carWash.welcome.about"/></a></li>
 					<li><a href="pricing.html"><spring:message code="carWash.welcome.pricing"/></a></li>
 					<li><a href="contact.html"><spring:message code="carWash.welcome.contactUs"/></a></li>
-					<li><a class="btn-header" href="sign-up.html"><spring:message code="carWash.welcome.signUp"/></a></li>
-					<li><a class="btn-header" href="sign-in.html"><spring:message code="carWash.welcome.signIn"/></a></li>
-				</ul>
+                    <sec:authorize access="isAnonymous()">
+                        <li><a class="btn-header" href="<c:url value="/signUp"/>"><spring:message code="carWash.welcome.signUp"/></a></li>
+                        <li><a class="btn-header" href="<c:url value="/signIn"/>"><spring:message code="carWash.welcome.signIn"/></a></li>
+                    </sec:authorize>
+               </ul>
 			</div>
 		</div>
 	</div>
