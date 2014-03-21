@@ -33,17 +33,17 @@
             </div>
 
             <div class="span12 footer">
-                <form/>
-                <input type="text" placeholder="Email"/>
-                <input type="password" placeholder="Password"/>
-                <input type="submit" placeholder="Confirm Password" value="sign in"/>
+                <form action="<c:url value='j_spring_security_check' />" method='POST'>
+                	<input name="j_username" type="text" placeholder="Username"/>
+                	<input name="j_password" type="password" placeholder="Password"/>
+                	<input type="submit" placeholder="Confirm Password" value="sign in"/>
                 </form>
             </div>
 
             <div class="span12 proof">
                 <div class="span5 remember">
                     <label class="checkbox">
-                        <input type="checkbox"/> Remember me
+                        <input name="_spring_security_remember_me" type="checkbox"/> Remember me
                     </label>
                     <a href="reset.html">Forgot password?</a>
                 </div>

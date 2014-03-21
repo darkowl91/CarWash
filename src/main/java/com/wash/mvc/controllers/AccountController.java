@@ -1,17 +1,29 @@
 package com.wash.mvc.controllers;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class AccountController extends BaseController {
+public class AccountController {
 
-    @RequestMapping(value = "/signIn")
-    public String signIn() {
+    @RequestMapping(value = "/signIn", method = RequestMethod.GET)
+    public String signIn(@RequestParam Map<String, String> allRequestParams,
+			Model model) {
+		
+		String signInError  = allRequestParams.get("signInError");
+		if(signInError != null) {
+			model.addAttribute("signInError", "true");
+		}
+		
         return "carWash.signIn";
     }
 
-    @RequestMapping(value = "/signUp")
+    @RequestMapping(value = "/signUp", method = RequestMethod.GET)
     public String signUp() {
         return "carWash.signUp";
     }
