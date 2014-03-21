@@ -6,53 +6,31 @@
     <div class="container">
         <div class="row">
             <div class="span12 header">
-                <h4>Log in to your account</h4>
-
+                <h4><spring:message code="carWash.signIn.signIn"/></h4>
                 <p>
-                    There are many variations of passages of Lorem alteration in some form injected humour these
-                    randomised words .</p>
-
-                <div class="span4 social">
-                    <a href="#" class="circle facebook">
-                        <img src="<c:url value="/resources/img/face.png"/>" alt=""/>
-                    </a>
-                    <a href="#" class="circle twitter">
-                        <img src="<c:url value="/resources/img/twt.png"/>" alt=""/>
-                    </a>
-                    <a href="#" class="circle gplus">
-                        <img src="<c:url value="/resources/img/gplus.png"/>" alt=""/>
-                    </a>
-                </div>
+                   <spring:message code="carWash.signIn.welcome"/>
+                    </p>
             </div>
-
-            <div class="span3 division">
-                <div class="line l"></div>
-                <span>or</span>
-
-                <div class="line r"></div>
-            </div>
-
             <div class="span12 footer">
                 <form action="<c:url value='/j_spring_security_check'/>" method='POST'>
-                	<input name="j_username" type="text" placeholder="Username"/>
-                	<input name="j_password" type="password" placeholder="Password"/>
-                	<input type="submit" placeholder="Confirm Password" value="sign in"/>
+                	<input name="j_username" type="text" placeholder="<spring:message code="carWash.signIn.username"/>"/>
+                	<input name="j_password" type="password" placeholder="<spring:message code="carWash.signIn.password"/>"/>
+                	<input type="submit" placeholder="Confirm Password" value="<spring:message code="carWash.signIn.submit"/>"/>
                 </form>
             </div>
 
             <div class="span12 proof">
                 <div class="span5 remember">
                     <label class="checkbox">
-                        <input name="_spring_security_remember_me" type="checkbox"/> Remember me
+                        <input name="_spring_security_remember_me" type="checkbox"/><spring:message code="carWash.signIn.rememberMe"/>
                     </label>
-                    <a href="reset.html">Forgot password?</a>
                 </div>
-
                 <div class="span3 dosnt">
-                    <span>Don’t have an account?</span>
-                    <a href="<c:url value="/signUp"/>">Sign up</a>
+                    <span> <spring:message code="carWash.signIn.account"/></span>
+                    <a href="<c:url value="/signUp"/>"><spring:message code="carWash.signIn.signUp"/></a>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
