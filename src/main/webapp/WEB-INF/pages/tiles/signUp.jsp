@@ -13,7 +13,7 @@
                 </p>
             </div>
             <div class="span12 footer">
-                <form>
+                <form action="<c:url value=''/>" method='POST'>
                     <input type="text" placeholder="<spring:message code="carWash.signUp.username"/>"/>
                     <input type="password" placeholder="<spring:message code="carWash.signUp.password"/>"/>
                     <input type="password" placeholder="<spring:message code="carWash.signUp.passwordConfirm"/>"/>
