@@ -12,20 +12,20 @@
     
     <!-- WELCOME -->
     <definition name="carWash.welcome" extends="carWash.mainLayout">
-        <put-attribute name="page_specific_css" value="/resources/css/index.css" type="string" />
+        <put-attribute name="page_specific_css" value="/carwash/resources/css/index.css" type="string" />
         <put-attribute name="content" value="/WEB-INF/pages/tiles/welcome.jsp"/>
-        <put-attribute name="page_specific_js" value="/resources/js/index-slider.js" type="string" />
+        <put-attribute name="page_specific_js" value="/carwash/resources/js/index-slider.js" type="string" />
     </definition>
 
     <!--SIGN_IN-->
     <definition name="carWash.signIn" extends="carWash.mainLayout">
-        <put-attribute name="page_specific_css" value="/resources/css/sign-in.css" type="string" />
+        <put-attribute name="page_specific_css" value="/carwash/resources/css/sign-in.css" type="string" />
         <put-attribute name="content" value="/WEB-INF/pages/tiles/signIn.jsp"/>
     </definition>
 
     <!--SIGN_UP-->
     <definition name="carWash.signUp" extends="carWash.mainLayout">
-        <put-attribute name="page_specific_css" value="/resources/css/sign-up.css" type="string" />
+        <put-attribute name="page_specific_css" value="/carwash/resources/css/sign-up.css" type="string" />
         <put-attribute name="content" value="/WEB-INF/pages/tiles/signUp.jsp"/>
     </definition>
 
