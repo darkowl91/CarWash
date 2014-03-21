@@ -6,18 +6,31 @@
 <tiles-definitions>
     <!-- BASE_LAYOUT -->
     <definition name="carWash.mainLayout" template="/WEB-INF/pages/layouts/mainLayout.jsp">
-    	<put-attribute name="header" value="/WEB-INF/pages/tiles/header.jsp"/>
+        <put-attribute name="page_specific_css" value="" type="string" />
+        <put-attribute name="header" value="/WEB-INF/pages/tiles/header.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp"/>
+        <put-attribute name="page_specific_js" value="" type="string" />
     </definition>
     
-    <!-- WELCOME_PAGE -->
+    <!-- WELCOME -->
     <definition name="carWash.welcome" extends="carWash.mainLayout">
         <put-attribute name="page_specific_css" value="/carwash/resources/css/index.css" type="string" />
         <put-attribute name="content" value="/WEB-INF/pages/tiles/welcome.jsp"/>
         <put-attribute name="page_specific_js" value="/carwash/resources/js/index-slider.js" type="string" />
     </definition>
-    
 
-	
+    <!--SIGN_IN-->
+    <definition name="carWash.signIn" extends="carWash.mainLayout">
+        <put-attribute name="page_specific_css" value="/carwash/resources/css/sign-in.css" type="string" />
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/signIn.jsp"/>
+    </definition>
+
+    <!--SIGN_UP-->
+    <definition name="carWash.signUp" extends="carWash.mainLayout">
+        <put-attribute name="page_specific_css" value="/carwash/resources/css/sign-up.css" type="string" />
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/signUp.jsp"/>
+    </definition>
+
+
 
 </tiles-definitions>
