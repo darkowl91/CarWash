@@ -13,8 +13,9 @@
     <link href="<c:url value="/resources/css/bootstrap-overrides.css"/>" rel="stylesheet"/>
     <!-- Add custom CSS here -->
     <link href="<c:url value="/resources/css/theme.css/"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/resources/css/lib/animate.css"/>" rel="stylesheet" type="text/css" media="screen, projection"/>
     <!-- Page Specific CSS -->
-    <link href="<tiles:insertAttribute name="page_specific_css"/>" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="<tiles:getAsString name="page_specific_css" ignore="true"/>" rel="stylesheet" type="text/css" media="screen"/>
     <!--[if lt IE 9]>
     	<script src="/WEB-INF/js/html5.js"></script>
     <![endif]-->
@@ -31,6 +32,6 @@
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/theme.js"/>"></script>
 <!-- Page Specific Scripts -->
-<script type="text/javascript" src="<tiles:insertAttribute name="page_specific_js"/>"></script>
+<script type="text/javascript" src="<tiles:getAsString name="page_specific_js" ignore="true"/>"></script>
 </body>
 </html>
