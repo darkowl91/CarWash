@@ -33,7 +33,7 @@
             </div>
 
             <div class="span12 footer">
-                <form action="<c:url value='j_spring_security_check' />" method='POST'>
+                <form action="<c:url value='/j_spring_security_check'/>" method='POST'>
                 	<input name="j_username" type="text" placeholder="Username"/>
                 	<input name="j_password" type="password" placeholder="Password"/>
                 	<input type="submit" placeholder="Confirm Password" value="sign in"/>
@@ -50,7 +50,7 @@
 
                 <div class="span3 dosnt">
                     <span>Don’t have an account?</span>
-                    <a href="sign-up.html">Sign up</a>
+                    <a href="<c:url value="/signUp"/>">Sign up</a>
                 </div>
             </div>
         </div>

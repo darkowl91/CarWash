@@ -38,16 +38,9 @@
                 </form>
             </div>
 
-            <!-- <div class="span5 remember">
-                <label class="checkbox">
-                    <input type="checkbox"> Remember me
-                </label>
-                <a href="#">Forgot password?</a>
-            </div> -->
-
             <div class="span12 dosnt">
                 <span>Already have an account?</span>
-                <a href="sign-in.html">Sign in</a>
+                <a href="<c:url value="/signIn"/>">Sign in</a>
             </div>
         </div>
     </div>
