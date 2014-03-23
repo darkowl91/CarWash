@@ -29,6 +29,25 @@
         <put-attribute name="content" value="/WEB-INF/pages/tiles/signUp.jsp"/>
     </definition>
 
+    <!--ABOUT US-->
+    <definition name="carWash.about" extends="carWash.mainLayout">
+        <put-attribute name="page_specific_css" value="/carwash//resources/css/about.css" type="string"/>
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/aboutUs.jsp"/>
+        <put-attribute name="page_specific_js" value="/carwash//resources/js/flexslider.js" type="string" />
+    </definition>
+
+    <!--CONTACT US-->
+    <definition name="carWash.contact" extends="carWash.mainLayout">
+        <put-attribute name="page_specific_css" value="/carwash//resources/css/contact.css" type="string"/>
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/contactUs.jsp"/>
+    </definition>
+
+    <!--PRICING-->
+    <definition name="carWash.pricing" extends="carWash.mainLayout">
+        <put-attribute name="page_specific_css" value="/carwash//resources/css/pricing.css" type="string"/>
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/pricing.jsp"/>
+    </definition>
+
 
 
 </tiles-definitions>
