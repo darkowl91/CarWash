@@ -17,11 +17,8 @@
 
         For the backgrounds, you can combine from the bgs folder :D
     -->
-    <article class="slide" id="showcasing"
-
-             style="background: url('<c:url value="/resources/img/backgrounds/landscape.png"/>') repeat-x top center;">
-        <img class="asset left-30 sp600 t120 z1" src="<c:url value="/resources/img/slides/scene1/s1.png"/>"/>
-
+    <article class="slide" id="showcasing" style="background: url('<c:url value="/resources/img/backgrounds/landscape.png"/>') repeat-x top center;">
+        <img class="asset left-30 sp600 t10 z1" src="<c:url value="/resources/img/slides/scene1/s1.png"/>"/>
         <div class="info">
             <h2><spring:message code="carWash.welcome.paint"/> </h2>
         </div>
@@ -31,19 +28,19 @@
         <div class="info">
             <h2><spring:message code="carWash.welcome.repair"/></h2>
         </div>
-        <img class="asset left-480 sp600 t260 z1" src="<c:url value="/resources/img/slides/scene2/s2_left.png"/>"/>
-        <img class="asset left-210 sp600 t213 z2" src="<c:url value="/resources/img/slides/scene2/s2_middle.png"/>"/>
+        <img class="asset left-480 sp600 t200 z1" src="<c:url value="/resources/img/slides/scene2/s2_left.png"/>"/>
+        <img class="asset left-210 sp600 t180 z2" src="<c:url value="/resources/img/slides/scene2/s2_middle.png"/>"/>
     </article>
 
     <article class="slide" id="tour" style="background: url('<c:url value="/resources/img/backgrounds/color-splash.jpg"/>') repeat-x top center;">
-        <img class="asset left-472 sp650 t210 z3" src="<c:url value="/resources/img/slides/scene3/s3_down.png"/>"/>
+        <img class="asset left-472 sp650 t-50 z3" src="<c:url value="/resources/img/slides/scene3/s3_down.png"/>"/>
         <div class="info">
             <h2><spring:message code="carWash.welcome.polish"/></h2>
             <a href="features.html"><spring:message code="carWash.welcome.orderService"/></a>
         </div>
     </article>
     <article class="slide" id="responsive" style="background: url('<c:url value="/resources/img/backgrounds/indigo.jpg"/>') repeat-x top center;">
-        <img class="asset left-472 sp600 t120 z3" src="<c:url value="/resources/img/slides/scene4/s4.png"/>"/>
+        <img class="asset left-472 sp600 t50 z3" src="<c:url value="/resources/img/slides/scene4/s4.png"/>"/>
 
         <div class="info">
             <h2>
