@@ -112,7 +112,7 @@
 <div id="in_pricing">
     <div class="container">
         <div class="section_header">
-            <h3>Pricing</h3>
+            <h3><spring:message code="carWash.welcome.pricing"/></h3>
         </div>
 
         <div class="row charts_wrapp">
@@ -120,12 +120,12 @@
             <div class="span4">
                 <div class="plan">
                     <div class="wrapper">
-                        <h3>Lite</h3>
+                        <h3><spring:message code="carWash.welcome.polish"/></h3>
 
                         <div class="price">
+                            <span class="month">From</span>
                             <span class="dollar">$</span>
                             <span class="qty">35</span>
-                            <span class="month">/month</span>
                         </div>
                         <div class="features">
                             <p>
@@ -143,7 +143,7 @@
                                 Storage
                             </p>
                         </div>
-                        <a class="order" href="pricing.html">ORDER NOW</a>
+                        <a class="order" href="pricing.html"><spring:message code="carWash.welcome.orderNow"/></a>
                     </div>
                 </div>
             </div>
@@ -153,12 +153,12 @@
                     <div class="wrapper">
                         <img class="ribbon" src="<c:url value="/resources/img/badge.png"/>"/>
 
-                        <h3>Pro</h3>
+                        <h3><spring:message code="carWash.welcome.repair"/></h3>
 
                         <div class="price">
+                            <span class="month">From</span>
                             <span class="dollar">$</span>
                             <span class="qty">99</span>
-                            <span class="month">/month</span>
                         </div>
                         <div class="features">
                             <p>
@@ -181,7 +181,7 @@
                                 Phone Support
                             </p>
                         </div>
-                        <a class="order" href="pricing.html">ORDER NOW</a>
+                        <a class="order" href="pricing.html"><spring:message code="carWash.welcome.orderNow"/></a>
                     </div>
                 </div>
             </div>
@@ -189,12 +189,12 @@
             <div class="span4 standar">
                 <div class="plan">
                     <div class="wrapper">
-                        <h3>Standard</h3>
+                        <h3><spring:message code="carWash.welcome.paint"/></h3>
 
                         <div class="price">
+                            <span class="month">From</span>
                             <span class="dollar">$</span>
                             <span class="qty">65</span>
-                            <span class="month">/month</span>
                         </div>
                         <div class="features">
                             <p>
@@ -212,42 +212,14 @@
                                 Storage
                             </p>
                         </div>
-                        <a class="order" href="pricing.html">ORDER NOW</a>
+                        <a class="order" href="pricing.html"><spring:message code="carWash.welcome.orderNow"/></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="start">
-            <p>Start your free, no-risk, 14 day trial! </p>
-            <a href="pricing.html">Start Now!</a>
-        </div>
-    </div>
-</div>
-
-<div id="clients">
-    <div class="container">
-        <div class="section_header">
-            <h3>Clients</h3>
-        </div>
-        <div class="row">
-            <div class="span2 client">
-                <div class="img client1"></div>
-            </div>
-            <div class="span2 client">
-                <div class="img client2"></div>
-            </div>
-            <div class="span2 client">
-                <div class="img client3"></div>
-            </div>
-            <div class="span2 client">
-                <div class="img client1"></div>
-            </div>
-            <div class="span2 client">
-                <div class="img client2"></div>
-            </div>
-            <div class="span2 client">
-                <div class="img client3"></div>
-            </div>
+            <p><spring:message code="carWash.welcome.order"/></p>
+            <a href="pricing.html"><spring:message code="carWash.welcome.orderList"/></a>
         </div>
     </div>
 </div>
