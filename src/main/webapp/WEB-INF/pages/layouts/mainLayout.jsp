@@ -12,12 +12,12 @@
     <link href="<c:url value="/resources/css/bootstrap-responsive.min.css"/>" rel="stylesheet"/>
     <link href="<c:url value="/resources/css/bootstrap-overrides.css"/>" rel="stylesheet"/>
     <!-- Add custom CSS here -->
-    <link href="<c:url value="/resources/css/theme.css/"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/resources/css/theme.css"/>" rel="stylesheet" type="text/css"/>
     <link href="<c:url value="/resources/css/lib/animate.css"/>" rel="stylesheet" type="text/css" media="screen, projection"/>
     <!-- Page Specific CSS -->
     <tiles:useAttribute id="specific_css" name="page_specific_css" classname="java.util.List" ignore="true"/>
     <c:forEach var="css_url" items="${specific_css}">
-        <link href="<c:url value="${css_url}"/> " rel="stylesheet" type="text/css" media="screen"/>
+        <link href="<c:url value="${css_url}"/>" rel="stylesheet" type="text/css" media="screen"/>
     </c:forEach>
     <!--[if lt IE 9]>
     <script src="<c:url value="/resources/js/html5.js"/>"></script>
