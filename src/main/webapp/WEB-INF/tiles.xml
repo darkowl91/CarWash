@@ -42,6 +42,7 @@
         <put-attribute name="content" value="/WEB-INF/pages/tiles/aboutUs.jsp"/>
         <put-list-attribute name="page_specific_css">
             <add-attribute value="/resources/css/about.css" type="string"/>
+            <add-attribute value="/resources/css/lib/flexslider.css" type="string"/>
         </put-list-attribute>
         <put-list-attribute name="page_specific_js">
             <add-attribute value="/resources/js/flexslider.js" type="string"/>
