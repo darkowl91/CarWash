@@ -12,40 +12,56 @@
     
     <!-- WELCOME -->
     <definition name="carWash.welcome" extends="carWash.mainLayout">
-        <put-attribute name="page_specific_css" value="/carwash/resources/css/index.css" type="string" />
         <put-attribute name="content" value="/WEB-INF/pages/tiles/welcome.jsp"/>
-        <put-attribute name="page_specific_js" value="/carwash/resources/js/index-slider.js" type="string" />
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="/resources/css/index.css" type="string"/>
+        </put-list-attribute>
+        <put-list-attribute name="page_specific_js">
+            <add-attribute value="/resources/js/index-slider.js" type="string"/>
+        </put-list-attribute>
     </definition>
 
     <!--SIGN_IN-->
     <definition name="carWash.signIn" extends="carWash.mainLayout">
-        <put-attribute name="page_specific_css" value="/carwash/resources/css/sign-in.css" type="string" />
         <put-attribute name="content" value="/WEB-INF/pages/tiles/signIn.jsp"/>
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="/resources/css/sign-in.css" type="string" />
+        </put-list-attribute>
     </definition>
 
     <!--SIGN_UP-->
     <definition name="carWash.signUp" extends="carWash.mainLayout">
-        <put-attribute name="page_specific_css" value="/carwash/resources/css/sign-up.css" type="string" />
         <put-attribute name="content" value="/WEB-INF/pages/tiles/signUp.jsp"/>
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="/resources/css/sign-up.css" type="string" />
+        </put-list-attribute>
     </definition>
 
     <!--ABOUT US-->
     <definition name="carWash.about" extends="carWash.mainLayout">
-        <put-attribute name="page_specific_css" value="/carwash//resources/css/about.css" type="string"/>
         <put-attribute name="content" value="/WEB-INF/pages/tiles/aboutUs.jsp"/>
-        <put-attribute name="page_specific_js" value="/carwash//resources/js/flexslider.js" type="string" />
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="/resources/css/about.css" type="string"/>
+        </put-list-attribute>
+        <put-list-attribute name="page_specific_js">
+            <add-attribute value="/resources/js/flexslider.js" type="string"/>
+        </put-list-attribute>
     </definition>
 
     <!--CONTACT US-->
     <definition name="carWash.contact" extends="carWash.mainLayout">
-        <put-attribute name="page_specific_css" value="/carwash//resources/css/contact.css" type="string"/>
         <put-attribute name="content" value="/WEB-INF/pages/tiles/contactUs.jsp"/>
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="/resources/css/contact.css" type="string"/>
+        </put-list-attribute>
     </definition>
 
     <!--PRICING-->
     <definition name="carWash.pricing" extends="carWash.mainLayout">
-        <put-attribute name="page_specific_css" value="/carwash//resources/css/pricing.css" type="string"/>
         <put-attribute name="content" value="/WEB-INF/pages/tiles/pricing.jsp"/>
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="/resources/css/pricing.css" type="string"/>
+        </put-list-attribute>
     </definition>
 
 

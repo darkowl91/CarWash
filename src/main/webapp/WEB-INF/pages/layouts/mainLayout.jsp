@@ -15,7 +15,10 @@
     <link href="<c:url value="/resources/css/theme.css/"/>" rel="stylesheet" type="text/css"/>
     <link href="<c:url value="/resources/css/lib/animate.css"/>" rel="stylesheet" type="text/css" media="screen, projection"/>
     <!-- Page Specific CSS -->
-    <link href="<tiles:getAsString name="page_specific_css" ignore="true"/>" rel="stylesheet" type="text/css" media="screen"/>
+    <tiles:useAttribute id="specific_css" name="page_specific_css" classname="java.util.List" ignore="true"/>
+    <c:forEach var="css_url" items="${specific_css}">
+        <link href="<c:url value="${css_url}"/> " rel="stylesheet" type="text/css" media="screen"/>
+    </c:forEach>
     <!--[if lt IE 9]>
     <script src="<c:url value="/resources/js/html5.js"/>"></script>
     <![endif]-->
@@ -32,6 +35,9 @@
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/theme.js"/>"></script>
 <!-- Page Specific Scripts -->
-<script type="text/javascript" src="<tiles:getAsString name="page_specific_js" ignore="true"/>"></script>
+    <tiles:useAttribute id="specific_js" name="page_specific_js" classname="java.util.List" ignore="true"/>
+    <c:forEach var="js_url" items="${specific_js}">
+        <script type="text/javascript" src="<c:url value="${js_url}"/>"></script>
+    </c:forEach>
 </body>
 </html>
