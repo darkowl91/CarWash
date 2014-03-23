@@ -54,41 +54,35 @@
     </article>
 </section>
 
-
-
 <div id="features">
     <div class="container">
         <div class="section_header">
-            <h3>Features</h3>
+            <h3><spring:message code="carWash.welcome.features"/></h3>
         </div>
         <div class="row feature">
             <div class="span6">
-                <img src="<c:url value="/resources/img/showcase1.png"/>"/>
+                <img src="<c:url value="/resources/img/showcase1.jpg"/>"/>
             </div>
             <div class="span6 info">
                 <h3>
-                    <img src="<c:url value="/resources/img/features-ico1.png"/>"/>
-                    Beautiful on all devices
+                    <i class="icon-pencil"></i>
+                    <spring:message code="carWash.welcome.paint"/>
                 </h3>
 
                 <p>
-                    There are many variations of passages of Lorem Ipsum available, but the randomised words which don't
-                    look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure
-                    there isn't anything embarrassing hidden in the middle of text.
+                    <spring:message code="carWash.welcome.paint.decryption"/>
                 </p>
             </div>
         </div>
         <div class="row feature ss">
             <div class="span6 info">
                 <h3>
-                    <img src="<c:url value="/resources/img/features-ico2.png"/>"/>
-                    Blog page included
+                   <i class="icon-adjust"></i>
+                   <spring:message code="carWash.welcome.repair"/>
                 </h3>
 
                 <p>
-                    There are many variations of passages of Lorem Ipsum available, but the randomised words which don't
-                    look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure
-                    there isn't anything embarrassing hidden in the middle of text.
+                    <spring:message code="carWash.welcome.repair.decryption"/>
                 </p>
             </div>
             <div class="span6">
@@ -97,18 +91,16 @@
         </div>
         <div class="row feature ss">
             <div class="span6">
-                <img src="<c:url value="/resources/img/showcase3.png"/>"/>
+                <img src="<c:url value="/resources/img/showcase3.jpg"/>"/>
             </div>
             <div class="span6 info">
                 <h3>
-                    <img src="<c:url value="/resources/img/features-ico3.png"/>"/>
-                    Simple and clean coming soon page
+                    <i class="icon-star"></i>
+                    <spring:message code="carWash.welcome.polish"/>
                 </h3>
 
                 <p>
-                    There are many variations of passages of Lorem Ipsum available, but the randomised words which don't
-                    look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure
-                    there isn't anything embarrassing hidden in the middle of text.
+                    <spring:message code="carWash.welcome.polish.decryption"/>
                 </p>
             </div>
         </div>
