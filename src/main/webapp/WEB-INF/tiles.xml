@@ -65,6 +65,14 @@
         </put-list-attribute>
     </definition>
 
-
-
+    <!--ADMIN_SIDE-->
+    <definition name="carWash.admin.welcome" extends="carWash.mainLayout">
+        <put-attribute name="header" value="/WEB-INF/pages/tiles/admin_header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/pages/tiles/admin_footer.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/admin_welcome.jsp"/>
+        <put-attribute name="navLeft" value="/WEB-INF/pages/tiles/admin_navLeft.jsp"/>
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="resources/css/admin.css" type="string"/>
+        </put-list-attribute>
+    </definition>
 </tiles-definitions>
