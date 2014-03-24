@@ -12,4 +12,9 @@ public class BaseController {
 	public final String startPage(Model model) {		
 		return "carWash.welcome";
 	}
+
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public final String startAdmin(Model model) {
+        return "carWash.admin.welcome";
+    }
 }

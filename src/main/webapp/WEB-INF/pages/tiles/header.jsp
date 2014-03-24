@@ -21,7 +21,13 @@
                         <li><a class="btn-header" href="<c:url value="/signUp"/>"><spring:message code="carWash.welcome.signUp"/></a></li>
                         <li><a class="btn-header" href="<c:url value="/signIn"/>"><spring:message code="carWash.welcome.signIn"/></a></li>
                     </sec:authorize>
-               </ul>
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                        <li><a href="<c:url value="/admin"/>"><spring:message code="carWash.welcome.admin"/></a></li>
+                    </sec:authorize>
+                    <sec:authorize access="isAuthenticated()">
+                        <li><a href="<c:url value="/sigOut"/>"><spring:message code="carWash.welcome.logOut"/></a></li>
+                    </sec:authorize>
+                </ul>
 			</div>
 		</div>
 	</div>
