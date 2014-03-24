@@ -153,5 +153,25 @@
 			<delete tableName="authority" />
 		</rollback>
 	</changeSet>
+	
+	<changeSet id="9" author="Ilya_Kukushkin">
+		<createTable tableName="CONTACT">
+			<column name="ID" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="NAME" type="varchar(25)" >
+				<constraints nullable="false" />
+			</column>
+			<column name="EMAIL" type="varchar(25)" >
+				<constraints nullable="false" />
+			</column>
+			<column name="MESSAGE" type="varchar(2048)" >
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<rollback>
+			<dropTable tableName="CONTACT"/>
+		</rollback>
+	</changeSet>
 
 </databaseChangeLog>

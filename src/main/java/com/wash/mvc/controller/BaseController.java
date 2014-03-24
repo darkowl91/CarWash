@@ -1,6 +1,7 @@
-package com.wash.mvc.controllers;
+package com.wash.mvc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BaseController {
 
 	@RequestMapping(value="/", method = RequestMethod.GET)
-	public final String startPage() {
+	public final String startPage(Model model) {		
 		return "carWash.welcome";
 	}
 }

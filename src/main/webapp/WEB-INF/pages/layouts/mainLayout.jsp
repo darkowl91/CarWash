@@ -34,6 +34,9 @@
 <script src="<c:url value="/resources/js/jquery-latest.js"/>"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/theme.js"/>"></script>
+
+<script src="<c:url value="/resources/js/contact.js"/>"></script>
+
 <!-- Page Specific Scripts -->
     <tiles:useAttribute id="specific_js" name="page_specific_js" classname="java.util.List" ignore="true"/>
     <c:forEach var="js_url" items="${specific_js}">
