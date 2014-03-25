@@ -1,6 +1,7 @@
 package com.wash.model.contact;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "CONTACT", schema = "CarWash")
@@ -28,6 +31,10 @@ public class Contact implements Serializable {
 	
 	@Column(name = "MESSAGE", nullable = false)
 	private String message;
+	
+	@Column(name = "DATE", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar date;
 
 	public Long getId() {
 		return id;
@@ -59,6 +66,14 @@ public class Contact implements Serializable {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public Calendar getDate() {
+		return date;
+	}
+
+	public void setDate(Calendar date) {
+		this.date = date;
 	}
 
 	@Override

@@ -9,7 +9,7 @@
 			<column name="ID" type="bigint" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="BIRTHDAY" type="datetime"/>
+			<column name="BIRTHDAY" type="datetime" />
 			<column name="EMAIL" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
@@ -23,7 +23,8 @@
 			<column name="PASSWORD" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
-			<column name="REGISTRATION_DATE" type="datetime" />
+			<column name="REGISTRATION_DATE" type="timestamp"
+				defaultValueComputed="CURRENT_TIMESTAMP" />
 			<column name="USERNAME" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
@@ -33,10 +34,10 @@
 			<column name="PICTURE_ID" type="bigint" />
 		</createTable>
 		<rollback>
-			<dropTable tableName="USER"/>
+			<dropTable tableName="USER" />
 		</rollback>
 	</changeSet>
-	
+
 	<changeSet id="2" author="Ilya_Kukushkin">
 		<createTable tableName="AUTHORITY">
 			<column name="ID" type="bigint" autoIncrement="true">
@@ -47,10 +48,10 @@
 			</column>
 		</createTable>
 		<rollback>
-			<dropTable tableName="AUTHORITY"/>
+			<dropTable tableName="AUTHORITY" />
 		</rollback>
 	</changeSet>
-	
+
 	<changeSet id="3" author="Ilya_Kukushkin">
 		<createTable tableName="PHONE">
 			<column name="ID" type="bigint" autoIncrement="true">
@@ -66,16 +67,16 @@
 			</column>
 		</createTable>
 		<rollback>
-			<dropTable tableName="PHONE"/>
+			<dropTable tableName="PHONE" />
 		</rollback>
 	</changeSet>
-	
+
 	<changeSet id="4" author="Ilya_Kukushkin">
 		<createTable tableName="NEWS">
 			<column name="ID" type="bigint" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="DATE" type="datetime" />
+			<column name="DATE" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP" />
 			<column name="TITLE" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
@@ -84,16 +85,16 @@
 			<column name="PICTURE_ID" type="bigint" />
 		</createTable>
 		<rollback>
-			<dropTable tableName="NEWS"/>
+			<dropTable tableName="NEWS" />
 		</rollback>
 	</changeSet>
-	
+
 	<changeSet id="5" author="Ilya_Kukushkin">
 		<createTable tableName="PICTURE">
 			<column name="ID" type="bigint" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="PICTURE_NAME" type="varchar(255)" >
+			<column name="PICTURE_NAME" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
 			<column name="PICTURE" type="mediumblob">
@@ -101,16 +102,16 @@
 			</column>
 		</createTable>
 		<rollback>
-			<dropTable tableName="PICTURE"/>
+			<dropTable tableName="PICTURE" />
 		</rollback>
 	</changeSet>
-	
+
 	<changeSet id="6" author="Ilya_Kukushkin">
 		<createTable tableName="SERVICE">
 			<column name="ID" type="bigint" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="NAME" type="varchar(255)" >
+			<column name="NAME" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
 			<column name="DECRIPTION" type="varchar(2048)" />
@@ -123,16 +124,16 @@
 			</column>
 		</createTable>
 		<rollback>
-			<dropTable tableName="SERVICE"/>
+			<dropTable tableName="SERVICE" />
 		</rollback>
 	</changeSet>
-	
+
 	<changeSet id="7" author="Ilya_Kukushkin">
 		<createTable tableName="SERVICE_REQUEST">
 			<column name="ID" type="bigint" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="DATE" type="datetime" >
+			<column name="DATE" type="timestamp">
 				<constraints nullable="false" />
 			</column>
 			<column name="APPROVED" type="tinyint(1)" />
@@ -141,37 +142,37 @@
 			</column>
 		</createTable>
 		<rollback>
-			<dropTable tableName="SERVICE_REQUEST"/>
+			<dropTable tableName="SERVICE_REQUEST" />
 		</rollback>
 	</changeSet>
 
 	<changeSet id="8" author="Ilya_Kukushkin">
-		<sqlFile path="src/main/resources/schema/sql/install_data_1.sql" />
-		<rollback>
-			<delete tableName="picture"/>
-			<delete tableName="user" />
-			<delete tableName="authority" />
-		</rollback>
-	</changeSet>
-	
-	<changeSet id="9" author="Ilya_Kukushkin">
 		<createTable tableName="CONTACT">
 			<column name="ID" type="bigint" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="NAME" type="varchar(25)" >
+			<column name="NAME" type="varchar(25)">
 				<constraints nullable="false" />
 			</column>
-			<column name="EMAIL" type="varchar(25)" >
+			<column name="EMAIL" type="varchar(25)">
 				<constraints nullable="false" />
 			</column>
-			<column name="MESSAGE" type="varchar(2048)" >
+			<column name="MESSAGE" type="varchar(2048)">
 				<constraints nullable="false" />
 			</column>
+			<column name="DATE" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP" />
 		</createTable>
 		<rollback>
-			<dropTable tableName="CONTACT"/>
+			<dropTable tableName="CONTACT" />
 		</rollback>
 	</changeSet>
 
+	<changeSet id="9" author="Ilya_Kukushkin">
+		<sqlFile path="src/main/resources/schema/sql/install_data_1.sql" />
+		<rollback>
+			<delete tableName="picture" />
+			<delete tableName="user" />
+			<delete tableName="authority" />
+		</rollback>
+	</changeSet>
 </databaseChangeLog>
