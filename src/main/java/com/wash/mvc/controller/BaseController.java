@@ -15,6 +15,6 @@ public class BaseController {
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public final String startAdmin(Model model) {
-        return "carWash.admin.welcome";
+        return "carWash.admin.serviceRequest";
     }
 }

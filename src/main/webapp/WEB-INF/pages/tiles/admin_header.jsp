@@ -11,18 +11,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="index.html">
+            <a class="brand" href="<c:url value="/"/>">
                 <strong><spring:message code="carWash.admin.header.carWash"/></strong>
             </a>
 
             <div class="nav-collapse collapse">
                 <ul class="nav pull-right">
-                    <li><a href="index.html"><spring:message code="carWash.admin.header.home"/></a></li>
+                    <li><a href="<c:url value="/"/>"><spring:message code="carWash.admin.header.home"/></a></li>
                     <li><a href=""></a></li>
-                    <li><a href=""><spring:message code="carWash.admin.header.mangeServices"/></a></li>
-                    <li><a href=""><spring:message code="carWash.admin.header.mangeServiceRequests"/></a></li>
-                    <li><a href=""><spring:message code="carWash.admin.header.mangeNews"/></a></li>
-                    <li><a href=""><spring:message code="carWash.admin.header.mangeContactInfo"/></a></li>
+                    <li><a href="<c:url value="/manageService"/>"><spring:message code="carWash.admin.header.mangeServices"/></a></li>
+                    <li><a href="<c:url value="/manageRequest"/>"><spring:message code="carWash.admin.header.mangeServiceRequests"/></a></li>
+                    <li><a href="<c:url value="/manageNews"/>"><spring:message code="carWash.admin.header.mangeNews"/></a></li>
+                    <li><a href="<c:url value="/manageContact"/>"><spring:message code="carWash.admin.header.mangeContactInfo"/></a></li>
                     <sec:authorize access="isAuthenticated()">
                         <li><a href="<c:url value="/sigOut"/>"><spring:message code="carWash.admin.header.logOut"/></a>
                         </li>

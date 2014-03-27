@@ -65,14 +65,46 @@
         </put-list-attribute>
     </definition>
 
-    <!--ADMIN_SIDE-->
-    <definition name="carWash.admin.welcome" extends="carWash.mainLayout">
+    <!--ADMIN_SIDE_LAYOUT-->
+    <definition name="carWash.mainLayout.admin" extends="carWash.mainLayout">
         <put-attribute name="header" value="/WEB-INF/pages/tiles/admin_header.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/pages/tiles/admin_footer.jsp"/>
-        <put-attribute name="content" value="/WEB-INF/pages/tiles/admin_welcome.jsp"/>
-        <put-attribute name="navLeft" value="/WEB-INF/pages/tiles/admin_navLeft.jsp"/>
+    </definition>
+
+    <!--SERVICE_REQUEST-->
+    <definition name="carWash.admin.serviceRequest" extends="carWash.mainLayout.admin">
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/admin_serviceRequest.jsp"/>
         <put-list-attribute name="page_specific_css">
-            <add-attribute value="resources/css/admin.css" type="string"/>
+            <add-attribute value="resources/css/portfolio.css" type="string"/>
+            <add-attribute value="resources/css/lib/isotope.css" type="string"/>
         </put-list-attribute>
     </definition>
+
+    <!--SERVICE-->
+    <definition name="carWash.admin.service" extends="carWash.mainLayout.admin">
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/admin_service.jsp"/>
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="resources/css/portfolio.css" type="string"/>
+            <add-attribute value="resources/css/lib/isotope.css" type="string"/>
+        </put-list-attribute>
+    </definition>
+
+    <!--NEWS-->
+    <definition name="carWash.admin.news" extends="carWash.mainLayout.admin">
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/admin_news.jsp"/>
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="resources/css/portfolio.css" type="string"/>
+            <add-attribute value="resources/css/lib/isotope.css" type="string"/>
+        </put-list-attribute>
+    </definition>
+
+    <!--CONTACTS-->
+    <definition name="carWash.admin.contacts" extends="carWash.mainLayout.admin">
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/admin_contacts.jsp"/>
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="resources/css/portfolio.css" type="string"/>
+            <add-attribute value="resources/css/lib/isotope.css" type="string"/>
+        </put-list-attribute>
+    </definition>
+
 </tiles-definitions>
