@@ -15,7 +15,7 @@
 				<ul class="nav pull-right">
 					<li><a href="<c:url value="/"/>" class="active"><spring:message code="carWash.welcome.home"/></a></li>
 					<li><a href="about-us.html"><spring:message code="carWash.welcome.about"/></a></li>
-					<li><a href="pricing.html"><spring:message code="carWash.welcome.pricing"/></a></li>
+					<li><a href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.pricing"/></a></li>
 					<li><a href="contact.html"><spring:message code="carWash.welcome.contactUs"/></a></li>
                     <sec:authorize access="isAnonymous()">
                         <li><a class="btn-header" href="<c:url value="/signUp"/>"><spring:message code="carWash.welcome.signUp"/></a></li>

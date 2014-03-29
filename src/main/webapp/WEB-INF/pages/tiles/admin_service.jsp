@@ -5,7 +5,7 @@
 <div id="portfolio">
     <div class="container">
         <div class="section_header">
-            <h3><spring:message code="carWash.admin.service.servise"/></h3>
+            <h3><spring:message code="carWash.admin.service.service"/></h3>
         </div>
         <div class="row">
             <div class="span12">

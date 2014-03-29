@@ -22,4 +22,6 @@ public class ContactController {
 		contactService.save(contact);		
 		return "Saved contact id: " + contact.getId();
 	}
+
+
 }

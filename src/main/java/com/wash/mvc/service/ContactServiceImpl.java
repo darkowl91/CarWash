@@ -14,19 +14,19 @@ import java.util.List;
 public class ContactServiceImpl implements IContactService {
 	
 	@Autowired
-	private IContactRepository contactRepository;
+	private IContactRepository repository;
 
 	@Transactional(readOnly = true)
 	public List<Contact> findAll() {
-		return Lists.newArrayList(contactRepository.findAll());
+		return Lists.newArrayList(repository.findAll());
 	}
 
 	@Transactional(readOnly = true)
 	public Contact findById(long contactId) {
-		return contactRepository.findOne(contactId);
+		return repository.findOne(contactId);
 	}
 
 	public Contact save(Contact contact) {
-		return contactRepository.save(contact);
+		return repository.save(contact);
 	}
 }

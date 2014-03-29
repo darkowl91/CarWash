@@ -1,18 +1,9 @@
 package com.wash.model.services;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
 @Table(name="SERVICE", schema = "CarWash")
@@ -36,7 +27,12 @@ public class Service implements Serializable {
     
 	@Column(name = "WARRANTY")
 	private Calendar warranty;
-	
+
+    /**
+     * Service entity just represent services that can be provided by company
+     *
+     */
+    //TODO: remove
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "SERVICE_REQUEST_ID", nullable = false)
 	private ServiceRequest serviceRequest;
@@ -80,11 +76,11 @@ public class Service implements Serializable {
     public void setWarranty(Calendar warranty) {
         this.warranty = warranty;
     }
-
+    //TODO: remove
 	public ServiceRequest getServiceRequest() {
 		return serviceRequest;
 	}
-
+    //TODO: remove
 	public void setServiceRequest(ServiceRequest serviceRequest) {
 		this.serviceRequest = serviceRequest;
 	}

@@ -209,14 +209,14 @@
                                 Storage
                             </p>
                         </div>
-                        <a class="order" href="pricing.html"><spring:message code="carWash.welcome.orderNow"/></a>
+                        <a class="order" href=""><spring:message code="carWash.welcome.orderNow"/></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="start">
             <p><spring:message code="carWash.welcome.order"/></p>
-            <a href="pricing.html"><spring:message code="carWash.welcome.orderList"/></a>
+            <a href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.orderList"/></a>
         </div>
     </div>
 </div>

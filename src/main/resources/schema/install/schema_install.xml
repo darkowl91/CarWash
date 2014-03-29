@@ -119,9 +119,10 @@
 				<constraints nullable="false" />
 			</column>
 			<column name="WARRANTY" type="datetime" />
-			<column name="SERVICE_REQUEST_ID" type="bigint">
-				<constraints nullable="false" />
-			</column>
+            <!--TODO:REMOVE-->
+			<!--<column name="SERVICE_REQUEST_ID" type="bigint">-->
+				<!--<constraints nullable="false" />-->
+			<!--</column>-->
 		</createTable>
 		<rollback>
 			<dropTable tableName="SERVICE" />
