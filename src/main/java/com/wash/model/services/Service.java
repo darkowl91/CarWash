@@ -3,7 +3,6 @@ package com.wash.model.services;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Calendar;
 
 @Entity
 @Table(name="SERVICE", schema = "CarWash")
@@ -15,27 +14,18 @@ public class Service implements Serializable {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-	
+
 	@Column(name = "NAME", nullable = false)
     private String name;
-	
-	@Column(name = "DECRIPTION")
-    private String decription;
-	
+
+	@Column(name = "DESCRIPTION")
+    private String description;
+
 	@Column(name = "PRICE", nullable = false)
 	private BigDecimal price;
-    
-	@Column(name = "WARRANTY")
-	private Calendar warranty;
 
-    /**
-     * Service entity just represent services that can be provided by company
-     *
-     */
-    //TODO: remove
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "SERVICE_REQUEST_ID", nullable = false)
-	private ServiceRequest serviceRequest;
+	@Column(name = "WARRANTY")
+	private Integer warranty;
 
     public Long getId() {
         return id;
@@ -53,12 +43,12 @@ public class Service implements Serializable {
         this.name = name;
     }
 
-    public String getDecription() {
-        return decription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDecription(String decription) {
-        this.decription = decription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public BigDecimal getPrice() {
@@ -69,21 +59,13 @@ public class Service implements Serializable {
         this.price = price;
     }
 
-    public Calendar getWarranty() {
+    public Integer getWarranty() {
         return warranty;
     }
 
-    public void setWarranty(Calendar warranty) {
+    public void setWarranty(Integer warranty) {
         this.warranty = warranty;
     }
-    //TODO: remove
-	public ServiceRequest getServiceRequest() {
-		return serviceRequest;
-	}
-    //TODO: remove
-	public void setServiceRequest(ServiceRequest serviceRequest) {
-		this.serviceRequest = serviceRequest;
-	}
 
 	@Override
 	public int hashCode() {

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <div id="portfolio">
     <div class="container">
@@ -11,9 +12,17 @@
             <div class="span12">
                 <div id="filters_container">
                     <ul id="filters">
-                        <li><a href="#" data-filter=".art"><spring:message code="carWash.admin.service.view"/></a></li>
+                        <li>
+                            <a class="active" href="#" data-filter=".art">
+                                <spring:message code="carWash.admin.service.view"/>
+                            </a>
+                        </li>
                         <li class="separator">/</li>
-                        <li><a href="#" data-filter="*" class="active"><spring:message code="carWash.admin.service.create"/></a></li>
+                        <li>
+                            <a href="#modal-container-createService" data-toggle="modal">
+                                <spring:message code="carWash.admin.service.create"/>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -21,16 +30,65 @@
         <div class="row">
             <div class="span12">
                 <div id="gallery_container">
+                    <c:forEach var="service" items="${SERVICES}">
+                        <%--TODO: Shhould be list with services already existing--%>
 
-                    <%--TODO: Shhould be list with services already existing--%>
-
-                    <%--Administrator can edit, create or delete service--%>
-
-
+                    </c:forEach>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<%--TODO: create popUp form with fileds for creation new servise--%>
+<%--CREATE SERVICE MODAL --%>
+<div class="modal fade" id="modal-container-createService" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <spring:message code="carWash.admin.service.new"/>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form:form method="post" action="createService" modelAttribute="newService" class="modal-form">
+
+                    <div class="form-group">
+                        <label for="name"><spring:message code="carWash.admin.service.name"/></label>
+                        <spring:message code="carWash.admin.service.nameEnter" var="nameEnter"/>
+                        <form:input path="name" id="name" type="text" class="form-control"
+                                    required=""
+                                    placeholder="${nameEnter}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="warranty"><spring:message code="carWash.admin.service.warranty"/></label>
+                        <spring:message code="carWash.admin.service.warrantyEnter" var="warrantyEnter"/>
+                        <form:input path="warranty" type="number" class="form-control" id="warranty" max="3" min="1"
+                                    required=""
+                                    placeholder="${warrantyEnter}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price"><spring:message code="carWash.admin.service.price"/></label>
+                        <spring:message code="carWash.admin.service.priceEnter" var="priceEnter"/>
+                        <form:input path="price" type="number" class="form-control" id="price" max="999999" min="1"
+                                    required=""
+                                    placeholder="${priceEnter}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description"><spring:message code="carWash.admin.service.description"/></label>
+                        <spring:message code="carWash.admin.service.descriptionEnter" var="descriptionEnter"/>
+                        <form:textarea path="description" id="description" class="form-control" rows="3"
+                                       placeholder="${descriptionEnter}"/>
+                    </div>
+
+                    <button type="submit" class="btn btn-default">
+                        <spring:message code="carWash.admin.service.done"/>
+                    </button>
+                </form:form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,26 +1,10 @@
 package com.wash.model.services;
 
+import com.wash.model.account.User;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.hibernate.annotations.BatchSize;
-
-import com.wash.model.account.User;
 
 @Entity
 @Table(name="SERVICE_REQUEST", schema = "CarWash")
@@ -37,9 +21,9 @@ public class ServiceRequest implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
     private Calendar date;
     
-	@OneToMany(mappedBy = "serviceRequest", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @BatchSize(size = 10)
-	private List<Service> services;
+	@ManyToOne( fetch = FetchType.LAZY)
+    @JoinColumn(name = "SERVICE_ID", nullable = false)
+	private Service service;
     
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USER_ID", nullable = false)
@@ -64,12 +48,12 @@ public class ServiceRequest implements Serializable {
         this.date = date;
     }
 
-    public List<Service> getServices() {
-        return services;
+    public Service getService() {
+        return service;
     }
 
-    public void setServices(List<Service> services) {
-        this.services = services;
+    public void setService(Service service) {
+        this.service = service;
     }
 
     public User getUser() {

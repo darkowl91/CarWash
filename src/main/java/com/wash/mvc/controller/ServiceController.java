@@ -1,5 +1,6 @@
 package com.wash.mvc.controller;
 
+import com.wash.model.services.Service;
 import com.wash.mvc.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,15 @@ public class ServiceController {
     @RequestMapping(value = "/manageServices", method = RequestMethod.GET)
     public String manageServices(ModelMap model) {
         model.put("SERVICES", service.findAll());
+        model.put("newService", new Service());
+        return "carWash.admin.service";
+    }
+
+    @RequestMapping(value = "/createService", method = RequestMethod.POST)
+    public String createService(Service newService, ModelMap model) {
+        service.save(newService);
+        model.put("SERVICES", service.findAll());
+        model.put("newService", new Service());
         return "carWash.admin.service";
     }
 

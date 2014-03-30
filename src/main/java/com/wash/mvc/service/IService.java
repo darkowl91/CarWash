@@ -9,4 +9,6 @@ public interface IService {
 
     List<Service> findAll();
 
+    Service save(Service service);
+
 }

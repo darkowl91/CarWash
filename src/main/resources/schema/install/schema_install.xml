@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
-    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
 	<changeSet id="1" author="Ilya_Kukushkin">
 		<createTable tableName="USER">
@@ -114,16 +113,12 @@
 			<column name="NAME" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
-			<column name="DECRIPTION" type="varchar(2048)" />
+			<column name="DESCRIPTION" type="varchar(2048)" />
 			<column name="PRICE" type="decimal(19,2)">
 				<constraints nullable="false" />
 			</column>
-			<column name="WARRANTY" type="datetime" />
-            <!--TODO:REMOVE-->
-			<!--<column name="SERVICE_REQUEST_ID" type="bigint">-->
-				<!--<constraints nullable="false" />-->
-			<!--</column>-->
-		</createTable>
+            <column name="WARRANTY" type="integer(1)"/>
+        </createTable>
 		<rollback>
 			<dropTable tableName="SERVICE" />
 		</rollback>
@@ -141,6 +136,9 @@
 			<column name="USER_ID" type="bigint">
 				<constraints nullable="false" />
 			</column>
+            <column name="SERVICE_ID" type="bigint">
+                <constraints nullable="false" />
+            </column>
 		</createTable>
 		<rollback>
 			<dropTable tableName="SERVICE_REQUEST" />

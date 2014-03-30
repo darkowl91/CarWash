@@ -20,4 +20,9 @@ public class ServiceImpl implements IService {
     public List<com.wash.model.services.Service> findAll() {
         return Lists.newArrayList(repository.findAll());
     }
+
+    @Override
+    public com.wash.model.services.Service save(com.wash.model.services.Service service) {
+       return repository.save(service);
+    }
 }
