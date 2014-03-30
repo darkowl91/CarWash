@@ -51,41 +51,68 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <form:form method="post" action="createService" modelAttribute="newService" class="modal-form">
+                <form:form method="post" action="createService" modelAttribute="newService"
+                           class="form-horizontal" role="form">
 
                     <div class="form-group">
-                        <label for="name"><spring:message code="carWash.admin.service.name"/></label>
+                        <label for="name" class="col-sm-2 control-label">
+                            <spring:message code="carWash.admin.service.name"/>:
+                        </label>
+
                         <spring:message code="carWash.admin.service.nameEnter" var="nameEnter"/>
+
+                        <div class="col-sm-10">
                         <form:input path="name" id="name" type="text" class="form-control"
                                     required=""
                                     placeholder="${nameEnter}"/>
+                        </div>
                     </div>
-
+                    <br/>
                     <div class="form-group">
-                        <label for="warranty"><spring:message code="carWash.admin.service.warranty"/></label>
+                        <label for="warranty" class="col-sm-2 control-label">
+                            <spring:message code="carWash.admin.service.warranty"/>:
+                        </label>
+
                         <spring:message code="carWash.admin.service.warrantyEnter" var="warrantyEnter"/>
+
+                        <div class="col-sm-10">
                         <form:input path="warranty" type="number" class="form-control" id="warranty" max="3" min="1"
                                     required=""
                                     placeholder="${warrantyEnter}"/>
+                        </div>
                     </div>
-
+                    <br/>
                     <div class="form-group">
-                        <label for="price"><spring:message code="carWash.admin.service.price"/></label>
+                        <label for="price" class="col-sm-2 control-label">
+                            <spring:message code="carWash.admin.service.price"/>:
+                        </label>
+
                         <spring:message code="carWash.admin.service.priceEnter" var="priceEnter"/>
+
+                        <div class="col-sm-10">
                         <form:input path="price" type="number" class="form-control" id="price" max="999999" min="1"
                                     required=""
                                     placeholder="${priceEnter}"/>
+                        </div>
                     </div>
-
+                    <br/>
                     <div class="form-group">
-                        <label for="description"><spring:message code="carWash.admin.service.description"/></label>
+                        <label for="description" class="col-sm-2 control-label">
+                            <spring:message code="carWash.admin.service.description"/>:
+                        </label>
                         <spring:message code="carWash.admin.service.descriptionEnter" var="descriptionEnter"/>
+                        <div class="col-sm-10">
                         <form:textarea path="description" id="description" class="form-control" rows="3"
                                        placeholder="${descriptionEnter}"/>
+                        </div>
                     </div>
+                    <br/>
 
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-primary">
                         <spring:message code="carWash.admin.service.done"/>
+                    </button>
+                    <button type="reset" class="btn btn-danger">
+                        <spring:message code="carWash.admin.service.clear"/>
                     </button>
                 </form:form>
             </div>
