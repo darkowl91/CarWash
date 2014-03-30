@@ -17,37 +17,30 @@
             <h3><spring:message code="carWash.pricing.available"/></h3>
         </div>
         <div class="row charts_wrapp">
-            <c:forEach var="servise" items="${SERVICES}">
-                <!-- Plan Box -->
+            <c:forEach var="service" items="${SERVICES}">
                 <div class="span3">
                 <div class="plan">
                     <div class="wrapper">
-                        <h3>Lite</h3>
+                        <h5>${service.name}</h5>
+
                         <div class="price">
-                            <span class="dollar">$</span>
-                            <span class="qty">35</span>
-                            <span class="month">/month</span>
+                            <span class="dollar">${service.price}$</span>
                         </div>
                         <div class="features">
-                            <p>*
-                                <strong>10</strong>
-                                Shared Projects
+                            <p>
+                                <strong><spring:message code="carWash.pricing.warranty"/>:</strong>
+                                    ${service.warranty}
                             </p>
 
                             <p>
-                                <strong>4</strong>
-                                Team Members
-                            </p>
-
-                            <p>
-                                <strong>10</strong>
-                                Storage
+                                    ${service.description}
                             </p>
                         </div>
-                        <a class="order" href="#">ORDER NOW</a>
+                        <a class="order" href="${service.id}"><spring:message code="carWash.pricing.order"/></a>
                     </div>
                 </div>
-            </div>
+                    <br/>
+                </div>
             </c:forEach>
         </div>
     </div>

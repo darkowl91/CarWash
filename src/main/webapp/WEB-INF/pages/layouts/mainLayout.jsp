@@ -35,7 +35,7 @@
 <script src="<c:url value="/resources/js/jquery-latest.js"/>"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/theme.js"/>"></script>
-
+<%--validation scripts--%>
 <script src="<c:url value="/resources/js/contact.js"/>"></script>
 
 <!-- Page Specific Scripts -->
