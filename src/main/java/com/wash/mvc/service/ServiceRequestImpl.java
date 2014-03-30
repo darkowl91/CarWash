@@ -21,4 +21,9 @@ public class ServiceRequestImpl implements IServiceRequest {
     public List<ServiceRequest> findAll() {
         return Lists.newArrayList(repository.findAll());
     }
+
+    @Override
+    public ServiceRequest save(ServiceRequest serviceRequest) {
+        return repository.save(serviceRequest);
+    }
 }

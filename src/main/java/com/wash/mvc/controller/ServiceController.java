@@ -39,5 +39,4 @@ public class ServiceController {
         service.delete(id);
         return "redirect: /manageServices";
     }
-
 }

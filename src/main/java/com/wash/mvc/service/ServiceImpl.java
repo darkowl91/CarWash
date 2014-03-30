@@ -30,4 +30,9 @@ public class ServiceImpl implements IService {
     public void delete(Long id) {
         repository.delete(id);
     }
+
+    @Override
+    public com.wash.model.services.Service findById(Long id) {
+        return repository.findOne(id);
+    }
 }

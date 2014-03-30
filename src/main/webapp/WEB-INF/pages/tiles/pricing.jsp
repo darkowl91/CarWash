@@ -11,11 +11,16 @@
     </div>
 </div>
 
+<%--TODO: MAKE AS AJAX!!!!!!!!!!!!!!!!!!!!!!!!--%>
+
 <div id="in_pricing2">
     <div class="container">
         <div class="section_header">
             <h3><spring:message code="carWash.pricing.available"/></h3>
         </div>
+
+        <div id="le-alert" class="alert alert-success alert-block fade"><spring:message code="carWash.pricing.sucsess"/> </div>
+
         <div class="row charts_wrapp">
             <c:forEach var="service" items="${SERVICES}">
                 <div class="span3">
@@ -36,7 +41,9 @@
                                     ${service.description}
                             </p>
                         </div>
-                        <a class="order" href="${service.id}"><spring:message code="carWash.pricing.order"/></a>
+                        <a class="order" id="newServiceRequest" onclick="makeAsAjaxRequest(${service.id});" href="#">
+                            <spring:message code="carWash.pricing.order"/>
+                        </a>
                     </div>
                 </div>
                     <br/>

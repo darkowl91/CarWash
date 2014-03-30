@@ -60,6 +60,9 @@
     <!--PRICING-->
     <definition name="carWash.pricing" extends="carWash.mainLayout">
         <put-attribute name="content" value="/WEB-INF/pages/tiles/pricing.jsp"/>
+        <put-list-attribute name="page_specific_js">
+            <add-attribute value="resources/js/pricing.js" type="string"/>
+        </put-list-attribute>
         <put-list-attribute name="page_specific_css">
             <add-attribute value="/resources/css/pricing.css" type="string"/>
         </put-list-attribute>
