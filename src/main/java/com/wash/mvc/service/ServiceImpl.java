@@ -25,4 +25,9 @@ public class ServiceImpl implements IService {
     public com.wash.model.services.Service save(com.wash.model.services.Service service) {
        return repository.save(service);
     }
+
+    @Override
+    public void delete(Long id) {
+        repository.delete(id);
+    }
 }

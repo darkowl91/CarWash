@@ -29,11 +29,15 @@ public class ServiceController {
     }
 
     @RequestMapping(value = "/createService", method = RequestMethod.POST)
-    public String createService(Service newService, ModelMap model) {
+    public String createService(Service newService) {
         service.save(newService);
-        model.put("SERVICES", service.findAll());
-        model.put("newService", new Service());
-        return "carWash.admin.service";
+        return "redirect: /manageServices";
+    }
+
+    @RequestMapping(value = "/removeService", method = RequestMethod.GET)
+    public String removeService(Long id) {
+        service.delete(id);
+        return "redirect: /manageServices";
     }
 
 }

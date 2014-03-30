@@ -25,11 +25,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body class="pull_top">
-	<tiles:insertAttribute name="header"/>
+    <div id="wrap">
+        <tiles:insertAttribute name="header"/>
 
-    <tiles:insertAttribute name="content"/>
-
-	<tiles:insertAttribute name="footer"/>
+        <tiles:insertAttribute name="content"/>
+    </div>
+    <tiles:insertAttribute name="footer"/>
 <!-- Scripts -->
 <script src="<c:url value="/resources/js/jquery-latest.js"/>"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>

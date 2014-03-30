@@ -19,7 +19,8 @@
                         </li>
                         <li class="separator">/</li>
                         <li>
-                            <a href="#modal-container-createService" data-toggle="modal">
+                            <a href="#modal-container-createService" data-toggle="modal"
+                               data-target="#modal-container-createService">
                                 <spring:message code="carWash.admin.service.create"/>
                             </a>
                         </li>
@@ -30,10 +31,53 @@
         <div class="row">
             <div class="span12">
                 <div id="gallery_container">
-                    <c:forEach var="service" items="${SERVICES}">
-                        <%--TODO: Shhould be list with services already existing--%>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>
+                                <spring:message code="carWash.admin.service.name"/>
+                            </th>
 
-                    </c:forEach>
+                            <th>
+                                <spring:message code="carWash.admin.service.warranty"/>
+                            </th>
+
+                            <th>
+                                <spring:message code="carWash.admin.service.price"/>
+                            </th>
+
+                            <th>
+                                <spring:message code="carWash.admin.service.description"/>
+                            </th>
+
+                            <th>
+                                #
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="service" items="${SERVICES}">
+                            <tr>
+                                <td>
+                                        ${service.name}
+                                </td>
+                                <td>
+                                        ${service.warranty}
+                                </td>
+                                <td>
+                                        ${service.price}
+                                </td>
+                                <td>
+                                        ${service.description}
+                                </td>
+                                <td>
+                                    <a class="active" href="<c:url value="/removeService?id=${service.id}"/>"><i
+                                            class="icon-remove"></i></a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -41,7 +85,7 @@
 </div>
 
 <%--CREATE SERVICE MODAL --%>
-<div class="modal fade" id="modal-container-createService" aria-hidden="true">
+<div class="modal fade" id="modal-container-createService" aria-hidden="true" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -107,12 +151,11 @@
                         </div>
                     </div>
                     <br/>
-
                     <button type="submit" class="btn btn-primary">
                         <spring:message code="carWash.admin.service.done"/>
                     </button>
-                    <button type="reset" class="btn btn-danger">
-                        <spring:message code="carWash.admin.service.clear"/>
+                    <button type="reset" class="btn btn-default">
+                    <spring:message code="carWash.admin.service.clear"/>
                     </button>
                 </form:form>
             </div>

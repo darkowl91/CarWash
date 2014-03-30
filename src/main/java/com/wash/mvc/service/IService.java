@@ -11,4 +11,6 @@ public interface IService {
 
     Service save(Service service);
 
+     void delete(Long id);
+
 }

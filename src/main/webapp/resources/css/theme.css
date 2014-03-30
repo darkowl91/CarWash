@@ -1,8 +1,14 @@
 html {
     margin: 0;
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
 }
 
 body {
+    height: 100%;
     position: relative;
     background: #DDDCE2 url(../img/body_bg.jpg) repeat left top;
     -webkit-font-smoothing: antialiased;
