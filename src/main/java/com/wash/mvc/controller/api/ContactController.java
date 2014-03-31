@@ -1,13 +1,12 @@
 package com.wash.mvc.controller.api;
 
+import com.wash.model.contact.Contact;
+import com.wash.mvc.service.IContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.wash.model.contact.Contact;
-import com.wash.mvc.service.IContactService;
 
 @Controller
 @RequestMapping("api/contact")
@@ -23,5 +22,8 @@ public class ContactController {
 		return "Saved contact id: " + contact.getId();
 	}
 
-
+    @RequestMapping(value = "/viewContacts", method = RequestMethod.GET)
+    public String viewContact() {
+        return "carWash.contact";
+    }
 }

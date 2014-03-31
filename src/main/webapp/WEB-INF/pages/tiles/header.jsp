@@ -18,13 +18,13 @@
                     <sec:authorize access="hasRole('ROLE_USER')">
                         <li><a href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.pricing"/></a></li>
                     </sec:authorize>
-                    <li><a href="contact.html"><spring:message code="carWash.welcome.contactUs"/></a></li>
+                    <li><a href="<c:url value="/api/contact/viewContacts"/>"><spring:message code="carWash.welcome.contactUs"/></a></li>
                     <sec:authorize access="isAnonymous()">
                         <li><a class="btn-header" href="<c:url value="/signUp"/>"><spring:message code="carWash.welcome.signUp"/></a></li>
                         <li><a class="btn-header" href="<c:url value="/signIn"/>"><spring:message code="carWash.welcome.signIn"/></a></li>
                     </sec:authorize>
                     <sec:authorize access="hasRole('ROLE_ADMIN')">
-                        <li><a href="<c:url value="/admin"/>"><spring:message code="carWash.welcome.admin"/></a></li>
+                        <li><a href="<c:url value="/manageServiceRequestList"/>"><spring:message code="carWash.welcome.admin"/></a></li>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
                         <li><a href="<c:url value="/sigOut"/>"><spring:message code="carWash.welcome.logOut"/></a></li>
