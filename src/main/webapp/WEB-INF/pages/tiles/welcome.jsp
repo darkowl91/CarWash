@@ -36,7 +36,7 @@
         <img class="asset left-472 sp650 t-50 z3" src="<c:url value="/resources/img/slides/scene3/s3_down.png"/>"/>
         <div class="info">
             <h2><spring:message code="carWash.welcome.polish"/></h2>
-            <a href="features.html"><spring:message code="carWash.welcome.orderService"/></a>
+            <a href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.orderService"/></a>
         </div>
     </article>
     <article class="slide" id="responsive" style="background: url('<c:url value="/resources/img/backgrounds/indigo.jpg"/>') repeat-x top center;">
@@ -140,7 +140,7 @@
                                 Storage
                             </p>
                         </div>
-                        <a class="order" href="pricing.html"><spring:message code="carWash.welcome.orderNow"/></a>
+                        <a class="order" href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.orderNow"/></a>
                     </div>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                                 Phone Support
                             </p>
                         </div>
-                        <a class="order" href="pricing.html"><spring:message code="carWash.welcome.orderNow"/></a>
+                        <a class="order" href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.orderNow"/></a>
                     </div>
                 </div>
             </div>
@@ -209,7 +209,7 @@
                                 Storage
                             </p>
                         </div>
-                        <a class="order" href=""><spring:message code="carWash.welcome.orderNow"/></a>
+                        <a class="order" href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.orderNow"/></a>
                     </div>
                 </div>
             </div>

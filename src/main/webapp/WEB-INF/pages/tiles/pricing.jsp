@@ -9,13 +9,9 @@
             <h6><spring:message code="carWash.pricing.service"/></h6>
         </div>
     </div>
-</div>
-
-<%--TODO: MAKE AS AJAX!!!!!!!!!!!!!!!!!!!!!!!!--%>
 
 <div id="in_pricing2">
     <div class="container">
-
         <div class="section_header">
             <h3><spring:message code="carWash.pricing.available"/></h3>
         </div>
@@ -23,7 +19,6 @@
         <div id="alert-success" class="alert alert-success alert-block fade">
             <spring:message code="carWash.pricing.success"/>
         </div>
-
         <div id="alert-error" class="alert alert-error alert-block fade">
             <spring:message code="carWash.pricing.error"/>
         </div>
@@ -60,7 +55,7 @@
     </div>
 </div>
 
-
+</div>
 <script>
     function makeAsAjaxRequest(id) {
         $.ajax({
