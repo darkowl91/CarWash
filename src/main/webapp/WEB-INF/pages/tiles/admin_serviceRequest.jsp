@@ -38,7 +38,60 @@
                         <%--date--%>
                         <%--request info--%>
                         <%--request prise--%>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <spring:message code="carWash.admin.serviceRequest.user"/>
+                                </th>
 
+                                <th>
+                                    <spring:message code="carWash.admin.serviceRequest.date"/>
+                                </th>
+
+                                <th>
+                                    <spring:message code="carWash.admin.serviceRequest.info"/>
+                                </th>
+
+                                <th>
+                                    <spring:message code="carWash.admin.serviceRequest.price"/>
+                                </th>
+
+                                <th>
+                                    #
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="request" items="${SERVICE_REQUEST}">
+                                <tr>
+                                    <td>
+                                            ${request.user.firstName} ${request.user.lastName}
+                                    </td>
+                                    <td>
+                                            ${request.date}
+                                    </td>
+                                    <td>
+                                            ${request.service.name} ${request.service.warranty} ${request.service.description}
+                                    </td>
+                                    <td>
+                                            ${request.service.price}
+                                    </td>
+                                    <td>
+                                        <a class="active"
+                                           href="<c:url value="/removeServiceRequest?id=${request.id}"/>">
+                                            <i class="icon-remove"></i>
+                                        </a>
+
+                                            <%--<a class="active" href="<c:url value="/approveServiceRequest?id=${request.id}"/>">--%>
+                                            <%--<i class="icon-ok"></i>--%>
+                                            <%--</a>--%>
+
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
                 </div>
             </div>
         </div>

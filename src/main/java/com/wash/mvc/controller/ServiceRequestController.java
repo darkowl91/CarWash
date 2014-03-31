@@ -26,7 +26,7 @@ public class ServiceRequestController {
 
     @RequestMapping(value = "/manageServiceRequestList", method = RequestMethod.GET)
     public String viewServiceRequestList(ModelMap model) {
-        model.put("SERVICE_REQUEST",service.findAll());
+        model.put("SERVICE_REQUEST",serviceRequest.findAll());
         return "carWash.admin.serviceRequest";
     }
 
