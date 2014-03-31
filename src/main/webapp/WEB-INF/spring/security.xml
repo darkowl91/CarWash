@@ -12,7 +12,16 @@
 
     <security:http use-expressions="true" auto-config="true">
         <security:intercept-url pattern="/welcome*" access="isAuthenticated()" />
-        
+        <security:intercept-url pattern="/viewServiceList*" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/newServiceRequest*" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/admin*" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/manageNews*" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/manageServices*" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/createService*" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/removeService*" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/manageServiceRequestList*" access="hasRole('ROLE_ADMIN')"/>
+        <!--handle access-denied as proposal to sign in -->
+        <security:access-denied-handler error-page="/signIn"/>
         <!-- Override default login and logout pages -->
         <security:form-login login-page="/signIn" 
                              authentication-failure-url="/signIn?signInError=true" />
