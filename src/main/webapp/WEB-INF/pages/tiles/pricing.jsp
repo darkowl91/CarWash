@@ -15,11 +15,18 @@
 
 <div id="in_pricing2">
     <div class="container">
+
         <div class="section_header">
             <h3><spring:message code="carWash.pricing.available"/></h3>
         </div>
 
-        <div id="le-alert" class="alert alert-success alert-block fade"><spring:message code="carWash.pricing.sucsess"/> </div>
+        <div id="alert-success" class="alert alert-success alert-block fade">
+            <spring:message code="carWash.pricing.success"/>
+        </div>
+
+        <div id="alert-error" class="alert alert-error alert-block fade">
+            <spring:message code="carWash.pricing.error"/>
+        </div>
 
         <div class="row charts_wrapp">
             <c:forEach var="service" items="${SERVICES}">
@@ -41,8 +48,8 @@
                                     ${service.description}
                             </p>
                         </div>
-                        <a class="order" id="newServiceRequest" onclick="makeAsAjaxRequest(${service.id});" href="#">
-                            <spring:message code="carWash.pricing.order"/>
+                        <a class="order" href="#" onclick="makeAsAjaxRequest(${service.id})">
+                        <spring:message code="carWash.pricing.order"/>
                         </a>
                     </div>
                 </div>
@@ -52,3 +59,24 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function makeAsAjaxRequest(id) {
+        $.ajax({
+            type: 'GET',
+            url: "/newServiceRequest?id=" + id,
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'text',
+            success: function (data) {
+                var id = '#' + data.toString();
+                $(id).addClass('in');
+
+            },
+            error: function (data, status, er) {
+                //debug
+                //alert(data + status +er);
+            }
+        });
+    }
+</script>

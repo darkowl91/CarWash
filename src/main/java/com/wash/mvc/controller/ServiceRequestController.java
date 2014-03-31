@@ -30,13 +30,17 @@ public class ServiceRequestController {
         return "carWash.admin.serviceRequest";
     }
 
-    @RequestMapping(value = "/newServiceRequest", method = RequestMethod.POST)
+    @RequestMapping(value = "/newServiceRequest", method = RequestMethod.GET)
     @ResponseBody
-    public ServiceRequest newServiceRequest(Long id, Principal principal) {
+    public String newServiceRequest(Long id, Principal principal) {
         ServiceRequest newServiceRequest = new ServiceRequest();
         newServiceRequest.setService(service.findById(id));
         newServiceRequest.setDate(DateUtil.getDateTimeNow());
         newServiceRequest.setUser(userService.findByUsername(principal.getName()));
-        return serviceRequest.save(newServiceRequest);
+        if (serviceRequest.save(newServiceRequest) != null) {
+            return "alert-success";
+        } else {
+            return "alert-error";
+        }
     }
 }
