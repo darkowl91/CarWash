@@ -107,7 +107,7 @@
 
                         <div class="col-sm-10">
                         <form:input path="name" id="name" type="text" class="form-control"
-                                    required=""
+                                    required="true"
                                     placeholder="${nameEnter}"/>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
 
                         <div class="col-sm-10">
                         <form:input path="warranty" type="number" class="form-control" id="warranty" max="3" min="1"
-                                    required=""
+                                    required="true"
                                     placeholder="${warrantyEnter}"/>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
 
                         <div class="col-sm-10">
                         <form:input path="price" type="number" class="form-control" id="price" max="999999" min="1"
-                                    required=""
+                                    required="true"
                                     placeholder="${priceEnter}"/>
                         </div>
                     </div>
