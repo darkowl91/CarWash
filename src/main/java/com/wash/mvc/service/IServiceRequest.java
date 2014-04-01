@@ -9,4 +9,6 @@ public interface IServiceRequest {
     public List<ServiceRequest> findAll();
 
     public ServiceRequest save(ServiceRequest serviceRequest);
+
+    public void delete(Long id);
 }

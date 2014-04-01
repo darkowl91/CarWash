@@ -43,4 +43,10 @@ public class ServiceRequestController {
             return "alert-error";
         }
     }
+
+    @RequestMapping(value = "/removeServiceRequest", method = RequestMethod.GET)
+    public String removeServiceRequest(Long id) {
+        serviceRequest.delete(id);
+        return "redirect:/manageServiceRequestList";
+    }
 }

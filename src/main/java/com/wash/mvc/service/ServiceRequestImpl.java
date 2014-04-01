@@ -26,4 +26,9 @@ public class ServiceRequestImpl implements IServiceRequest {
     public ServiceRequest save(ServiceRequest serviceRequest) {
         return repository.save(serviceRequest);
     }
+
+    @Override
+    public void delete(Long id) {
+        repository.delete(id);
+    }
 }

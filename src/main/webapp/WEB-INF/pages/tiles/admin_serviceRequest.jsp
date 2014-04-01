@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div id="portfolio">
     <div class="container">
@@ -66,20 +67,19 @@
                             <c:forEach var="request" items="${SERVICE_REQUEST}">
                                 <tr>
                                     <td>
-                                            ${request.user.firstName} ${request.user.lastName}
+                                            <%--${request.user.firstName} ${request.user.lastName}--%>
                                     </td>
                                     <td>
-                                            ${request.date}
+                                             <f:formatDate type="both" dateStyle="full" value="${request.date.time}"/>
                                     </td>
                                     <td>
-                                            ${request.service.name} ${request.service.warranty} ${request.service.description}
+                                            <%--${request.service.name} ${request.service.warranty} ${request.service.description}--%>
                                     </td>
                                     <td>
-                                            ${request.service.price}
+                                            <%--${request.service.price}--%>
                                     </td>
                                     <td>
-                                        <a class="active"
-                                           href="<c:url value="/removeServiceRequest?id=${request.id}"/>">
+                                        <a class="active" href="<c:url value="/removeServiceRequest?id=${request.id}"/>">
                                             <i class="icon-remove"></i>
                                         </a>
 
