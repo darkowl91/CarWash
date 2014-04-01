@@ -12,7 +12,7 @@
             <div class="span12">
                 <div id="filters_container">
                     <ul id="filters">
-                        <li><a id="all" href="<c:url value="/manageServiceRequestList?filterId=all"/>" class="link"><spring:message code="carWash.admin.serviceRequest.all"/></a></li>
+                        <li><a id="all" href="<c:url value="/manageServiceRequestList?filterId=all"/>"><spring:message code="carWash.admin.serviceRequest.all"/></a></li>
                         <li class="separator">/</li>
                         <li><a id="toApprove" href="<c:url value="/manageServiceRequestList?filterId=toApprove"/>"><spring:message code="carWash.admin.serviceRequest.toApprove"/></a></li>
                         <li class="separator">/</li>
