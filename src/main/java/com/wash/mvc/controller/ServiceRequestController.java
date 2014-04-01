@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.security.Principal;
+import java.util.Collections;
 
 @Controller
 public class ServiceRequestController {
@@ -25,8 +26,22 @@ public class ServiceRequestController {
     private IUserService userService;
 
     @RequestMapping(value = "/manageServiceRequestList", method = RequestMethod.GET)
-    public String viewServiceRequestList(ModelMap model) {
-        model.put("SERVICE_REQUEST",serviceRequest.findAll());
+    public String viewServiceRequestList(ModelMap model, String filterId) {
+        switch (filterId) {
+            case "all":
+                model.put("SERVICE_REQUEST", serviceRequest.findAll());
+                break;
+            case "toApprove":
+                model.put("SERVICE_REQUEST", serviceRequest.findToApprove());
+                break;
+            case "approved":
+                model.put("SERVICE_REQUEST", serviceRequest.findApproved());
+                break;
+            default:
+                model.put("SERVICE_REQUEST", Collections.emptyList());
+                break;
+        }
+        model.put("filterId", filterId);
         return "carWash.admin.serviceRequest";
     }
 

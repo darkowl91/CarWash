@@ -12,12 +12,18 @@
             <div class="span12">
                 <div id="filters_container">
                     <ul id="filters">
-                        <li><a href="#" data-filter="*" class="active"><spring:message code="carWash.admin.serviceRequest.all"/></a></li>
+                        <li><a id="all" href="<c:url value="/manageServiceRequestList?filterId=all"/>" class="link"><spring:message code="carWash.admin.serviceRequest.all"/></a></li>
                         <li class="separator">/</li>
-                        <li><a href="#" data-filter=".art"><spring:message code="carWash.admin.serviceRequest.toApprove"/></a></li>
+                        <li><a id="toApprove" href="<c:url value="/manageServiceRequestList?filterId=toApprove"/>"><spring:message code="carWash.admin.serviceRequest.toApprove"/></a></li>
                         <li class="separator">/</li>
-                        <li><a href="#" data-filter=".ilustration"><spring:message code="carWash.admin.serviceRequest.approved"/></a></li>
+                        <li><a id="approved" href="<c:url value="/manageServiceRequestList?filterId=approved"/>"><spring:message code="carWash.admin.serviceRequest.approved"/></a></li>
                     </ul>
+                    <script>
+                        $(document).ready(function () {
+                            var element = '#' + '${filterId}';
+                            $(element).addClass("active");
+                        });
+                    </script>
                 </div>
             </div>
         </div>

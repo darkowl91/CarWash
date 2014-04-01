@@ -8,6 +8,10 @@ public interface IServiceRequest {
 
     public List<ServiceRequest> findAll();
 
+    public List<ServiceRequest> findApproved();
+
+    public List<ServiceRequest> findToApprove();
+
     public ServiceRequest save(ServiceRequest serviceRequest);
 
     public void delete(Long id);

@@ -12,9 +12,9 @@
             <div class="span12">
                 <div id="filters_container">
                     <ul id="filters">
-                        <li><a href="#" data-filter=".art"><spring:message code="carWash.admin.news.view"/></a></li>
+                        <li><a href="#" data-filter=".art" class="active"><spring:message code="carWash.admin.news.view"/></a></li>
                         <li class="separator">/</li>
-                        <li><a href="#" data-filter="*" class="active"><spring:message code="carWash.admin.news.add"/></a></li>
+                        <li><a href="#" data-filter="*"><spring:message code="carWash.admin.news.add"/></a></li>
                     </ul>
                 </div>
             </div>

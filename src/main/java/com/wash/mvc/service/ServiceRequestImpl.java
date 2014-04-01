@@ -23,6 +23,16 @@ public class ServiceRequestImpl implements IServiceRequest {
     }
 
     @Override
+    public List<ServiceRequest> findApproved() {
+        return Lists.newArrayList(repository.findApproved());
+    }
+
+    @Override
+    public List<ServiceRequest> findToApprove() {
+        return Lists.newArrayList(repository.findToApprove());
+    }
+
+    @Override
     public ServiceRequest save(ServiceRequest serviceRequest) {
         return repository.save(serviceRequest);
     }
