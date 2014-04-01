@@ -26,4 +26,9 @@ public class ContactController {
     public String viewContact() {
         return "carWash.contact";
     }
+
+    @RequestMapping(value = "/manageContact", method = RequestMethod.GET)
+    public String manageContact() {
+        return "carWash.admin.contacts";
+    }
 }
