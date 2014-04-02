@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface IServiceRequest {
 
+    public ServiceRequest findById(Long id);
+
     public List<ServiceRequest> findAll();
 
     public List<ServiceRequest> findApproved();

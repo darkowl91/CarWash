@@ -18,6 +18,11 @@ public class ServiceRequestImpl implements IServiceRequest {
     private IServiceRequestRepository  repository;
 
     @Override
+    public ServiceRequest findById(Long id) {
+       return repository.findOne(id);
+    }
+
+    @Override
     public List<ServiceRequest> findAll() {
         return Lists.newArrayList(repository.findAll());
     }

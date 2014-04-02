@@ -64,4 +64,12 @@ public class ServiceRequestController {
         serviceRequest.delete(id);
         return "redirect:/manageServiceRequestList?filterId="+filterId;
     }
+
+    @RequestMapping(value = "/approveServiceRequest", method = RequestMethod.GET)
+    public String approveServiceRequest(Long id) {
+        ServiceRequest request = serviceRequest.findById(id);
+        request.setApproved(true);
+        serviceRequest.save(request);
+        return "redirect:/manageServiceRequestList?filterId=toApprove";
+    }
 }

@@ -13,13 +13,13 @@
                 <div id="filters_container">
                     <ul id="filters">
                         <c:if test="${filterId == 'all'}">
-                               <c:set var="classAll" value="active"/>
+                            <c:set var="classAll" value="active" scope="page"/>
                         </c:if>
                         <c:if test="${filterId == 'toApprove'}">
-                            <c:set var="classToApprove" value="active"/>
+                            <c:set var="classToApprove" value="active" scope="page"/>
                         </c:if>
                         <c:if test="${filterId == 'approved'}">
-                            <c:set var="classApproved" value="active"/>
+                            <c:set var="classApproved" value="active" scope="page"/>
                         </c:if>
                         <li><a class="${classAll}" href="<c:url value="/manageServiceRequestList?filterId=all"/>"><spring:message code="carWash.admin.serviceRequest.all"/></a></li>
                         <li class="separator">/</li>
@@ -91,11 +91,11 @@
                                         <a class="active" href="<c:url value="/removeServiceRequest?id=${request.id}&filterId=${filterId}"/>">
                                             <i class="icon-remove"></i>
                                         </a>
-
-                                            <%--<a class="active" href="<c:url value="/approveServiceRequest?id=${request.id}"/>">--%>
-                                            <%--<i class="icon-ok"></i>--%>
-                                            <%--</a>--%>
-
+                                        <c:if test="${filterId == 'toApprove'}">
+                                            <a class="active" href="<c:url value="/approveServiceRequest?id=${request.id}"/>">
+                                            <i class="icon-ok"></i>
+                                            </a>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </c:forEach>
