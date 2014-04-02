@@ -60,7 +60,7 @@
     function makeAsAjaxRequest(id) {
         $.ajax({
             type: 'GET',
-            url: "/newServiceRequest?id=" + id,
+            url: "${pageContext.request.contextPath}/newServiceRequest?id=" + id,
             contentType: 'application/json; charset=utf-8',
             dataType: 'text',
             success: function (data) {
