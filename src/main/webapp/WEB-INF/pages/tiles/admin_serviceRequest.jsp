@@ -21,11 +21,25 @@
                         <c:if test="${filterId == 'approved'}">
                             <c:set var="classApproved" value="active" scope="page"/>
                         </c:if>
-                        <li><a class="${classAll}" href="<c:url value="/manageServiceRequestList?filterId=all"/>"><spring:message code="carWash.admin.serviceRequest.all"/></a></li>
+                        <li>
+                            <a class="${classAll}" href="<c:url value="/manageServiceRequestList?filterId=all"/>">
+                                <spring:message code="carWash.admin.serviceRequest.all"/>
+                            </a>
+                        </li>
                         <li class="separator">/</li>
-                        <li><a class="${classToApprove}" href="<c:url value="/manageServiceRequestList?filterId=toApprove"/>"><spring:message code="carWash.admin.serviceRequest.toApprove"/></a></li>
+                        <li>
+                            <a class="${classToApprove}"
+                               href="<c:url value="/manageServiceRequestList?filterId=toApprove"/>">
+                                <spring:message code="carWash.admin.serviceRequest.toApprove"/>
+                            </a>
+                        </li>
                         <li class="separator">/</li>
-                        <li><a class="${classApproved}" href="<c:url value="/manageServiceRequestList?filterId=approved"/>"><spring:message code="carWash.admin.serviceRequest.approved"/></a></li>
+                        <li>
+                            <a class="${classApproved}"
+                               href="<c:url value="/manageServiceRequestList?filterId=approved"/>">
+                                <spring:message code="carWash.admin.serviceRequest.approved"/>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
