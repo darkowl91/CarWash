@@ -60,8 +60,8 @@ public class ServiceRequestController {
     }
 
     @RequestMapping(value = "/removeServiceRequest", method = RequestMethod.GET)
-    public String removeServiceRequest(Long id) {
+    public String removeServiceRequest(Long id, String filterId) {
         serviceRequest.delete(id);
-        return "redirect:/manageServiceRequestList";
+        return "redirect:/manageServiceRequestList?filterId="+filterId;
     }
 }

@@ -12,19 +12,21 @@
             <div class="span12">
                 <div id="filters_container">
                     <ul id="filters">
-                        <li><a id="all" href="<c:url value="/manageServiceRequestList?filterId=all"/>"><spring:message code="carWash.admin.serviceRequest.all"/></a></li>
+                        <c:if test="${filterId == 'all'}">
+                               <c:set var="classAll" value="active"/>
+                        </c:if>
+                        <c:if test="${filterId == 'toApprove'}">
+                            <c:set var="classToApprove" value="active"/>
+                        </c:if>
+                        <c:if test="${filterId == 'approved'}">
+                            <c:set var="classApproved" value="active"/>
+                        </c:if>
+                        <li><a class="${classAll}" href="<c:url value="/manageServiceRequestList?filterId=all"/>"><spring:message code="carWash.admin.serviceRequest.all"/></a></li>
                         <li class="separator">/</li>
-                        <li><a id="toApprove" href="<c:url value="/manageServiceRequestList?filterId=toApprove"/>"><spring:message code="carWash.admin.serviceRequest.toApprove"/></a></li>
+                        <li><a class="${classToApprove}" href="<c:url value="/manageServiceRequestList?filterId=toApprove"/>"><spring:message code="carWash.admin.serviceRequest.toApprove"/></a></li>
                         <li class="separator">/</li>
-                        <li><a id="approved" href="<c:url value="/manageServiceRequestList?filterId=approved"/>"><spring:message code="carWash.admin.serviceRequest.approved"/></a></li>
+                        <li><a class="${classApproved}" href="<c:url value="/manageServiceRequestList?filterId=approved"/>"><spring:message code="carWash.admin.serviceRequest.approved"/></a></li>
                     </ul>
-                    <script>
-                        $(document).ready(function () {
-                        	alert('test');
-                            var element = '#' + '${filterId}';
-                            $(element).addClass("active");
-                        });
-                    </script>
                 </div>
             </div>
         </div>
@@ -86,7 +88,7 @@
                                             ${request.service.price}
                                     </td>
                                     <td>
-                                        <a class="active" href="<c:url value="/removeServiceRequest?id=${request.id}"/>">
+                                        <a class="active" href="<c:url value="/removeServiceRequest?id=${request.id}&filterId=${filterId}"/>">
                                             <i class="icon-remove"></i>
                                         </a>
 
