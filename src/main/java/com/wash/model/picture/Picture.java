@@ -1,5 +1,7 @@
 package com.wash.model.picture;
 
+import com.wash.programm.util.ImageUtil;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -19,6 +21,9 @@ public class Picture implements Serializable {
 
     @Column(name = "PICTURE", columnDefinition = "mediumblob", nullable = false)
     private byte[] picture;
+
+    @Transient
+    private String imageAsString;
 
     public Picture() {
     }
@@ -47,4 +52,7 @@ public class Picture implements Serializable {
         this.picture = image;
     }
 
+    public String getImageAsString(){
+        return ImageUtil.getEncoded(picture,ImageUtil.ISO,"");
+    }
 }
