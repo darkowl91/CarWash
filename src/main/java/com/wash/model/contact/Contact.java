@@ -12,6 +12,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name = "CONTACT", schema = "CarWash")
 public class Contact implements Serializable {
@@ -44,6 +47,7 @@ public class Contact implements Serializable {
 		this.id = id;
 	}
 
+	@NotEmpty
 	public String getName() {
 		return name;
 	}
@@ -52,6 +56,8 @@ public class Contact implements Serializable {
 		this.name = name;
 	}
 
+	@NotEmpty
+	@Email
 	public String getEmail() {
 		return email;
 	}
@@ -60,6 +66,7 @@ public class Contact implements Serializable {
 		this.email = email;
 	}
 
+	@NotEmpty
 	public String getMessage() {
 		return message;
 	}

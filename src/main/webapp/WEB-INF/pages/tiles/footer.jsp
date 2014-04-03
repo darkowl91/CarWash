@@ -31,9 +31,9 @@
                 <h3 class="footer_header"><spring:message code="carWash.welcome.contact"/></h3>
 
                 <form id="contact_form">
-                	<input id="name" name="name" type="text" placeholder="<spring:message code="carWash.welcome.yourName"/>"/>
-                    <input id="email" name="email" type="text" placeholder="<spring:message code="carWash.welcome.yourEmail"/>"/>
-                    <textarea id="message" name="message" rows="3" placeholder="<spring:message code="carWash.welcome.message"/>"></textarea>
+                	<input id="name" name="name" type="text" required placeholder="<spring:message code="carWash.welcome.yourName"/>"/>
+                    <input id="email" name="email" type="email" required placeholder="<spring:message code="carWash.welcome.yourEmail"/>"/>
+                    <textarea id="message" name="message" rows="3" required placeholder="<spring:message code="carWash.welcome.message"/>"></textarea>
                     <input type="submit" value="<spring:message code="carWash.welcome.send"/>"/>
                 </form>
 			</div>			

@@ -27,6 +27,7 @@ a:hover {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"],
 input[type="submit"],
 textarea {
@@ -235,6 +236,7 @@ header {
 }
 
 #footer .contact input[type="text"],
+#footer .contact input[type="email"],
 #footer .contact textarea {
     border: none;
     background-color: #1f1f21;
@@ -248,6 +250,7 @@ header {
 }
 
 #footer .contact input[type="text"]:focus,
+#footer .contact input[type="email"]:focus,
 #footer .contact textarea:focus {
     border: none;
     box-shadow: none;
@@ -255,16 +258,19 @@ header {
 }
 
 #footer .contact input[type="text"]:-moz-placeholder,
+#footer .contact input[type="email"]:-moz-placeholder,
 #footer .contact textarea:-moz-placeholder {
     color: #868687;
 }
 
 #footer .contact input[type="text"]::-webkit-input-placeholder,
+#footer .contact input[type="email"]::-webkit-input-placeholder,
 #footer .contact textarea::-webkit-input-placeholder {
     color: #868687;
 }
 
 #footer .contact input[type="text"]:-ms-input-placeholder,
+#footer .contact input[type="email"]:-ms-input-placeholder,
 #footer .contact textarea:-ms-input-placeholder {
     color: #868687;
 }
@@ -528,7 +534,7 @@ header {
         margin-left: 0;
     }
 
-    #footer .contact input[type="text"], #footer .contact textarea {
+    #footer .contact input[type="text"], #footer .contact input[type="email"], #footer .contact textarea {
         float: left;
         width: 92%;
     }
