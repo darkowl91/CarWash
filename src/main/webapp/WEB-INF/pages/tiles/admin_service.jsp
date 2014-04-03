@@ -85,7 +85,7 @@
 </div>
 
 <%--CREATE SERVICE MODAL --%>
-<div class="modal fade" id="modal-container-createService" aria-hidden="true" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="modal-container-createService" aria-hidden="true" tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

@@ -111,7 +111,7 @@
 
 <c:forEach var="request" items="${SERVICE_REQUEST}">
 
-<div class="modal fade" id="modal-container_${request.id}" aria-hidden="true" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="modal-container_${request.id}" aria-hidden="true" tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -174,4 +174,6 @@
         </div>
     </div>
     </div>
+
+
 </c:forEach>
