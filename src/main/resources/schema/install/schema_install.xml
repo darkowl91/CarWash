@@ -172,14 +172,7 @@
 			<delete tableName="picture" />
 			<delete tableName="user" />
 			<delete tableName="authority" />
+			<delete tableName="service" />
 		</rollback>
 	</changeSet>
-
-    <changeSet id="10" author="Nickolay_Petrash">
-        <sqlFile path="src/main/resources/schema/sql/install_data_1.sql" />
-        <rollback>
-            <delete tableName="picture" />
-            <delete tableName="user" />
-        </rollback>
-    </changeSet>
 </databaseChangeLog>
