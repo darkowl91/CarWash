@@ -35,6 +35,8 @@
 <script src="<c:url value="/resources/js/jquery-latest.js"/>"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/theme.js"/>"></script>
+<script src="<c:url value="/resources/js/noty/packaged/jquery.noty.packaged.min.js"/>"></script>
+<script src="<c:url value="/resources/js/global.js"/>"></script>
 <script src="<c:url value="/resources/js/contact.js"/>"></script>
 <%--validation scripts--%>
 <script src="<c:url value="/resources/js/jquery-validate.min.js"/>"></script>
