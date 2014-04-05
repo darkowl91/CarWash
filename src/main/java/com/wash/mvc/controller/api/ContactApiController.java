@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("api/contact")
-public class ContactController {
+public class ContactApiController {
 	
 	@Autowired
 	private IContactService contactService;
@@ -21,14 +21,4 @@ public class ContactController {
 		contactService.save(contact);		
 		return "Saved contact id: " + contact.getId();
 	}
-
-    @RequestMapping(value = "/viewContacts", method = RequestMethod.GET)
-    public String viewContact() {
-        return "carWash.contact";
-    }
-
-    @RequestMapping(value = "/manageContact", method = RequestMethod.GET)
-    public String manageContact() {
-        return "carWash.admin.contacts";
-    }
 }

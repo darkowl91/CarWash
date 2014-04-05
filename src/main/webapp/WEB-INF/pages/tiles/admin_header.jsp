@@ -22,7 +22,7 @@
                     <li><a href="<c:url value="/manageServices"/>"><spring:message code="carWash.admin.header.mangeServices"/></a></li>
                     <li><a href="<c:url value="/manageServiceRequestList?filterId=all"/>"><spring:message code="carWash.admin.header.mangeServiceRequests"/></a></li>
                     <li><a href="<c:url value="/manageNews"/>"><spring:message code="carWash.admin.header.mangeNews"/></a></li>
-                    <li><a href="<c:url value="/api/contact/manageContact"/>"><spring:message code="carWash.admin.header.mangeContactInfo"/></a></li>
+                    <li><a href="<c:url value="/manageContact/1"/>"><spring:message code="carWash.admin.header.mangeContactInfo"/></a></li>
                     <sec:authorize access="isAuthenticated()">
                         <li><a href="<c:url value="/sigOut"/>"><spring:message code="carWash.admin.header.logOut"/></a>
                         </li>
