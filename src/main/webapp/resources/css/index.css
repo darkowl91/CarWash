@@ -190,11 +190,11 @@
     opacity: .8;
 }
 
-/*.asset,*/
-/*.fade {*/
-    /*position: absolute;*/
-    /*display: none;*/
-/*}*/
+.asset,
+.fade {
+    position: absolute;
+    display: none;
+}
 
 #slide-left,
 #slide-right {
