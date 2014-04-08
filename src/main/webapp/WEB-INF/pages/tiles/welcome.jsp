@@ -120,24 +120,18 @@
                         <h3><spring:message code="carWash.welcome.polish"/></h3>
 
                         <div class="price">
-                            <span class="month">From</span>
+                            <span class="month"><spring:message code="carWash.welcome.from"/></span>
                             <span class="dollar">$</span>
                             <span class="qty">35</span>
                         </div>
                         <div class="features">
                             <p>
-                                <strong>10</strong>
-                                Shared Projects
+                                <strong>1</strong>
+                                <spring:message code="carWash.welcome.warranty"/>
                             </p>
 
                             <p>
-                                <strong>4</strong>
-                                Team Members
-                            </p>
-
-                            <p>
-                                <strong>10</strong>
-                                Storage
+                                <spring:message code="carWash.welcome.polish.decription"/>
                             </p>
                         </div>
                         <a class="order" href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.orderNow"/></a>
@@ -153,29 +147,18 @@
                         <h3><spring:message code="carWash.welcome.repair"/></h3>
 
                         <div class="price">
-                            <span class="month">From</span>
+                            <span class="month"><spring:message code="carWash.welcome.from"/></span>
                             <span class="dollar">$</span>
                             <span class="qty">99</span>
                         </div>
                         <div class="features">
                             <p>
-                                <strong>10</strong>
-                                Shared Projects
+                                <strong>1</strong>
+                                <spring:message code="carWash.welcome.warranty"/>
                             </p>
 
                             <p>
-                                <strong>25</strong>
-                                Team Members
-                            </p>
-
-                            <p>
-                                <strong>Unlimited</strong>
-                                Storage
-                            </p>
-
-                            <p>
-                                <strong>Plus </strong>
-                                Phone Support
+                                <spring:message code="carWash.welcome.repair.decription"/>
                             </p>
                         </div>
                         <a class="order" href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.orderNow"/></a>
@@ -189,24 +172,18 @@
                         <h3><spring:message code="carWash.welcome.paint"/></h3>
 
                         <div class="price">
-                            <span class="month">From</span>
+                            <span class="month"><spring:message code="carWash.welcome.from"/></span>
                             <span class="dollar">$</span>
                             <span class="qty">65</span>
                         </div>
                         <div class="features">
                             <p>
-                                <strong>10</strong>
-                                Shared Projects
+                                <strong>2</strong>
+                                <spring:message code="carWash.welcome.warranty"/>
                             </p>
 
                             <p>
-                                <strong>4</strong>
-                                Team Members
-                            </p>
-
-                            <p>
-                                <strong>10</strong>
-                                Storage
+                                <spring:message code="carWash.welcome.paint.decription"/>
                             </p>
                         </div>
                         <a class="order" href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.orderNow"/></a>

@@ -14,7 +14,7 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav pull-right">
 					<li><a href="<c:url value="/"/>" class="active"><spring:message code="carWash.welcome.home"/></a></li>
-					<li><a href="about-us.html"><spring:message code="carWash.welcome.about"/></a></li>
+					<li><a href="<c:url value="/aboutUs"/>"><spring:message code="carWash.welcome.about"/></a></li>
                     <sec:authorize access="hasRole('ROLE_USER')">
                         <li><a href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.pricing"/></a></li>
                     </sec:authorize>

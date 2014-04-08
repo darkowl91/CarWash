@@ -36,28 +36,24 @@
 <div id="sign_up2">
     <div class="container">
         <div class="section_header">
-            <h3>Sign up <span>(option 2)</span></h3>
+            <h3><span>Наши контакты</span></h3>
         </div>
         <div class="row login">
             <div class="span5 left_box">
-                <h4>Create your account</h4>
+                <h4>Телефоны</h4>
 
                 <div class="perk_box">
                     <div class="perk">
-                        <span class="icos ico1"></span>
-
-                        <p><strong>Lorem alteration</strong> in some form injected humour these randomised words .</p>
+                        <p><strong>Городской:</strong> (017) 279-77-92</p>
                     </div>
                     <div class="perk">
-                        <span class="icos ico2"></span>
-
-                        <p><strong>There are many variations</strong> of passages of Lorem alteration in some form
-                            injected humour these randomised words.</p>
+                        <p><strong>Velcom:</strong> 8 044 715-05-05</p>
                     </div>
                     <div class="perk">
-                        <span class="icos ico3"></span>
-
-                        <p><strong>Alteration in some form</strong> injected humour these randomised words.</p>
+                        <p><strong>MTC:</strong> 8 033 661-97-47</p>
+                    </div>
+                    <div class="perk">
+                        <p><strong>Email:</strong> upiter-avto@open.by</p>
                     </div>
                 </div>
             </div>

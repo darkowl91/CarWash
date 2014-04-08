@@ -2,7 +2,8 @@
 	$(function() {
 		$('#contact_form').submit(
 				function(e) {
-					$.post('/carwash/api/contact', $(this).serialize(), function(response) {
+                    //TODO: relative path
+					$.post('api/contact', $(this).serialize(), function(response) {
 						generateNoty('success', 'topCenter', 'Success');
 					}).error(function() {
 						generateNoty('error', 'topCenter', 'Error');
