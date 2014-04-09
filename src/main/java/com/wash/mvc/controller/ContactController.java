@@ -32,4 +32,9 @@ public class ContactController {
 		
         return "carWash.admin.contacts";
     }
+
+    @RequestMapping(value = "/viewContacts", method = RequestMethod.GET)
+    public String contactUs(){
+        return "carWash.contact";
+    }
 }

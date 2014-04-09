@@ -18,7 +18,7 @@
                     <sec:authorize access="hasRole('ROLE_USER')">
                         <li><a href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.pricing"/></a></li>
                     </sec:authorize>
-                    <li><a href="<c:url value="/api/contact/viewContacts"/>"><spring:message code="carWash.welcome.contactUs"/></a></li>
+                    <li><a href="<c:url value="/viewContacts"/>"><spring:message code="carWash.welcome.contactUs"/></a></li>
                     <sec:authorize access="isAnonymous()">
                         <li><a class="btn-header" href="<c:url value="/signUp"/>"><spring:message code="carWash.welcome.signUp"/></a></li>
                         <li><a class="btn-header" href="<c:url value="/signIn"/>"><spring:message code="carWash.welcome.signIn"/></a></li>

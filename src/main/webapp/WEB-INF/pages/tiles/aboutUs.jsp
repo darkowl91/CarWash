@@ -5,31 +5,28 @@
 <div id="aboutus">
     <div class="container">
         <div class="section_header">
-            <h3>About Us</h3>
+            <h3><spring:message code="aboutUs.about"/></h3>
         </div>
         <div class="row">
             <div class="span6 intro">
-                <h6>There are many variations of passages Lorem Ipsum available, injected generators on the hidden.</h6>
+                <h6></h6>
 
                 <p>
-                    There are many variations of passages of Lorem Ipsum available, injected
-                    generators on the embarrassing hidden in the middle all the dictionary making it look like readable
-                    English. Many desktop publishing packages and web page editors.
+
                     <br/><br/>
-                    There are many variations of passages of Lorem Ipsum available, but the ndictionary of over 200
-                    Latin words, combined with a handful of models The generated Lorem Ipsum is therefore always free
-                    from repetition, the injected humour, or non-characteristic words etc.</p>
+
+                </p>
             </div>
             <div class="span6 flexslider">
                 <ul class="slides">
                     <li>
-                        <img src="img/about_slide1.jpg"/>
+                        <img src="<c:url value="/resources/img/about_slide1.jpg"/>"/>
                     </li>
                     <li>
-                        <img src="img/about_slide1.jpg"/>
+                        <img src="<c:url value="/resources/img/about_slide1.jpg"/>"/>
                     </li>
                     <li>
-                        <img src="img/about_slide1.jpg"/>
+                        <img src="<c:url value="/resources/img/about_slide1.jpg"/>"/>
                     </li>
                 </ul>
             </div>
