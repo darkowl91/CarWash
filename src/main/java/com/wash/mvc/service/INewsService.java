@@ -7,4 +7,6 @@ import java.util.List;
 public interface INewsService {
 
     public List<News> findAll();
+
+    public News save(News news);
 }

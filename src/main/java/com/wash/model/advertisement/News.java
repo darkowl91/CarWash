@@ -16,6 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.wash.model.picture.Picture;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="NEWS", schema = "CarWash")
@@ -30,6 +31,7 @@ public class News implements Serializable {
 	
 	@Column(name = "DATE")
 	@Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern="mm/dd/yyyy")
     private Calendar date;
 	
 	@Column(name = "TITLE", nullable = false)

@@ -20,4 +20,8 @@ public class NewsServiceImpl implements INewsService {
     public List<News> findAll() {
         return Lists.newArrayList(repository.findAll());
     }
+
+    public News save(News news) {
+        return repository.save(news);
+    }
 }
