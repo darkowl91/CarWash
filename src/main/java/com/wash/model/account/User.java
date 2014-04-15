@@ -21,7 +21,7 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "USERNAME", nullable = false)
+	@Column(name = "USERNAME", nullable = false, unique = true)
 	private String username;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -34,7 +34,7 @@ public class User implements Serializable {
 	@Column(name = "ENABLED")
 	private boolean enabled;
 
-	@Column(name = "EMAIL", nullable = false)
+	@Column(name = "EMAIL", nullable = false, unique = true)
 	private String email;
 
 	@Column(name = "FIRSTNAME", nullable = false)

@@ -1,6 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<spring:message code="carWash.signUp.username" var="username"/>
+<spring:message code="carWash.signUp.password" var="password"/>
+<spring:message code="carWash.signUp.passwordConfirm" var="passwordConfirm"/>
+<spring:message code="carWash.signUp.firstName" var="firstName"/>
+<spring:message code="carWash.signUp.lastName" var="lastName"/>
+<spring:message code="carWash.signUp.email" var="email"/>
 
 <div id="sign_up1">
     <div class="container">
@@ -13,12 +21,21 @@
                 </p>
             </div>
             <div class="span12 footer">
-                <form action="<c:url value=''/>" method='POST'>
-                    <input type="text" placeholder="<spring:message code="carWash.signUp.username"/>"/>
-                    <input type="password" placeholder="<spring:message code="carWash.signUp.password"/>"/>
-                    <input type="password" placeholder="<spring:message code="carWash.signUp.passwordConfirm"/>"/>
+                <form:form modelAttribute="newUser" method="post">
+                	<form:errors path="username" />
+                	<form:errors path="password" />
+                	<form:errors path="passwordConfirm" />
+                	<form:errors path="firstName" />
+                	<form:errors path="lastName" />
+                	<form:errors path="email" />
+                    <form:input path="username" placeholder="${username}" />
+                    <form:password path="password" placeholder="${password}"/>
+                    <form:password path="passwordConfirm" placeholder="${passwordConfirm}"/>
+                    <form:input path="firstName" placeholder="${firstName}"/>
+                    <form:input path="lastName" placeholder="${lastName}"/>
+                    <form:input path="email" placeholder="${email}"/>
                     <input type="submit" value="<spring:message code="carWash.signUp.submit"/>"/>
-                </form>
+                </form:form>
             </div>
 
             <div class="span12 dosnt">
