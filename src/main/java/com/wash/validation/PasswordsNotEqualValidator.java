@@ -26,7 +26,6 @@ public class PasswordsNotEqualValidator implements ConstraintValidator<Passwords
             String passwordConfirm = (String) ValidatorUtil.getFieldValue(value, passwordConfirmFieldName);
 
             if (passwordsAreNotEqual(password, passwordConfirm)) {
-                ValidatorUtil.addValidationError(passwordFieldName, context);
                 ValidatorUtil.addValidationError(passwordConfirmFieldName, context);
 
                 return false;
@@ -40,6 +39,9 @@ public class PasswordsNotEqualValidator implements ConstraintValidator<Passwords
     }
 
     private boolean passwordsAreNotEqual(String password, String passwordConfirm) {
-        return !(password == null ? passwordConfirm == null : password.equals(passwordConfirm));
+    	if (password != null) {
+    		return !password.equals(passwordConfirm);
+    	}
+    	return true;
     }
 }

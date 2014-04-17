@@ -13,29 +13,27 @@ import com.wash.validation.annotation.PasswordsNotEqual;
 )
 public class RegistrationForm {
 
-	@NotEmpty
-    @Size(max = 100)
+	@NotEmpty(message = "{com.wash.model.registration.username.notEmpty}")
+    @Size(max = 255, message = "{com.wash.model.registration.username.size}")
 	private String username;
 	
-	@NotEmpty
-    @Size(max = 100)
+	@NotEmpty(message = "{com.wash.model.registration.password.notEmpty}")
+    @Size(max = 255, message = "{com.wash.model.registration.password.size}")
 	private String password;
 	
-	@NotEmpty
-    @Size(max = 100)
 	private String passwordConfirm;
 	
-	@NotEmpty
-    @Size(max = 100)
+	@NotEmpty(message = "{com.wash.model.registration.firstName.notEmpty}")
+    @Size(max = 255, message = "{com.wash.model.registration.firstName.size}")
 	private String firstName;
 	
-	@NotEmpty
-    @Size(max = 100)
+	@NotEmpty(message = "{com.wash.model.registration.lastName.notEmpty}")
+    @Size(max = 255, message = "{com.wash.model.registration.lastName.size}")
 	private String lastName;
 	
-	@Email
-    @NotEmpty
-    @Size(max = 100)
+	@Email(message = "{com.wash.model.registration.email.incorrectEmail}")
+	@NotEmpty(message = "{com.wash.model.registration.email.notEmpty}")
+    @Size(max = 255, message = "{com.wash.model.registration.email.size}")
 	private String email;
 
 	public String getUsername() {
