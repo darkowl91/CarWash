@@ -5,8 +5,7 @@
 
 <spring:message code="carWash.signUp.username" var="username" />
 <spring:message code="carWash.signUp.password" var="password" />
-<spring:message code="carWash.signUp.passwordConfirm"
-	var="passwordConfirm" />
+<spring:message code="carWash.signUp.passwordConfirm" var="passwordConfirm" />
 <spring:message code="carWash.signUp.firstName" var="firstName" />
 <spring:message code="carWash.signUp.lastName" var="lastName" />
 <spring:message code="carWash.signUp.email" var="email" />
