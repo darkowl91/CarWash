@@ -1,11 +1,10 @@
 package com.wash.model.account.registration;
 
-import javax.validation.constraints.Size;
-
+import com.wash.validation.annotation.PasswordsNotEqual;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.wash.validation.annotation.PasswordsNotEqual;
+import javax.validation.constraints.Size;
 
 @PasswordsNotEqual(
         passwordFieldName = "password",
@@ -13,74 +12,74 @@ import com.wash.validation.annotation.PasswordsNotEqual;
 )
 public class RegistrationForm {
 
-	@NotEmpty(message = "{com.wash.model.account.registration.username.notEmpty}")
+    @NotEmpty(message = "{com.wash.model.account.registration.username.notEmpty}")
     @Size(max = 255, message = "{com.wash.model.account.registration.username.size}")
-	private String username;
-	
-	@NotEmpty(message = "{com.wash.model.account.registration.password.notEmpty}")
+    private String username;
+
+    @NotEmpty(message = "{com.wash.model.account.registration.password.notEmpty}")
     @Size(max = 255, message = "{com.wash.model.account.registration.password.size}")
-	private String password;
-	
-	private String passwordConfirm;
-	
-	@NotEmpty(message = "{com.wash.model.account.registration.firstName.notEmpty}")
+    private String password;
+
+    private String passwordConfirm;
+
+    @NotEmpty(message = "{com.wash.model.account.registration.firstName.notEmpty}")
     @Size(max = 255, message = "{com.wash.model.account.registration.firstName.size}")
-	private String firstName;
-	
-	@NotEmpty(message = "{com.wash.model.account.registration.lastName.notEmpty}")
+    private String firstName;
+
+    @NotEmpty(message = "{com.wash.model.account.registration.lastName.notEmpty}")
     @Size(max = 255, message = "{com.wash.model.account.registration.lastName.size}")
-	private String lastName;
-	
-	@Email(message = "{com.wash.model.account.registration.email.incorrectEmail}")
-	@NotEmpty(message = "{com.wash.model.account.registration.email.notEmpty}")
+    private String lastName;
+
+    @Email(message = "{com.wash.model.account.registration.email.incorrectEmail}")
+    @NotEmpty(message = "{com.wash.model.account.registration.email.notEmpty}")
     @Size(max = 255, message = "{com.wash.model.account.registration.email.size}")
-	private String email;
+    private String email;
 
-	public String getUsername() {
-		return username;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getPasswordConfirm() {
-		return passwordConfirm;
-	}
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
 
-	public void setPasswordConfirm(String passwordConfirm) {
-		this.passwordConfirm = passwordConfirm;
-	}
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
