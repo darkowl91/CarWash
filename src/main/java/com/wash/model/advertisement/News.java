@@ -3,17 +3,7 @@ package com.wash.model.advertisement;
 import java.io.Serializable;
 import java.util.Calendar;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import com.wash.model.picture.Picture;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -31,7 +21,6 @@ public class News implements Serializable {
 	
 	@Column(name = "DATE")
 	@Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern="mm/dd/yyyy")
     private Calendar date;
 	
 	@Column(name = "TITLE", nullable = false)
@@ -43,7 +32,7 @@ public class News implements Serializable {
 	@Column(name = "CONTENT")
     private String content;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
 	@JoinColumn(name = "PICTURE_ID")
     private Picture picture;
 

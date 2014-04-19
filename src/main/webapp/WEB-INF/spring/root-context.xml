@@ -20,7 +20,5 @@
 
     <!-- Security configuration -->
     <import resource="security.xml"/>
-    
-    <bean id="userConverter" class="com.wash.mvc.controller.converter.UserConverter" />
 
 </beans>

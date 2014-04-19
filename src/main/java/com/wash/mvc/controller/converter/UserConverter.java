@@ -3,8 +3,10 @@ package com.wash.mvc.controller.converter;
 import org.springframework.core.convert.converter.Converter;
 
 import com.wash.model.account.User;
-import com.wash.model.registration.RegistrationForm;
+import com.wash.model.account.registration.RegistrationForm;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserConverter implements Converter<RegistrationForm, User> {
 
 	@Override

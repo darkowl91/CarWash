@@ -24,4 +24,14 @@ public class NewsServiceImpl implements INewsService {
     public News save(News news) {
         return repository.save(news);
     }
+
+    @Override
+    public void delete(Long id) {
+        repository.delete(id);
+    }
+
+    @Override
+    public News findById(Long id) {
+        return repository.findOne(id);
+    }
 }

@@ -29,42 +29,34 @@
         <div class="row">
             <div class="span12">
                 <div id="gallery_container">
-
                     <%--TODO: Shhould be list with news already existing--%>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <%--<th>--%>
-                                <%--<spring:message code="carWash.admin.news"/>--%>
-                            <%--</th>--%>
+                    <c:forEach var="newsItem" items="${NEWS}">
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <div class="media">
+                                    <a href="#" class="pull-left">
+                                        <img height="64" width="64"
+                                             src="data:image/jpeg;base64,${newsItem.picture.imageAsString}" alt=""
+                                             class="media-object"/>
+                                    </a>
 
-                            <%--<th>--%>
-                                <%--<spring:message code="carWash.admin.news"/>--%>
-                            <%--</th>--%>
-
-                            <%--<th>--%>
-                                <%--<spring:message code="carWash.admin.news"/>--%>
-                            <%--</th>--%>
-
-                            <%--<th>--%>
-                                <%--<spring:message code="carWash.admin.news"/>--%>
-                            <%--</th>--%>
-
-                            <%--<th>--%>
-                                <%--#--%>
-                            <%--</th>--%>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="newsItem" items="${NEWS}">
-                            <tr>
-                                <td>
-
-                                </td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                                ${newsItem.title}
+                                        </h4>${newsItem.description}
+                                        <div class="media">
+                                                ${newsItem.description}
+                                            <div class="media-body">
+                                                    ${newsItem.content}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="<c:url value="/editNews?id=${newsItem.id}"/>" class="pull-right"><i class="icon-edit"></i></a>
+                        <a href="<c:url value="/deleteNews?id=${newsItem.id}"/>" class="pull-right"><i class="icon-remove"></i></a>
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -84,8 +76,9 @@
             <div class="modal-body">
                 <div class="media">
                     <div class="media-body" contenteditable="false">
-                        <form:form method="post" action="createNews" modelAttribute="newNews" enctype="multipart/form-data"
-                                  cssClass="form-horizontal" role="form">
+                        <form:form method="post" action="createNews" modelAttribute="newsForm"
+                                   enctype="multipart/form-data"
+                                   cssClass="form-horizontal" role="form">
 
                             <div class="form-group">
                                 <label for="date" class="col-sm-2 control-label">
@@ -95,6 +88,7 @@
 
                                 <div class="col-sm-10">
                                     <form:input path="date" id="date" type="date" cssClass="form-control"
+
                                                 required="true"
                                                 placeholder="${dateEnter}"/>
                                 </div>
@@ -154,12 +148,13 @@
                                 </div>
                             </div>
                             <br/>
-                            <button type="submit" class="btn btn-primary">
+                            <form:button type="submit" class="btn btn-primary">
                                 <spring:message code="carWash.admin.news.add"/>
-                            </button>
-                            <button type="reset" class="btn btn-default">
+                            </form:button>
+
+                            <form:button type="reset" class="btn btn-default">
                                 <spring:message code="carWash.admin.news.clear"/>
-                            </button>
+                            </form:button>
                         </form:form>
                     </div>
                 </div>
