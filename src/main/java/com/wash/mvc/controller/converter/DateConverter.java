@@ -13,7 +13,7 @@ public final class DateConverter implements Converter<String, Calendar> {
     public Calendar convert(String source) {
         Calendar calendar = null;
         try {
-            calendar = DateUtil.parseDate(source, DateUtil.PATTERN_DD_MM_YYYY);
+            calendar = DateUtil.parseDate(source, DateUtil.PATTERN_YYYY_MM_DD);
         } catch (ParseException ignored) {
             // TODO: process Exception
         }

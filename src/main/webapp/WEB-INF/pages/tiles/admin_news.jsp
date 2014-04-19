@@ -56,6 +56,7 @@
                         </div>
                         <a href="<c:url value="/editNews?id=${newsItem.id}"/>" class="pull-right"><i class="icon-edit"></i></a>
                         <a href="<c:url value="/deleteNews?id=${newsItem.id}"/>" class="pull-right"><i class="icon-remove"></i></a>
+                        <br/>
                     </c:forEach>
                 </div>
             </div>
