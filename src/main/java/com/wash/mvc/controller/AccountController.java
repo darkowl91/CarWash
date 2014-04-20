@@ -1,22 +1,30 @@
 package com.wash.mvc.controller;
 
+import java.security.Principal;
 import java.util.Map;
 
 import javax.validation.Valid;
 
-import com.wash.model.account.registration.RegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.wash.model.account.Authority;
 import com.wash.model.account.User;
+import com.wash.model.account.registration.RegistrationForm;
 import com.wash.mvc.controller.converter.UserConverter;
 import com.wash.mvc.service.IAuthorityService;
 import com.wash.mvc.service.IUserService;
@@ -25,6 +33,7 @@ import com.wash.programm.exception.DuplicateUsernameException;
 import com.wash.programm.security.util.SecurityUtil;
 
 @Controller
+@SessionAttributes("user")
 public class AccountController {
 
 	private static final String ROLE_USER = "ROLE_USER";
@@ -79,9 +88,41 @@ public class AccountController {
 		return "redirect:/";
 	}
 
+	@RequestMapping(value = "/selfCare", method = RequestMethod.GET)
+	public String selfCareForm(Model model, Principal principal) {
+		User user = userService.findByUsername(principal.getName());
+		model.addAttribute("user", user);
+		return "carWash.selfCare";
+	}
+
+	@RequestMapping(value = "/selfCare", method = RequestMethod.POST)
+	public String updatePersonalInformation(
+			@Valid @ModelAttribute("user") User user, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "carWash.selfCare";
+		}
+
+		user = userService.update(user);
+
+		if (user == null) {
+			return "carWash.selfCare";
+		}
+
+		return "redirect:/selfCare";
+	}
+
+	@RequestMapping(value = "/selfCare/uploadPicture", method = RequestMethod.POST)
+	public String uploadPhoto(
+			@ModelAttribute("uploadedPicture") MultipartFile uploadedPicture,
+			BindException errors) throws Exception {
+
+		return "redirect:/selfCare";
+	}
+
 	private User createUserAccount(User newUser, BindingResult result) {
 		User registered = null;
-		
+
 		try {
 			registered = userService.register(newUser);
 		} catch (DuplicateEmailException ex) {
@@ -101,5 +142,14 @@ public class AccountController {
 				false, new String[] { errorCode }, new Object[] {}, errorCode);
 
 		result.addError(error);
+	}
+	
+	@ExceptionHandler({ MaxUploadSizeExceededException.class })
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public String handleException(MaxUploadSizeExceededException e) {
+		
+		
+
+		return "carWash.selfCare";
 	}
 }

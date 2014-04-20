@@ -33,6 +33,10 @@ public class UserServiceImpl implements IUserService {
 
 		return userRepository.save(user);
 	}
+	
+	public User update(User user) {
+		return userRepository.save(user);
+	}
 
 	private boolean emailExist(String email) {
 		User user = userRepository.findByEmail(email);

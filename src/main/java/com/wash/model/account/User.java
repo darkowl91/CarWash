@@ -1,8 +1,11 @@
 package com.wash.model.account;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.wash.model.picture.Picture;
 
@@ -22,6 +25,8 @@ public class User implements Serializable {
 	private Long id;
 
 	@Column(name = "USERNAME", nullable = false, unique = true)
+	@NotEmpty(message = "{com.wash.model.account.username.notEmpty}")
+    @Size(max = 255, message = "{com.wash.model.account.username.size}")
 	private String username;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -35,12 +40,19 @@ public class User implements Serializable {
 	private boolean enabled;
 
 	@Column(name = "EMAIL", nullable = false, unique = true)
+	@Email(message = "{com.wash.model.account.email.incorrectEmail}")
+    @NotEmpty(message = "{com.wash.model.account.email.notEmpty}")
+    @Size(max = 255, message = "{com.wash.model.account.email.size}")
 	private String email;
 
 	@Column(name = "FIRSTNAME", nullable = false)
+	@NotEmpty(message = "{com.wash.model.account.firstName.notEmpty}")
+    @Size(max = 255, message = "{com.wash.model.account.firstName.size}")
 	private String firstName;
 
 	@Column(name = "LASTNAME", nullable = false)
+	@NotEmpty(message = "{com.wash.model.account.lastName.notEmpty}")
+    @Size(max = 255, message = "{com.wash.model.account.lastName.size}")
 	private String lastName;
 
 	@Column(name = "BIRTHDAY")

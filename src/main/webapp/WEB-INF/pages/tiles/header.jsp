@@ -27,6 +27,9 @@
                         <li><a href="<c:url value="/manageServiceRequestList?filterId=all"/>"><spring:message code="carWash.welcome.admin"/></a></li>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
+                    	<li><a href="<c:url value="/selfCare"/>"><spring:message code="carWash.welcome.selfCare"/></a></li>
+                    </sec:authorize>
+                    <sec:authorize access="isAuthenticated()">
                         <li><a href="<c:url value="/sigOut"/>"><spring:message code="carWash.welcome.logOut"/></a></li>
                     </sec:authorize>
                 </ul>

@@ -9,4 +9,6 @@ public interface IUserService {
      User findByUsername(String username);
      
      User register(User user) throws DuplicateEmailException, DuplicateUsernameException;
+     
+     User update(User user);
 }

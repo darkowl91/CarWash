@@ -64,6 +64,14 @@
             <add-attribute value="/resources/css/pricing.css" type="string"/>
         </put-list-attribute>
     </definition>
+    
+    <!--SELF CARE-->
+    <definition name="carWash.selfCare" extends="carWash.mainLayout">
+        <put-attribute name="content" value="/WEB-INF/pages/tiles/selfCare.jsp"/>
+        <put-list-attribute name="page_specific_css">
+            <add-attribute value="/resources/css/selfCare.css" type="string"/>
+        </put-list-attribute>
+    </definition>
 
     <!--ADMIN_SIDE_LAYOUT-->
     <definition name="carWash.mainLayout.admin" extends="carWash.mainLayout">
