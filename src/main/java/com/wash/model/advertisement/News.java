@@ -1,37 +1,37 @@
 package com.wash.model.advertisement;
 
-import java.io.Serializable;
-import java.util.Calendar;
+import com.wash.model.picture.Picture;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-
-import com.wash.model.picture.Picture;
-import org.springframework.format.annotation.DateTimeFormat;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Calendar;
 
 @Entity
 @Table(name="NEWS", schema = "CarWash")
 public class News implements Serializable {
 
 	private static final long serialVersionUID = 5618996323287858344L;
-	
+
 	@Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(name = "DATE")
 	@Temporal(TemporalType.TIMESTAMP)
     private Calendar date;
-	
+
 	@Column(name = "TITLE", nullable = false)
     private String title;
-	
+
 	@Column(name = "DECRIPTION")
     private String description;
-	
+
 	@Column(name = "CONTENT")
     private String content;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
 	@JoinColumn(name = "PICTURE_ID")
     private Picture picture;
@@ -82,6 +82,15 @@ public class News implements Serializable {
 
     public void setPicture(Picture picture) {
         this.picture = picture;
+    }
+
+    public void setPicture(MultipartFile file) throws IOException {
+        if (file != null) {
+            Picture picture = new Picture();
+            picture.setPictureName(file.getName());
+            picture.setPicture(file.getBytes());
+            this.picture = picture;
+        }
     }
 
 	@Override

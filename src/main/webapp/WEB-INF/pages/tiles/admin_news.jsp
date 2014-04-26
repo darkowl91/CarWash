@@ -29,8 +29,7 @@
         <div class="row">
             <div class="span12">
                 <div id="gallery_container">
-                    <%--TODO: Shhould be list with news already existing--%>
-                    <c:forEach var="newsItem" items="${NEWS}">
+                    <c:forEach var="newsItem" items="${NEWS_LIST}">
                         <div class="row clearfix">
                             <div class="col-md-12 column">
                                 <div class="media">
@@ -45,7 +44,7 @@
                                                 ${newsItem.title}
                                         </h4>${newsItem.description}
                                         <div class="media">
-                                                ${newsItem.description}
+                                                ${newsItem.date.time}
                                             <div class="media-body">
                                                     ${newsItem.content}
                                             </div>
@@ -77,7 +76,7 @@
             <div class="modal-body">
                 <div class="media">
                     <div class="media-body" contenteditable="false">
-                        <form:form method="post" action="createNews" modelAttribute="newsForm"
+                        <form:form method="post" action="createNews" modelAttribute="news"
                                    enctype="multipart/form-data"
                                    cssClass="form-horizontal" role="form">
 
