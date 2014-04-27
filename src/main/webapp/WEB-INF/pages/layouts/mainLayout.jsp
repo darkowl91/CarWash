@@ -22,6 +22,22 @@
     <!--[if lt IE 9]>
     <script src="<c:url value="/resources/js/html5.js"/>"></script>
     <![endif]-->
+
+    <!-- Scripts -->
+    <script src="<c:url value="/resources/js/jquery-latest.js"/>"></script>
+    <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/theme.js"/>"></script>
+    <script src="<c:url value="/resources/js/noty/packaged/jquery.noty.packaged.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/global.js"/>"></script>
+    <script src="<c:url value="/resources/js/contact.js"/>"></script>
+    <%--validation scripts--%>
+    <script src="<c:url value="/resources/js/jquery-validate.min.js"/>"></script>
+    <!-- Page Specific Scripts -->
+    <tiles:useAttribute id="specific_js" name="page_specific_js" classname="java.util.List" ignore="true"/>
+    <c:forEach var="js_url" items="${specific_js}">
+        <script type="text/javascript" src="<c:url value="${js_url}"/>"></script>
+    </c:forEach>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body class="pull_top">
@@ -31,20 +47,5 @@
         <tiles:insertAttribute name="content"/>
     </div>
     <tiles:insertAttribute name="footer"/>
-<!-- Scripts -->
-<script src="<c:url value="/resources/js/jquery-latest.js"/>"></script>
-<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-<script src="<c:url value="/resources/js/theme.js"/>"></script>
-<script src="<c:url value="/resources/js/noty/packaged/jquery.noty.packaged.min.js"/>"></script>
-<script src="<c:url value="/resources/js/global.js"/>"></script>
-<script src="<c:url value="/resources/js/contact.js"/>"></script>
-<%--validation scripts--%>
-<script src="<c:url value="/resources/js/jquery-validate.min.js"/>"></script>
-
-    <!-- Page Specific Scripts -->
-    <tiles:useAttribute id="specific_js" name="page_specific_js" classname="java.util.List" ignore="true"/>
-    <c:forEach var="js_url" items="${specific_js}">
-        <script type="text/javascript" src="<c:url value="${js_url}"/>"></script>
-    </c:forEach>
 </body>
 </html>

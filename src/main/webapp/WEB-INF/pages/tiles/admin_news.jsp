@@ -13,7 +13,7 @@
             <div class="span12">
                 <div id="filters_container">
                     <ul id="filters">
-                        <li><a href="#" data-filter=".art" class="active"><spring:message
+                        <li><a href="<c:url value="/manageNews"/> " data-filter=".art" class="active"><spring:message
                                 code="carWash.admin.news.view"/></a></li>
                         <li class="separator">/</li>
                         <li>
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<c:url value="/editNews?id=${newsItem.id}"/>" class="pull-right"><i class="icon-edit"></i></a>
+                        <a href="<c:url value="/editNews?id=${newsItem.id}"/>"  class="pull-right"><i class="icon-edit"></i></a>
                         <a href="<c:url value="/deleteNews?id=${newsItem.id}"/>" class="pull-right"><i class="icon-remove"></i></a>
                         <br/>
                     </c:forEach>
@@ -62,6 +62,15 @@
         </div>
     </div>
 </div>
+
+<%--Show modla when action is edit--%>
+<c:if test="${isEdit == true}">
+    <script>
+        $(document).ready(function(){
+            $('#modal-container_NEWS').modal();
+        });
+    </script>
+</c:if>
 
 <div class="modal fade" id="modal-container_NEWS" aria-hidden="true" tabindex="-1" style="display: none;"
      aria-hidden="true">
@@ -149,7 +158,14 @@
                             </div>
                             <br/>
                             <form:button type="submit" class="btn btn-primary">
-                                <spring:message code="carWash.admin.news.add"/>
+                                <c:if test="${isEdit == true}">
+                                    <spring:message code="carWash.admin.news.edit"/>
+                                </c:if>
+
+                                <c:if test="${isEdit == false}">
+                                    <spring:message code="carWash.admin.news.add"/>
+                                </c:if>
+
                             </form:button>
 
                             <form:button type="reset" class="btn btn-default">
