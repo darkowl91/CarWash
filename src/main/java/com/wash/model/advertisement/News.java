@@ -1,11 +1,13 @@
 package com.wash.model.advertisement;
 
 import com.wash.model.picture.Picture;
+import com.wash.programm.util.DateUtil;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.io.IOException;
 import java.io.Serializable;
+import java.text.ParseException;
 import java.util.Calendar;
 
 @Entity
@@ -84,12 +86,12 @@ public class News implements Serializable {
         this.picture = picture;
     }
 
-    public void setPicture(MultipartFile file) throws IOException {
-        if (file != null) {
-            Picture picture = new Picture();
-            picture.setPictureName(file.getName());
-            picture.setPicture(file.getBytes());
-            this.picture = picture;
+    public void setPicture(MultipartFile picture) throws IOException {
+        if (picture != null) {
+            Picture _picture = new Picture();
+            _picture.setPictureName(picture.getName());
+            _picture.setPicture(picture.getBytes());
+            this.picture = _picture;
         }
     }
 
