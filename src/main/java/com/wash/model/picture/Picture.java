@@ -28,6 +28,11 @@ public class Picture implements Serializable {
     public Picture() {
     }
 
+    public Picture(byte[] picture, String pictureName) {
+        this.picture = picture;
+        this.pictureName = pictureName;
+    }
+
     public Long getId() {
         return id;
     }

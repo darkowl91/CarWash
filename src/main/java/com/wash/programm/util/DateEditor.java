@@ -4,9 +4,6 @@ import java.beans.PropertyEditorSupport;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-/**
- * Created by Owl.
- */
 public class DateEditor extends PropertyEditorSupport {
 
     public void setAsText(String value) {
