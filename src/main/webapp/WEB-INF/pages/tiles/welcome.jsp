@@ -158,7 +158,7 @@
                             </p>
 
                             <p>
-                                <spring:message code="carWash.welcome.repair.decription"/>
+                                <spring:message code="carWash.welcome.repair.decryption"/>
                             </p>
                         </div>
                         <a class="order" href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.orderNow"/></a>
@@ -183,7 +183,7 @@
                             </p>
 
                             <p>
-                                <spring:message code="carWash.welcome.paint.decription"/>
+                                <spring:message code="carWash.welcome.paint.decryption"/>
                             </p>
                         </div>
                         <a class="order" href="<c:url value="/viewServiceList"/>"><spring:message code="carWash.welcome.orderNow"/></a>

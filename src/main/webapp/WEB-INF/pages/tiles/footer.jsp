@@ -1,31 +1,39 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <footer id="footer">
 	<div class="container">
 		<div class="row sections">
 			<div class="span4 recent_posts">
                 <h3 class="footer_header"><spring:message code="carWash.welcome.resentPosts"/></h3>
+                <c:forEach var="newsItem" items="${NEWS_LIST}">
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <div class="media">
+                                <a href="#" class="pull-left">
+                                    <img height="64" width="64"
+                                         src="data:image/jpeg;base64,${newsItem.picture.imageAsString}" alt=""
+                                         class="media-object"/>
+                                </a>
 
-                <div class="post">
-                    <a href="blogpost.html">
-                        <img src="resources/img/recent_post1.png" class="img-circle"/>
-                    </a>
-					<div class="date">Wed, 12 Dec</div>
-                    <a href="blogpost.html" class="title">
-                        Randomised words which don't look embarrasing hidden.
-                    </a>
-                </div>
-				<div class="post">
-                    <a href="blogpost.html">
-                        <img src="resources/img/recent_post2.png" class="img-circle"/>
-                    </a>
-					<div class="date">Mon, 12 Dec</div>
-                    <a href="blogpost.html" class="title">
-                        Randomised words which don't look embarrasing hidden.
-                    </a>
-                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        ${newsItem.title}
+                                    </h4>
+                                    <p><f:formatDate type="DATE" dateStyle="SHORT" value="${newsItem.date.time}"/></p>
+                                    ${newsItem.description}
+                                    <div class="media">
+                                        ${newsItem.description}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                </c:forEach>
 			</div>
 			<div class="span4 contact">
                 <h3 class="footer_header"><spring:message code="carWash.welcome.contact"/></h3>

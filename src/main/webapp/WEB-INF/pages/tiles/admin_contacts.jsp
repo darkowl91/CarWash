@@ -16,67 +16,69 @@
 		</div>
 		<div class="row">
 			<div class="span12">
-				<div class="pagination pagination-centered">
-					<ul>
-						<c:choose>
-							<c:when test="${currentIndex == 1}">
-								<li class="disabled"><a href="#">&lt;&lt;</a></li>
-								<li class="disabled"><a href="#">&lt;</a></li>
-							</c:when>
-							<c:otherwise>
-								<li><a href="${firstUrl}">&lt;&lt;</a></li>
-								<li><a href="${prevUrl}">&lt;</a></li>
-							</c:otherwise>
-						</c:choose>
-						<c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
-							<c:url var="pageUrl" value="/manageContact/${i}" />
+				<c:if test="${not empty page.content}">
+					<div class="pagination pagination-centered">
+						<ul>
 							<c:choose>
-								<c:when test="${i == currentIndex}">
-									<li class="active"><a href="${pageUrl}"><c:out
-												value="${i}" /></a></li>
+								<c:when test="${currentIndex == 1}">
+									<li class="disabled"><a href="#">&lt;&lt;</a></li>
+									<li class="disabled"><a href="#">&lt;</a></li>
 								</c:when>
 								<c:otherwise>
-									<li><a href="${pageUrl}"><c:out value="${i}" /></a></li>
+									<li><a href="${firstUrl}">&lt;&lt;</a></li>
+									<li><a href="${prevUrl}">&lt;</a></li>
 								</c:otherwise>
 							</c:choose>
-						</c:forEach>
-						<c:choose>
-							<c:when test="${currentIndex == page.totalPages}">
-								<li class="disabled"><a href="#">&gt;</a></li>
-								<li class="disabled"><a href="#">&gt;&gt;</a></li>
-							</c:when>
-							<c:otherwise>
-								<li><a href="${nextUrl}">&gt;</a></li>
-								<li><a href="${lastUrl}">&gt;&gt;</a></li>
-							</c:otherwise>
-						</c:choose>
-					</ul>
-				</div>
-				<br />
-				<div id="gallery_container">
-					<c:if test="${not empty page.content}">
-						<table class="table">
-							<thead>
-								<tr>
-									<th>Date</th>
-									<th>Name</th>
-									<th>Email</th>
-									<th>Message</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="contact" items="${page.content}">
+							<c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
+								<c:url var="pageUrl" value="/manageContact/${i}" />
+								<c:choose>
+									<c:when test="${i == currentIndex}">
+										<li class="active"><a href="${pageUrl}"><c:out
+													value="${i}" /></a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="${pageUrl}"><c:out value="${i}" /></a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							<c:choose>
+								<c:when test="${currentIndex == page.totalPages}">
+									<li class="disabled"><a href="#">&gt;</a></li>
+									<li class="disabled"><a href="#">&gt;&gt;</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="${nextUrl}">&gt;</a></li>
+									<li><a href="${lastUrl}">&gt;&gt;</a></li>
+								</c:otherwise>
+							</c:choose>
+						</ul>
+					</div>
+					<br />
+					<div id="gallery_container">
+						<c:if test="${not empty page.content}">
+							<table class="table">
+								<thead>
 									<tr>
-										<td>${contact.date.time}</td>
-										<td>${contact.name}</td>
-										<td>${contact.email}</td>
-										<td>${contact.message}</td>
+										<th>Date</th>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Message</th>
 									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</c:if>
-				</div>
+								</thead>
+								<tbody>
+									<c:forEach var="contact" items="${page.content}">
+										<tr>
+											<td>${contact.date.time}</td>
+											<td>${contact.name}</td>
+											<td>${contact.email}</td>
+											<td>${contact.message}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</c:if>
+					</div>
+				</c:if>
 			</div>
 		</div>
 	</div>

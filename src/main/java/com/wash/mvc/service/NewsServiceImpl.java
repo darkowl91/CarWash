@@ -20,4 +20,18 @@ public class NewsServiceImpl implements INewsService {
     public List<News> findAll() {
         return Lists.newArrayList(repository.findAll());
     }
+
+    public News save(News news) {
+        return repository.save(news);
+    }
+
+    @Override
+    public void delete(Long id) {
+        repository.delete(id);
+    }
+
+    @Override
+    public News findById(Long id) {
+        return repository.findOne(id);
+    }
 }

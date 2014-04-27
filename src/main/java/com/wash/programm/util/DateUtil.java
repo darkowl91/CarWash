@@ -7,7 +7,7 @@ import java.util.Calendar;
 
 public final class DateUtil {
 
-    public static final String PATTERN_DD_MM_YYYY = "DDMMYYYY";
+    public static final String PATTERN_YYYY_MM_DD = "YYYY-MM-DD";
     public static final String PATTERN_YYYY = "YYYY";
 
 

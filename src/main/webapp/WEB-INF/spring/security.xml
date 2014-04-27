@@ -20,6 +20,7 @@
         <security:intercept-url pattern="/createService*" access="hasRole('ROLE_ADMIN')"/>
         <security:intercept-url pattern="/removeService*" access="hasRole('ROLE_ADMIN')"/>
         <security:intercept-url pattern="/manageServiceRequestList*" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/selfCare*" access="isAuthenticated()"/>
         <!--handle access-denied as proposal to sign in -->
         <security:access-denied-handler error-page="/signIn"/>
         <!-- Override default login and logout pages -->
