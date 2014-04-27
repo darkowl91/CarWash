@@ -1,41 +1,38 @@
 package com.wash.model.advertisement;
 
 import com.wash.model.picture.Picture;
-import com.wash.programm.util.DateUtil;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.io.IOException;
 import java.io.Serializable;
-import java.text.ParseException;
 import java.util.Calendar;
 
 @Entity
-@Table(name="NEWS", schema = "CarWash")
+@Table(name = "NEWS", schema = "CarWash")
 public class News implements Serializable {
 
-	private static final long serialVersionUID = 5618996323287858344L;
+    private static final long serialVersionUID = 5618996323287858344L;
 
-	@Id
+    @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    private Long id;
 
-	@Column(name = "DATE")
-	@Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "DATE")
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar date;
 
-	@Column(name = "TITLE", nullable = false)
+    @Column(name = "TITLE", nullable = false)
     private String title;
 
-	@Column(name = "DECRIPTION")
+    @Column(name = "DECRIPTION")
     private String description;
 
-	@Column(name = "CONTENT")
+    @Column(name = "CONTENT")
     private String content;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
-	@JoinColumn(name = "PICTURE_ID")
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "PICTURE_ID")
     private Picture picture;
 
     public Long getId() {
@@ -86,37 +83,28 @@ public class News implements Serializable {
         this.picture = picture;
     }
 
-    public void setPicture(MultipartFile picture) throws IOException {
-        if (picture != null) {
-            Picture _picture = new Picture();
-            _picture.setPictureName(picture.getName());
-            _picture.setPicture(picture.getBytes());
-            this.picture = _picture;
-        }
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		News other = (News) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        News other = (News) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
 }

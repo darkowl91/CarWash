@@ -18,6 +18,11 @@ public final class DateUtil {
         return calendar;
     }
 
+    public static String getStrDate(Calendar calendar, String pattern){
+        DateFormat df = new SimpleDateFormat(pattern);
+        return df.format(calendar.getTime());
+    }
+
     public static Calendar getDateTimeNow() {
         return Calendar.getInstance();
     }

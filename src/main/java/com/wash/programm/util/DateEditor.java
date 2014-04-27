@@ -2,7 +2,7 @@ package com.wash.programm.util;
 
 import java.beans.PropertyEditorSupport;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class DateEditor extends PropertyEditorSupport {
 
@@ -15,10 +15,8 @@ public class DateEditor extends PropertyEditorSupport {
     }
 
     public String getAsText() {
-        String s = "";
-        if (getValue() != null) {
-            s = new SimpleDateFormat(DateUtil.PATTERN_YYYY_MM_DD).format(getValue());
-        }
-        return s;
+        Calendar value = (Calendar) getValue();
+        return value != null ? DateUtil.getStrDate(value, DateUtil.PATTERN_YYYY_MM_DD) : "";
+
     }
 }
