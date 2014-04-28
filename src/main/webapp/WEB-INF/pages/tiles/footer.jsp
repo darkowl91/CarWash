@@ -9,6 +9,8 @@
 		<div class="row sections">
 			<div class="span4 recent_posts">
                 <h3 class="footer_header"><spring:message code="carWash.welcome.resentPosts"/></h3>
+
+<%--TODO: AJAX NEWS DISPLAY!!!!!!!!!!!!!--%>
                 <c:forEach var="newsItem" items="${NEWS_LIST}">
                     <div class="row clearfix">
                         <div class="col-md-12 column">
@@ -34,7 +36,8 @@
                     </div>
                     <br/>
                 </c:forEach>
-			</div>
+<%--!!!!!!!!!!!!!!!!!!		--%>
+		</div>
 			<div class="span4 contact">
                 <h3 class="footer_header"><spring:message code="carWash.welcome.contact"/></h3>
 
@@ -57,3 +60,20 @@
 		</div>
 	</div>
 </footer>
+
+<%--TODO: AJAX NEWS DISPLAY--%>
+<script>
+    $(document).ready(function(e) {
+            //TODO: relative path
+            $.post('api/news', $(this).serialize(), function(response) {
+
+                generateNoty('success', 'topCenter', 'Success');
+            }).error(function() {
+//                generateNoty('error', 'topCenter', 'Error');
+            })
+
+            $(':input', '#contact_form').not(':submit').val('');
+            e.preventDefault();
+        });
+</script>
+

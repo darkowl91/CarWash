@@ -12,8 +12,6 @@ import java.util.Calendar;
 @ControllerAdvice
 public class GlobalBindingInitializer {
 
-     /* Initialize a global InitBinder for dates */
-
     @InitBinder
     public void binder(WebDataBinder binder) {
         binder.registerCustomEditor(Calendar.class, new DateEditor());

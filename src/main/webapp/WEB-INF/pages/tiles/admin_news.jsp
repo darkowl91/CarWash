@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <div id="portfolio">
@@ -44,7 +45,8 @@
                                                 ${newsItem.title}
                                         </h4>${newsItem.description}
                                         <div class="media">
-                                                ${newsItem.date.time}
+                                            <f:formatDate type="both" dateStyle="full" value="${newsItem.date.time}"/>
+
                                             <div class="media-body">
                                                     ${newsItem.content}
                                             </div>

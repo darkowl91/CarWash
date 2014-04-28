@@ -31,7 +31,6 @@ public class NewsController {
         return "redirect:/manageNews";
     }
 
-
     @RequestMapping(value = "/deleteNews", method = RequestMethod.GET)
     public String deleteNews(Long id, ModelMap model) {
         service.delete(id);
