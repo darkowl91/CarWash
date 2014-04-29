@@ -71,6 +71,10 @@
         <put-list-attribute name="page_specific_css">
             <add-attribute value="/resources/css/selfCare.css" type="string"/>
         </put-list-attribute>
+        <put-list-attribute name="page_specific_js">
+            <add-attribute value="/resources/js/jquery.maskedinput.min.js" type="string"/>
+            <add-attribute value="/resources/js/selfCare.js" type="string"/>
+        </put-list-attribute>
     </definition>
 
     <!--ADMIN_SIDE_LAYOUT-->
