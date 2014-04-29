@@ -4,7 +4,6 @@ import com.wash.model.services.ServiceRequest;
 import com.wash.mvc.service.IService;
 import com.wash.mvc.service.IServiceRequest;
 import com.wash.mvc.service.IUserService;
-import com.wash.programm.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -50,7 +49,6 @@ public class ServiceRequestController {
     public String newServiceRequest(Long id, Principal principal) {
         ServiceRequest newServiceRequest = new ServiceRequest();
         newServiceRequest.setService(service.findById(id));
-        newServiceRequest.setDate(DateUtil.getDateTimeNow());
         newServiceRequest.setUser(userService.findByUsername(principal.getName()));
         if (serviceRequest.save(newServiceRequest) != null) {
             return "alert-success";
