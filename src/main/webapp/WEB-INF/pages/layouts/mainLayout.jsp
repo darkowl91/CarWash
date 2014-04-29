@@ -30,6 +30,7 @@
     <script src="<c:url value="/resources/js/noty/packaged/jquery.noty.packaged.min.js"/>"></script>
     <script src="<c:url value="/resources/js/global.js"/>"></script>
     <script src="<c:url value="/resources/js/contact.js"/>"></script>
+    <script src="<c:url value="/resources/js/newsList.js"/>"></script>
     <%--validation scripts--%>
     <script src="<c:url value="/resources/js/jquery-validate.min.js"/>"></script>
     <!-- Page Specific Scripts -->

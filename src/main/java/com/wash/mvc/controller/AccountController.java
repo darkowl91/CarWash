@@ -11,7 +11,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wash.model.account.Authority;
@@ -127,10 +125,8 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = "/selfCare/uploadPicture", method = RequestMethod.POST)
-	public String uploadPhoto(
-			@ModelAttribute("uploadedPicture") MultipartFile uploadedPicture,
-			BindException errors) throws Exception {
-
+	public String uploadPhoto(User user){
+        userService.update(user);
 		return "redirect:/selfCare";
 	}
 

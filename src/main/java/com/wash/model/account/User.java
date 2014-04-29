@@ -1,14 +1,12 @@
 package com.wash.model.account;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
-
+import com.wash.model.picture.Picture;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.wash.model.picture.Picture;
-
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
@@ -29,7 +27,7 @@ public class User implements Serializable {
     @Size(max = 255, message = "{com.wash.model.account.username.size}")
 	private String username;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "PICTURE_ID")
 	private Picture picture;
 
