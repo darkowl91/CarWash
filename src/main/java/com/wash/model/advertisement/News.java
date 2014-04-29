@@ -30,8 +30,8 @@ public class News implements Serializable {
     @Column(name = "CONTENT")
     private String content;
 
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    /*Could not write JSON: No serializer found for class org.hibernate.proxy.pojo.javassist.JavassistLazyInitializer*/
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "PICTURE_ID")
     private Picture picture;
 

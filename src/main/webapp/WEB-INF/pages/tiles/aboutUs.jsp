@@ -42,7 +42,7 @@
         <div class="row people">
             <div class="row row1">
                 <div class="span6 bio_box">
-                    <img width="100px" height="100px" src="<c:url value="/resources/img/Mihalych.jpg"/>" alt=""/>
+                    <img width="50px" height="50px" src="<c:url value="/resources/img/Mihalych.jpg"/>" alt=""/>
 
                     <div class="info">
                         <p class="name">Alejandra Galvan Castillo</p>
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="span6 bio_box bio_boxr">
-                    <img width="100px" height="100px" src="<c:url value="/resources/img/Petya.jpg"/>" alt=""/>
+                    <img width="50px" height="50px" src="<c:url value="/resources/img/Petya.jpg"/>" alt=""/>
 
                     <div class="info">
                         <p class="name">Alejandra Galvan Castillo</p>
@@ -64,7 +64,7 @@
 
             <div class="row row1">
                 <div class="span6 bio_box">
-                    <img width="100px" height="100px" src="<c:url value="/resources/img/Vasia.jpg"/>" alt=""/>
+                    <img width="50px" height="50px" src="<c:url value="/resources/img/Vasia.jpg"/>" alt=""/>
 
                     <div class="info">
                         <p class="name">Alejandra Galvan Castillo</p>
@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="span6 bio_box bio_boxr">
-                    <img width="100px" height="100px" src="<c:url value="/resources/img/Sanya.jpg"/>" alt=""/>
+                    <img width="50px" height="50px" src="<c:url value="/resources/img/Sanya.jpg"/>" alt=""/>
 
                     <div class="info">
                         <p class="name">Alejandra Galvan Castillo</p>
