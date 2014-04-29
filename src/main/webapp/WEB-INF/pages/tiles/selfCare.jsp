@@ -8,8 +8,6 @@
 <spring:message code="carWash.selfCare.lastName" var="lastName" />
 <spring:message code="carWash.selfCare.email" var="email" />
 
-<c:url value="/selfCare/uploadPictire" var="uploadPictireUrl"/>
-
 <div id="selfCare">
 	<div class="container">
 		<div class="span8">
@@ -35,7 +33,7 @@
 					<form:input id="lastName" path="lastName" cssClass="form-control" />
 					<form:errors path="lastName" cssClass="help-block" />
 				</div>
-				<button type="submit" class="btn btn-default">
+				<button type="submit" class="btn btn-primary">
 					<spring:message code="carWash.selfCare.submit" />
 				</button>
 			</form:form>
@@ -45,13 +43,17 @@
 				<img height="64" width="64"
 					src="data:image/jpeg;base64,${user.picture.imageAsString}" alt=""
 					class="media-object">
-				<form:form modelAttribute="uploadedPicture" action="${uploadPicture}"
-					enctype="multipart/form-data">
-					<input type="file" name="file" />
-					<form:errors path="file" cssClass="error" />
-					<button type="submit">
-						<spring:message code="carWash.selfCare.uploadPhoto" />
-					</button>
+
+				<form:form modelAttribute="user" action="/selfCare/uploadPicture"
+					enctype="multipart/form-data" method="post">
+
+                    <form:input path="picture" type="file" id="file"
+                                required="true"/>
+					<form:errors path="picture" cssClass="error" />
+
+                    <form:button type="submit" class="btn btn-primary">
+                        <spring:message code="carWash.selfCare.uploadPhoto" />
+                    </form:button>
 				</form:form>
 			</div>
 		</div>

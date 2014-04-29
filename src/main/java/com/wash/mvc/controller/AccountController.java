@@ -1,27 +1,5 @@
 package com.wash.mvc.controller;
 
-import java.security.Principal;
-import java.util.Map;
-
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindException;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.multipart.MaxUploadSizeExceededException;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.wash.model.account.Authority;
 import com.wash.model.account.User;
 import com.wash.model.account.registration.RegistrationForm;
@@ -31,6 +9,18 @@ import com.wash.mvc.service.IUserService;
 import com.wash.programm.exception.DuplicateEmailException;
 import com.wash.programm.exception.DuplicateUsernameException;
 import com.wash.programm.security.util.SecurityUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+
+import javax.validation.Valid;
+import java.security.Principal;
+import java.util.Map;
 
 @Controller
 @SessionAttributes("user")
@@ -113,10 +103,8 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = "/selfCare/uploadPicture", method = RequestMethod.POST)
-	public String uploadPhoto(
-			@ModelAttribute("uploadedPicture") MultipartFile uploadedPicture,
-			BindException errors) throws Exception {
-
+	public String uploadPhoto(User user){
+        userService.update(user);
 		return "redirect:/selfCare";
 	}
 
