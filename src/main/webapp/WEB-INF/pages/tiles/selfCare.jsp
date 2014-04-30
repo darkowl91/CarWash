@@ -19,24 +19,40 @@
 			<h3>
 				<spring:message code="carWash.selfCare.personalInformation" />
 			</h3>
-			<form:form modelAttribute="user" method="post">
-				<div id="form-group-username" class="form-group col-lg-4">
-					<span class="control-label">${username}:</span> <span
-						class="control-label">${user.username}</span>
+			<form:form modelAttribute="user" method="post"
+				class="form-horizontal">
+				<div class="control-group">
+					<label for="username" class="control-label"> ${username}: </label>
+
+					<div class="controls">
+						<span class="control-label">${user.username}</span>
+					</div>
 				</div>
-				<div id="form-group-email" class="form-group col-lg-4">
-					<span class="control-label">${email}:</span> <span
-						class="control-label">${user.email}</span>
+				<div class="control-group">
+					<label for="email" class="control-label"> ${email}: </label>
+
+					<div class="controls">
+						<span class="control-label">${user.email}</span>
+					</div>
 				</div>
-				<div id="form-group-firstName" class="form-group col-lg-4">
-					<label class="control-label" for="firstName">${firstName}:</label>
-					<form:input id="firstName" path="firstName" cssClass="form-control" />
-					<form:errors path="firstName" cssClass="help-block" />
+				<div class="control-group">
+					<label for="firstName" class="col-sm-2 control-label">
+						${firstName}: </label>
+
+					<div class="col-sm-10 controls">
+						<form:input id="firstName" path="firstName"
+							cssClass="form-control" />
+						<form:errors path="firstName" cssClass="help-inline" />
+					</div>
 				</div>
-				<div id="form-group-lastName" class="form-group col-lg-4">
-					<label class="control-label" for="lastName">${lastName}:</label>
-					<form:input id="lastName" path="lastName" cssClass="form-control" />
-					<form:errors path="lastName" cssClass="help-block" />
+				<div class="control-group">
+					<label for="lastName" class="col-sm-2 control-label">
+						${lastName}: </label>
+
+					<div class="col-sm-10 controls">
+						<form:input id="lastName" path="lastName" cssClass="form-control" />
+						<form:errors path="lastName" cssClass="help-inline" />
+					</div>
 				</div>
 				<button type="submit" class="btn btn-primary">
 					<spring:message code="carWash.selfCare.submit" />
@@ -50,9 +66,14 @@
 				<div id="alert-error" class="alert alert-error alert-block">
 					${errorMessage}</div>
 			</c:if>
+			<c:if test="${empty user.phones}">
+				<div id="alert-warning" class="alert alert-warning alert-block">
+					<spring:message code="carWash.selfCare.phones.isEmpty" />
+				</div>
+			</c:if>
 			<button class="btn btn-primary btn-lg" data-toggle="modal"
 				data-target="#modal-container-addPhone">
-				<spring:message	code="carWash.selfCare.addPhone" />
+				<spring:message code="carWash.selfCare.addPhone" />
 			</button>
 			<div class="clearfix"></div>
 			<c:if test="${not empty user.phones}">
@@ -79,9 +100,6 @@
 					</tbody>
 				</table>
 			</c:if>
-			<c:if test="${empty user.phones}">
-				<spring:message code="carWash.selfCare.phones.isEmpty" />
-			</c:if>
 		</div>
 		<div class="span3">
 			<div class="user-picture">
@@ -91,13 +109,17 @@
 				<form:form modelAttribute="user" action="/selfCare/uploadPicture"
 					enctype="multipart/form-data" method="post">
 
-                    <form:input path="picture" type="file" id="file"
-                                required="true"/>
+					<div>
+						<form:input path="picture" type="file" id="file"
+							title="Search for a file to add" required="true" />
+					</div>
 					<form:errors path="picture" cssClass="error" />
 
-                    <form:button type="submit" class="btn btn-primary">
-                        <spring:message code="carWash.selfCare.uploadPhoto" />
-                    </form:button>
+					<div>
+						<form:button type="submit" class="btn btn-primary">
+							<spring:message code="carWash.selfCare.uploadPhoto" />
+						</form:button>
+					</div>
 				</form:form>
 			</div>
 		</div>

@@ -109,15 +109,18 @@ public class AccountController {
 
 	@RequestMapping(value = "/selfCare", method = RequestMethod.POST)
 	public String updatePersonalInformation(
-			@Valid @ModelAttribute("user") User user, BindingResult result) {
+			@Valid @ModelAttribute("user") User user, BindingResult result,
+			Model model) {
 
 		if (result.hasErrors()) {
+			model.addAttribute("newPhone", new Phone());
 			return "carWash.selfCare";
 		}
 
 		user = userService.update(user);
 
 		if (user == null) {
+			model.addAttribute("newPhone", new Phone());
 			return "carWash.selfCare";
 		}
 
@@ -125,16 +128,17 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = "/selfCare/uploadPicture", method = RequestMethod.POST)
-	public String uploadPhoto(User user){
-        userService.update(user);
+	public String uploadPhoto(User user) {
+		userService.update(user);
 		return "redirect:/selfCare";
 	}
 
 	@RequestMapping(value = "/selfCare/addPhone", method = RequestMethod.POST)
 	public String addPhone(@ModelAttribute("newPhone") Phone newPhone,
 			@ModelAttribute("user") User user,
-			RedirectAttributes redirectAttributes, BindingResult result, Locale locale) {
-		
+			RedirectAttributes redirectAttributes, BindingResult result,
+			Locale locale) {
+
 		if (result.hasErrors()) {
 			return "redirect:/selfCare";
 		}
@@ -144,7 +148,7 @@ public class AccountController {
 
 		return "redirect:/selfCare";
 	}
-	
+
 	@RequestMapping(value = "/selfCare/deletePhone/{id}", method = RequestMethod.GET)
 	public String removePhome(@PathVariable("id") Long id) {
 		phoneService.delete(id);
@@ -186,10 +190,12 @@ public class AccountController {
 		result.addError(error);
 	}
 
-	@ExceptionHandler({ MaxUploadSizeExceededException.class })
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public String handleException(MaxUploadSizeExceededException e) {
-
-		return "carWash.selfCare";
-	}
+	/*
+	 * @ExceptionHandler({ MaxUploadSizeExceededException.class })
+	 * 
+	 * @ResponseStatus(HttpStatus.BAD_REQUEST) public String
+	 * handleException(MaxUploadSizeExceededException e) {
+	 * 
+	 * return "carWash.selfCare"; }
+	 */
 }

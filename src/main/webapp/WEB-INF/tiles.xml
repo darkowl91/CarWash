@@ -74,6 +74,7 @@
         <put-list-attribute name="page_specific_js">
             <add-attribute value="/resources/js/jquery.maskedinput.min.js" type="string"/>
             <add-attribute value="/resources/js/selfCare.js" type="string"/>
+            <add-attribute value="/resources/js/bootstrap.file-input.js" type="string"/>
         </put-list-attribute>
     </definition>
 
