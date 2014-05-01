@@ -1,5 +1,6 @@
 package com.wash.mvc.controller;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.Locale;
 import java.util.Map;
@@ -8,26 +9,23 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.multipart.MaxUploadSizeExceededException;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.wash.model.account.Authority;
 import com.wash.model.account.Phone;
 import com.wash.model.account.User;
 import com.wash.model.account.registration.RegistrationForm;
+import com.wash.model.picture.Picture;
+import com.wash.model.picture.UploadPicture;
 import com.wash.mvc.controller.converter.UserConverter;
 import com.wash.mvc.service.IAuthorityService;
 import com.wash.mvc.service.IPhoneService;
@@ -104,6 +102,7 @@ public class AccountController {
 		User user = userService.findByUsername(principal.getName());
 		model.addAttribute("user", user);
 		model.addAttribute("newPhone", new Phone());
+		model.addAttribute("uploadPicture", new UploadPicture());
 		return "carWash.selfCare";
 	}
 
@@ -114,6 +113,7 @@ public class AccountController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("newPhone", new Phone());
+			model.addAttribute("uploadPicture", new UploadPicture());
 			return "carWash.selfCare";
 		}
 
@@ -121,6 +121,7 @@ public class AccountController {
 
 		if (user == null) {
 			model.addAttribute("newPhone", new Phone());
+			model.addAttribute("uploadPicture", new UploadPicture());
 			return "carWash.selfCare";
 		}
 
@@ -128,29 +129,47 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = "/selfCare/uploadPicture", method = RequestMethod.POST)
-	public String uploadPhoto(User user) {
+	public String uploadPhoto(@ModelAttribute("user") User user,
+			@Valid @ModelAttribute("uploadPicture") UploadPicture uploadPicture,
+			BindingResult result, Model model) throws IOException {
+
+		if (result.hasErrors()) {
+			model.addAttribute("newPhone", new Phone());
+			return "carWash.selfCare";
+		}
+
+		Picture picture = new Picture();
+		picture.setPicture(uploadPicture.getPicture().getBytes());
+		picture.setPictureName(uploadPicture.getPicture().getOriginalFilename());
+		user.setPicture(picture);
+
 		userService.update(user);
 		return "redirect:/selfCare";
 	}
 
 	@RequestMapping(value = "/selfCare/addPhone", method = RequestMethod.POST)
 	public String addPhone(@ModelAttribute("newPhone") Phone newPhone,
-			@ModelAttribute("user") User user,
-			RedirectAttributes redirectAttributes, BindingResult result,
-			Locale locale) {
+			@ModelAttribute("user") User user, BindingResult result,
+			Model model, Locale locale) {
 
 		if (result.hasErrors()) {
-			return "redirect:/selfCare";
+			return "carWash.selfCare";
 		}
 
 		newPhone.setUser(user);
-		createPhone(newPhone, redirectAttributes, locale);
+		newPhone = createPhone(newPhone, model, locale);
+
+		if (newPhone == null) {
+			model.addAttribute("newPhone", new Phone());
+			model.addAttribute("uploadPicture", new UploadPicture());
+			return "carWash.selfCare";
+		}
 
 		return "redirect:/selfCare";
 	}
 
 	@RequestMapping(value = "/selfCare/deletePhone/{id}", method = RequestMethod.GET)
-	public String removePhome(@PathVariable("id") Long id) {
+	public String removePhone(@PathVariable("id") Long id) {
 		phoneService.delete(id);
 		return "redirect:/selfCare";
 	}
@@ -171,15 +190,15 @@ public class AccountController {
 		return registered;
 	}
 
-	private void createPhone(Phone newPhone,
-			RedirectAttributes redirectAttributes, Locale locale) {
+	private Phone createPhone(Phone newPhone, Model model, Locale locale) {
+		Phone phone = null;
 		try {
-			phoneService.save(newPhone);
+			phone = phoneService.save(newPhone);
 		} catch (DuplicatePhoneException ex) {
-			redirectAttributes.addFlashAttribute("errorMessage",
-					messageSource.getMessage("NotExist.phone.value",
-							new Object[] {}, locale));
+			model.addAttribute("errorMessage", messageSource.getMessage(
+					"NotExist.phone.value", new Object[] {}, locale));
 		}
+		return phone;
 	}
 
 	private void addFieldError(String objectName, String fieldName,
@@ -189,13 +208,4 @@ public class AccountController {
 
 		result.addError(error);
 	}
-
-	/*
-	 * @ExceptionHandler({ MaxUploadSizeExceededException.class })
-	 * 
-	 * @ResponseStatus(HttpStatus.BAD_REQUEST) public String
-	 * handleException(MaxUploadSizeExceededException e) {
-	 * 
-	 * return "carWash.selfCare"; }
-	 */
 }

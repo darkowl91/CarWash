@@ -19,8 +19,9 @@
 			<h3>
 				<spring:message code="carWash.selfCare.personalInformation" />
 			</h3>
-			<form:form modelAttribute="user" method="post"
-				class="form-horizontal">
+			<c:url value="/selfCare" var="selfCaseUrl" />
+			<form:form modelAttribute="user" action="${selfCaseUrl}"
+				method="post" class="form-horizontal">
 				<div class="control-group">
 					<label for="username" class="control-label"> ${username}: </label>
 
@@ -106,12 +107,14 @@
 				<img height="64" width="64"
 					src="data:image/jpeg;base64,${user.picture.imageAsString}" alt=""
 					class="media-object">
-				<form:form modelAttribute="user" action="/selfCare/uploadPicture"
-					enctype="multipart/form-data" method="post">
+				<c:url value="/selfCare/uploadPicture" var="uploadPictureUrl" />
+				<form:form modelAttribute="uploadPicture"
+					action="${uploadPictureUrl}" enctype="multipart/form-data"
+					method="post">
 
 					<div>
-						<form:input path="picture" type="file" id="file"
-							title="Search for a file to add" required="true" />
+						<form:input path="picture" type="file" id="picture"
+							title="Search for a file to add" />
 					</div>
 					<form:errors path="picture" cssClass="error" />
 
@@ -138,7 +141,8 @@
 				</h4>
 			</div>
 			<div class="modal-body">
-				<form:form method="post" action="selfCare/addPhone"
+				<c:url value="/selfCare/addPhone" var="addPhoneUrl" />
+				<form:form method="post" action="${addPhoneUrl}"
 					modelAttribute="newPhone" class="form-horizontal" role="form">
 
 					<spring:message code="carWash.selfCare.phone.value"
