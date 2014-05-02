@@ -145,7 +145,7 @@
 				<form:form method="post" action="${addPhoneUrl}"
 					modelAttribute="newPhone" class="form-horizontal" role="form">
 
-					<spring:message code="carWash.selfCare.phone.value"
+					<spring:message code="carWash.selfCare.phone.phoneValue"
 						var="phoneValue" />
 					<div class="control-group">
 						<label for="phoneValue" class="col-sm-2 control-label">

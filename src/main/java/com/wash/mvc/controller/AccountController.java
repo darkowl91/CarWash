@@ -25,7 +25,6 @@ import com.wash.model.account.Phone;
 import com.wash.model.account.User;
 import com.wash.model.account.registration.RegistrationForm;
 import com.wash.model.picture.Picture;
-import com.wash.model.picture.UploadPicture;
 import com.wash.mvc.controller.converter.UserConverter;
 import com.wash.mvc.service.IAuthorityService;
 import com.wash.mvc.service.IPhoneService;
