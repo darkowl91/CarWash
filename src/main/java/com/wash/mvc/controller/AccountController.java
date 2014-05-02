@@ -1,25 +1,5 @@
 package com.wash.mvc.controller;
 
-import java.io.IOException;
-import java.security.Principal;
-import java.util.Locale;
-import java.util.Map;
-
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
-
 import com.wash.model.account.Authority;
 import com.wash.model.account.Phone;
 import com.wash.model.account.User;
@@ -33,6 +13,19 @@ import com.wash.programm.exception.DuplicateEmailException;
 import com.wash.programm.exception.DuplicatePhoneException;
 import com.wash.programm.exception.DuplicateUsernameException;
 import com.wash.programm.security.util.SecurityUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.io.IOException;
+import java.security.Principal;
+import java.util.Locale;
+import java.util.Map;
 
 @Controller
 @SessionAttributes("user")
@@ -101,7 +94,7 @@ public class AccountController {
 		User user = userService.findByUsername(principal.getName());
 		model.addAttribute("user", user);
 		model.addAttribute("newPhone", new Phone());
-		model.addAttribute("uploadPicture", new UploadPicture());
+		model.addAttribute("uploadPicture", new Picture());
 		return "carWash.selfCare";
 	}
 
@@ -112,7 +105,7 @@ public class AccountController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("newPhone", new Phone());
-			model.addAttribute("uploadPicture", new UploadPicture());
+			model.addAttribute("uploadPicture", new Picture());
 			return "carWash.selfCare";
 		}
 
@@ -120,7 +113,7 @@ public class AccountController {
 
 		if (user == null) {
 			model.addAttribute("newPhone", new Phone());
-			model.addAttribute("uploadPicture", new UploadPicture());
+			model.addAttribute("uploadPicture", new Picture());
 			return "carWash.selfCare";
 		}
 
@@ -129,18 +122,14 @@ public class AccountController {
 
 	@RequestMapping(value = "/selfCare/uploadPicture", method = RequestMethod.POST)
 	public String uploadPhoto(@ModelAttribute("user") User user,
-			@Valid @ModelAttribute("uploadPicture") UploadPicture uploadPicture,
+			@Valid @ModelAttribute("uploadPicture") Picture uploadPicture,
 			BindingResult result, Model model) throws IOException {
 
 		if (result.hasErrors()) {
 			model.addAttribute("newPhone", new Phone());
 			return "carWash.selfCare";
 		}
-
-		Picture picture = new Picture();
-		picture.setPicture(uploadPicture.getPicture().getBytes());
-		picture.setPictureName(uploadPicture.getPicture().getOriginalFilename());
-		user.setPicture(picture);
+		user.setPicture(uploadPicture);
 
 		userService.update(user);
 		return "redirect:/selfCare";
@@ -160,7 +149,7 @@ public class AccountController {
 
 		if (newPhone == null) {
 			model.addAttribute("newPhone", new Phone());
-			model.addAttribute("uploadPicture", new UploadPicture());
+			model.addAttribute("uploadPicture", new Picture());
 			return "carWash.selfCare";
 		}
 
