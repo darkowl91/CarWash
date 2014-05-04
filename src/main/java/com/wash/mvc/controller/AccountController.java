@@ -5,6 +5,7 @@ import com.wash.model.account.Phone;
 import com.wash.model.account.User;
 import com.wash.model.account.registration.RegistrationForm;
 import com.wash.model.picture.Picture;
+import com.wash.model.picture.UploadPicture;
 import com.wash.mvc.controller.converter.UserConverter;
 import com.wash.mvc.service.IAuthorityService;
 import com.wash.mvc.service.IPhoneService;
@@ -13,6 +14,7 @@ import com.wash.programm.exception.DuplicateEmailException;
 import com.wash.programm.exception.DuplicatePhoneException;
 import com.wash.programm.exception.DuplicateUsernameException;
 import com.wash.programm.security.util.SecurityUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Locale;
@@ -94,7 +97,7 @@ public class AccountController {
 		User user = userService.findByUsername(principal.getName());
 		model.addAttribute("user", user);
 		model.addAttribute("newPhone", new Phone());
-		model.addAttribute("uploadPicture", new Picture());
+		model.addAttribute("uploadPicture", new UploadPicture());
 		return "carWash.selfCare";
 	}
 
@@ -105,7 +108,7 @@ public class AccountController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("newPhone", new Phone());
-			model.addAttribute("uploadPicture", new Picture());
+			model.addAttribute("uploadPicture", new UploadPicture());
 			return "carWash.selfCare";
 		}
 
@@ -113,7 +116,7 @@ public class AccountController {
 
 		if (user == null) {
 			model.addAttribute("newPhone", new Phone());
-			model.addAttribute("uploadPicture", new Picture());
+			model.addAttribute("uploadPicture", new UploadPicture());
 			return "carWash.selfCare";
 		}
 
@@ -122,14 +125,18 @@ public class AccountController {
 
 	@RequestMapping(value = "/selfCare/uploadPicture", method = RequestMethod.POST)
 	public String uploadPhoto(@ModelAttribute("user") User user,
-			@Valid @ModelAttribute("uploadPicture") Picture uploadPicture,
+			@Valid @ModelAttribute("uploadPicture") UploadPicture uploadPicture,
 			BindingResult result, Model model) throws IOException {
 
 		if (result.hasErrors()) {
 			model.addAttribute("newPhone", new Phone());
 			return "carWash.selfCare";
 		}
-		user.setPicture(uploadPicture);
+		
+		Picture picture = new Picture();
+		picture.setPicture(uploadPicture.getFile().getBytes());
+		picture.setPictureName(uploadPicture.getFile().getOriginalFilename());		
+		user.setPicture(picture);
 
 		userService.update(user);
 		return "redirect:/selfCare";
@@ -149,7 +156,7 @@ public class AccountController {
 
 		if (newPhone == null) {
 			model.addAttribute("newPhone", new Phone());
-			model.addAttribute("uploadPicture", new Picture());
+			model.addAttribute("uploadPicture", new UploadPicture());
 			return "carWash.selfCare";
 		}
 

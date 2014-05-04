@@ -1,12 +1,15 @@
 package com.wash.model.account;
 
 import com.wash.model.picture.Picture;
+
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
@@ -55,6 +58,7 @@ public class User implements Serializable {
 
 	@Column(name = "BIRTHDAY")
 	@Temporal(TemporalType.TIMESTAMP)
+	@Past(message = "{com.wash.model.account.birthDay.past}")
 	private Calendar birthDay;
 
 	@Column(name = "REGISTRATION_DATE")

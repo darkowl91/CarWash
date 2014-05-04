@@ -10,6 +10,7 @@
 <spring:message code="carWash.selfCare.firstName" var="firstName" />
 <spring:message code="carWash.selfCare.lastName" var="lastName" />
 <spring:message code="carWash.selfCare.email" var="email" />
+<spring:message code="carWash.selfCare.birthday" var="birthday" />
 
 <c:url value="/selfCare/uploadPictire" var="uploadPictireUrl" />
 
@@ -53,6 +54,15 @@
 					<div class="col-sm-10 controls">
 						<form:input id="lastName" path="lastName" cssClass="form-control" />
 						<form:errors path="lastName" cssClass="help-inline" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label for="birthday" class="col-sm-2 control-label">
+						${birthday}: </label>
+
+					<div class="col-sm-10 controls">
+						<form:input id="birthday" type="date" path="birthDay" cssClass="form-control" />
+						<form:errors path="birthDay" cssClass="help-inline" />
 					</div>
 				</div>
 				<button type="submit" class="btn btn-primary">
@@ -105,18 +115,17 @@
 		<div class="span3">
 			<div class="user-picture">
 				<img height="64" width="64"
-					src="data:image/jpeg;base64,${user.picture.imageAsString}" alt=""
-					class="media-object">
+					src="data:image/jpeg;base64,${user.picture.imageAsString}" alt="user.picture.pictureName" >
 				<c:url value="/selfCare/uploadPicture" var="uploadPictureUrl" />
 				<form:form modelAttribute="uploadPicture"
 					action="${uploadPictureUrl}" enctype="multipart/form-data"
 					method="post">
 
 					<div>
-						<form:input path="picture" type="file" id="picture"
+						<form:input path="file" type="file" id="file"
 							title="Search for a file to add" />
 					</div>
-					<form:errors path="picture" cssClass="error" />
+					<form:errors path="file" cssClass="error" />
 
 					<div>
 						<form:button type="submit" class="btn btn-primary">
