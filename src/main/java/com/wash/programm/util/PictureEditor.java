@@ -14,7 +14,7 @@ public class PictureEditor extends ByteArrayPropertyEditor {
         if (value instanceof MultipartFile) {
             MultipartFile multipartFile = (MultipartFile) value;
             try {
-                super.setValue(new Picture(multipartFile.getBytes(), multipartFile.getName()));
+                super.setValue(new Picture(multipartFile.getBytes(), multipartFile.getOriginalFilename()));
             } catch (IOException ex) {
                 throw new IllegalArgumentException("Cannot read contents of multipart file", ex);
             }

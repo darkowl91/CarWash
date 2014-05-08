@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <spring:message code="carWash.selfCare.username" var="username" />
 <spring:message code="carWash.selfCare.firstName" var="firstName" />
@@ -61,7 +62,8 @@
 						${birthday}: </label>
 
 					<div class="col-sm-10 controls">
-						<form:input id="birthday" type="date" path="birthDay" cssClass="form-control" />
+						<form:input id="birthday" type="date" path="birthDay"
+							cssClass="form-control" />
 						<form:errors path="birthDay" cssClass="help-inline" />
 					</div>
 				</div>
@@ -114,18 +116,24 @@
 		</div>
 		<div class="span3">
 			<div class="user-picture">
-				<img height="64" width="64"
-					src="data:image/jpeg;base64,${user.picture.imageAsString}" alt="user.picture.pictureName" >
+				<c:if test="${fn:length(user.picture.picture) > 0}">
+					<img height="64" width="64"
+						src="data:image/jpeg;base64,${user.picture.imageAsString}"
+						alt="${user.picture.pictureName}">
+				</c:if>
+				<c:if test="${fn:length(user.picture.picture) == 0}">
+					<img height="64" width="64" src="<c:url value="/resources/img/default.jpg" />"
+						alt="default">
+				</c:if>
 				<c:url value="/selfCare/uploadPicture" var="uploadPictureUrl" />
-				<form:form modelAttribute="uploadPicture"
-					action="${uploadPictureUrl}" enctype="multipart/form-data"
-					method="post">
+				<form:form modelAttribute="user" action="${uploadPictureUrl}"
+					enctype="multipart/form-data" method="post">
 
 					<div>
-						<form:input path="file" type="file" id="file"
+						<form:input path="picture" type="file" id="file"
 							title="Search for a file to add" />
 					</div>
-					<form:errors path="file" cssClass="error" />
+					<form:errors path="picture.*" cssClass="error" />
 
 					<div>
 						<form:button type="submit" class="btn btn-primary">

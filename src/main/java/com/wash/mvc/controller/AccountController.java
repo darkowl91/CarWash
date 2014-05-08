@@ -4,8 +4,6 @@ import com.wash.model.account.Authority;
 import com.wash.model.account.Phone;
 import com.wash.model.account.User;
 import com.wash.model.account.registration.RegistrationForm;
-import com.wash.model.picture.Picture;
-import com.wash.model.picture.UploadPicture;
 import com.wash.mvc.controller.converter.UserConverter;
 import com.wash.mvc.service.IAuthorityService;
 import com.wash.mvc.service.IPhoneService;
@@ -97,7 +95,6 @@ public class AccountController {
 		User user = userService.findByUsername(principal.getName());
 		model.addAttribute("user", user);
 		model.addAttribute("newPhone", new Phone());
-		model.addAttribute("uploadPicture", new UploadPicture());
 		return "carWash.selfCare";
 	}
 
@@ -108,7 +105,6 @@ public class AccountController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("newPhone", new Phone());
-			model.addAttribute("uploadPicture", new UploadPicture());
 			return "carWash.selfCare";
 		}
 
@@ -116,7 +112,6 @@ public class AccountController {
 
 		if (user == null) {
 			model.addAttribute("newPhone", new Phone());
-			model.addAttribute("uploadPicture", new UploadPicture());
 			return "carWash.selfCare";
 		}
 
@@ -124,19 +119,21 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = "/selfCare/uploadPicture", method = RequestMethod.POST)
-	public String uploadPhoto(@ModelAttribute("user") User user,
-			@Valid @ModelAttribute("uploadPicture") UploadPicture uploadPicture,
+	public String uploadPhoto(@Valid @ModelAttribute("user") User user,
+			//@Valid @ModelAttribute("uploadPicture") UploadPicture uploadPicture,
 			BindingResult result, Model model) throws IOException {
 
 		if (result.hasErrors()) {
 			model.addAttribute("newPhone", new Phone());
+			/*User currentUser = userService.findByUsername(user.getUsername());
+			model.addAttribute("user", currentUser);*/
 			return "carWash.selfCare";
 		}
 		
-		Picture picture = new Picture();
+		/*Picture picture = new Picture();
 		picture.setPicture(uploadPicture.getFile().getBytes());
 		picture.setPictureName(uploadPicture.getFile().getOriginalFilename());		
-		user.setPicture(picture);
+		user.setPicture(picture);*/
 
 		userService.update(user);
 		return "redirect:/selfCare";
@@ -156,7 +153,6 @@ public class AccountController {
 
 		if (newPhone == null) {
 			model.addAttribute("newPhone", new Phone());
-			model.addAttribute("uploadPicture", new UploadPicture());
 			return "carWash.selfCare";
 		}
 

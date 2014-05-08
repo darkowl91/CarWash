@@ -1,18 +1,31 @@
 package com.wash.model.account;
 
-import com.wash.model.picture.Picture;
+import java.io.Serializable;
+import java.util.Calendar;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.*;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
-
-import java.io.Serializable;
-import java.util.Calendar;
-import java.util.List;
+import com.wash.model.picture.Picture;
 
 @Entity
 @Table(name = "USER", schema = "CarWash")
@@ -32,6 +45,7 @@ public class User implements Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "PICTURE_ID")
+	@Valid
 	private Picture picture;
 
 	@Column(name = "PASSWORD", nullable = false)
