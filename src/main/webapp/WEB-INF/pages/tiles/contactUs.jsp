@@ -1,75 +1,48 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<spring:message code="carWash.contactUs.header" var="contactHeader"/>
+<spring:message code="carWash.contactUs.text" var="text"/>
+<spring:message code="carWash.contactUs.name" var="enterName"/>
+<spring:message code="carWash.contactUs.email" var="enterEmail"/>
+<spring:message code="carWash.contactUs.message" var="enterMessage"/>
+<spring:message code="carWash.contactUs.submit" var="submit"/>
 
 <div id="contact">
-    <div class="container">
-        <div class="section_header">
-            <h3>Get in touch</h3>
-        </div>
-        <div class="row contact">
-            <p>
-                We’d love to hear from you. Interested in working together? Fill out the form below with some info about
-                your project and I will get back to you as soon as I can. Please allow a couple days for me to
-                respond.</p>
+	<div class="container">
+		<div class="section_header">
+			<h3>${contactHeader}</h3>
+		</div>
+		<div class="row contact">
+			<p>${text}</p>
+			
+			<c:if test="${not empty message}">
+				<div id="alert-success" class="alert alert-success alert-block">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					${message}
+				</div>
+			</c:if>
+			
+			<form:form modelAttribute="contact" method="post">
+				<form:errors id="alert-error" cssClass="alert alert-error alert-block" path="*" element="div" />
+				<div class="row form">
+					<div class="span6 box">
+						<form:input path="name" cssClass="name" cssErrorClass="error name" placeholder="${enterName}" />
+						<form:input path="email" cssClass="mail" cssErrorClass="error mail" placeholder="${enterEmail}" />
+					</div>
+					<div class="span6 box box_r">
+						<form:textarea path="message" cssErrorClass="error" placeholder="${enterMessage}"  />
+					</div>
+				</div>
 
-            <form/>
-            <div class="row form">
-                <div class="span6 box">
-                    <input class="name" type="text" placeholder="Name"/>
-                    <input class="mail" type="text" placeholder="Email"/>
-                    <input class="phone" type="text" placeholder="Phone"/>
-                </div>
-                <div class="span6 box box_r">
-                    <textarea placeholder="Type a message here..."></textarea>
-                </div>
-            </div>
-
-            <div class="row submit">
-                <div class="span5 box">
-                    <label class="checkbox">
-                        <input type="checkbox"/> Sign up for newsletter
-                    </label>
-                </div>
-                <div class="span3 right">
-                    <input type="submit" value="Send your message"/>
-                </div>
-            </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="row map">
-        <div class="container">
-            <div class="span5 box_wrapp">
-                <div class="box_cont">
-                    <div class="head">
-                        <h6>Contact</h6>
-                    </div>
-                    <ul class="street">
-                        <li>2301 East Lamar Blvd. Suite 140.</li>
-                        <li>City, Arlington. United States,</li>
-                        <li>Zip Code, TX 76006.</li>
-                        <li class="icon icontop">
-                            <span class="contacticos ico1"></span>
-                            <span class="text">1 817 274 2933</span>
-                        </li>
-                        <li class="icon">
-                            <span class="contacticos ico2"></span>
-                            <a class="text" href="#">bootstrap@twitter.com</a>
-                        </li>
-                    </ul>
-
-                    <div class="head headbottom">
-                        <h6>Work with us</h6>
-                    </div>
-                    <p>We’ve prepared a simple project planner to get to know you and your project better.</p>
-
-                    <a href="#" class="btn">Let's get started</a>
-                </div>
-            </div>
-        </div>
-        <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                src="https://maps.google.com.mx/?ie=UTF8&amp;ll=64.089157,-21.816616&amp;spn=0.045157,0.15398&amp;t=m&amp;z=13&amp;output=embed"></iframe>
-    </div>
+				<div class="row submit">
+					<div class="span3 right">
+						<input type="submit" value="${submit}" />
+					</div>
+				</div>
+			</form:form>
+		</div>
+	</div>
 </div>

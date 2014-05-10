@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <!DOCTYPE html>
 <html>
@@ -24,13 +25,18 @@
     <![endif]-->
 
     <!-- Scripts -->
+    <script type="text/javascript">
+	    var messages = new Array();
+	    messages['carWash.contact.success'] = "<spring:message code="carWash.contact.success" />";
+	    messages['carWash.contact.error'] = "<spring:message code="carWash.contact.error" />";
+  	</script>
     <script src="<c:url value="/resources/js/jquery-latest.js"/>"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
     <script src="<c:url value="/resources/js/theme.js"/>"></script>
     <script src="<c:url value="/resources/js/noty/packaged/jquery.noty.packaged.min.js"/>"></script>
     <script src="<c:url value="/resources/js/global.js"/>"></script>
     <script src="<c:url value="/resources/js/contact.js"/>"></script>
-    <script src="<c:url value="/resources/js/newsList.js"/>"></script>
+    <script src="<c:url value="/resources/js/newsList.js"/>"></script>   
     <%--validation scripts--%>
     <script src="<c:url value="/resources/js/jquery-validate.min.js"/>"></script>
     <!-- Page Specific Scripts -->

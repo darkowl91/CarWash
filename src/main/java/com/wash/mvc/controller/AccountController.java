@@ -120,20 +120,12 @@ public class AccountController {
 
 	@RequestMapping(value = "/selfCare/uploadPicture", method = RequestMethod.POST)
 	public String uploadPhoto(@Valid @ModelAttribute("user") User user,
-			//@Valid @ModelAttribute("uploadPicture") UploadPicture uploadPicture,
 			BindingResult result, Model model) throws IOException {
 
 		if (result.hasErrors()) {
 			model.addAttribute("newPhone", new Phone());
-			/*User currentUser = userService.findByUsername(user.getUsername());
-			model.addAttribute("user", currentUser);*/
 			return "carWash.selfCare";
 		}
-		
-		/*Picture picture = new Picture();
-		picture.setPicture(uploadPicture.getFile().getBytes());
-		picture.setPictureName(uploadPicture.getFile().getOriginalFilename());		
-		user.setPicture(picture);*/
 
 		userService.update(user);
 		return "redirect:/selfCare";

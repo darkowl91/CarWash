@@ -21,7 +21,7 @@
 		</div>
 		<div class="row">
 			<div class="span12">
-				<c:if test="${not empty page.content}">
+				<c:if test="${empty page.content}">
 					<div id="alert-warning" class="alert alert-warning alert-block">
 						<spring:message code="carWash.admin.contacts.isEmpty" />
 					</div>

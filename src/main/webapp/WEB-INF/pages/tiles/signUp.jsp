@@ -5,7 +5,8 @@
 
 <spring:message code="carWash.signUp.username" var="username" />
 <spring:message code="carWash.signUp.password" var="password" />
-<spring:message code="carWash.signUp.passwordConfirm" var="passwordConfirm" />
+<spring:message code="carWash.signUp.passwordConfirm"
+	var="passwordConfirm" />
 <spring:message code="carWash.signUp.firstName" var="firstName" />
 <spring:message code="carWash.signUp.lastName" var="lastName" />
 <spring:message code="carWash.signUp.email" var="email" />
@@ -17,50 +18,49 @@
 				<h4>
 					<spring:message code="carWash.signUp.signUp" />
 				</h4>
-
 				<p>
 					<spring:message code="carWash.signUp.welcome" />
 				</p>
 			</div>
 
 			<form:form modelAttribute="newUser" method="post" cssClass="dosnt">
+				<form:errors id="alert-error"
+					cssClass="alert alert-error alert-block span12" path="*"
+					element="div" />
 				<div class="span4">
 					<div id="form-group-username" class="form-group col-lg-4">
 						<form:input id="username" path="username" cssClass="form-control"
-							placeholder="${username}" />
-						<form:errors path="username" cssClass="help-block" />
+							cssErrorClass="error form-control" placeholder="${username}" />
 					</div>
 					<div id="form-group-email" class="form-group col-lg-4">
 						<form:input id="email" path="email" cssClass="form-control"
-							placeholder="${email}" />
-						<form:errors path="email" cssClass="help-block" />
+							cssErrorClass="error form-control" placeholder="${email}" />
 					</div>
 				</div>
 				<div class="span4">
 					<div id="form-group-first-name" class="form-group col-lg-3">
 						<form:input id="first-name" path="firstName"
-							cssClass="form-control" placeholder="${firstName}" />
-						<form:errors path="firstName" cssClass="help-block" />
+							cssClass="form-control" cssErrorClass="error form-control"
+							placeholder="${firstName}" />
 					</div>
 					<div id="form-group-last-name" class="form-group col-lg-4">
 						<form:input id="last-name" path="lastName" cssClass="form-control"
-							placeholder="${lastName}" />
-						<form:errors path="lastName" cssClass="help-block" />
+							cssErrorClass="error form-control" placeholder="${lastName}" />
 					</div>
 				</div>
 				<div class="span4">
 					<div id="form-group-password" class="form-group col-lg-4">
 						<form:password id="password" path="password"
-							cssClass="form-control" placeholder="${password}" />
-						<form:errors path="password" cssClass="help-block" />
+							cssClass="form-control" cssErrorClass="error form-control"
+							placeholder="${password}" />
 					</div>
 					<div id="form-group-password-confirm" class="form-group col-lg-4">
 						<form:password id="password-confirm" path="passwordConfirm"
-							cssClass="form-control" placeholder="${passwordConfirm}" />
-						<form:errors path="passwordConfirm" cssClass="help-block " />
+							cssClass="form-control" cssErrorClass="error form-control"
+							placeholder="${passwordConfirm}" />
 					</div>
 				</div>
-				
+
 				<div class="span12 dosnt">
 					<button type="submit" class="btn btn-default">
 						<spring:message code="carWash.signUp.submit" />

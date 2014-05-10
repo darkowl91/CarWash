@@ -47,7 +47,7 @@ public class Contact implements Serializable {
 		this.id = id;
 	}
 
-	@NotEmpty
+	@NotEmpty(message= "{com.wash.model.contact.name.notEmpty}")
 	public String getName() {
 		return name;
 	}
@@ -56,8 +56,8 @@ public class Contact implements Serializable {
 		this.name = name;
 	}
 
-	@NotEmpty
-	@Email
+	@NotEmpty(message= "{com.wash.model.contact.email.notEmpty}")
+	@Email(message = "{com.wash.model.contact.email.incorrectEmail}")
 	public String getEmail() {
 		return email;
 	}
@@ -66,7 +66,7 @@ public class Contact implements Serializable {
 		this.email = email;
 	}
 
-	@NotEmpty
+	@NotEmpty(message= "{com.wash.model.contact.message.notEmpty}")
 	public String getMessage() {
 		return message;
 	}

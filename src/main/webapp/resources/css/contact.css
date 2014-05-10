@@ -1,5 +1,5 @@
 #contact {
-    margin-top: 70px;
+    margin-top: 90px;
 }
 
 #contact .contact {
@@ -43,10 +43,6 @@
     background: url('../img/formmail.png') #fff no-repeat 5px;
 }
 
-#contact .form .box input.phone {
-    background: url('../img/formphone.png') #fff no-repeat 5px;
-}
-
 #contact .form .box_r {
     float: right;
 }
@@ -56,7 +52,7 @@
     width: 94%;
     margin: 0;
     border-radius: 3px;
-    height: 113px;
+    height: 64px;
 }
 
 #contact .contact .submit {
@@ -212,10 +208,18 @@
     background: #252528;
 }
 
+#footer {
+	margin-top: 0;
+}
+
 .contacticos {
     background: url('../img/contact_icos.png') no-repeat;
     width: 24px;
     height: 44px;
+}
+
+input.error, textarea.error {
+	border: 1px solid red;
 }
 
 /* Responsive

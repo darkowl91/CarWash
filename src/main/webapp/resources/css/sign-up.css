@@ -424,6 +424,10 @@
     background: #252528;
 }
 
+input.error, textarea.error {
+	border: 1px solid red;
+}
+
 /* Responsive
 -------------------------------------------------- */
 

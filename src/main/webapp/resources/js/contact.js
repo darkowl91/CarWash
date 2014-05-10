@@ -2,11 +2,10 @@
 	$(function() {
 		$('#contact_form').submit(
 				function(e) {
-                    //TODO: relative path
-					$.post('api/contact', $(this).serialize(), function(response) {
-						generateNoty('success', 'topCenter', 'Success');
+                    $.post('api/contact', $(this).serialize(), function(response) {
+						generateNoty('success', 'topCenter', messages['carWash.contact.success']);
 					}).error(function() {
-						generateNoty('error', 'topCenter', 'Error');
+						generateNoty('error', 'topCenter', messages['carWash.contact.error']);
 					})
 
 					$(':input', '#contact_form').not(':submit').val('');
