@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <spring:message code="carWash.selfCare.username" var="username" />
 <spring:message code="carWash.selfCare.firstName" var="firstName" />
@@ -17,6 +17,25 @@
 
 <div id="selfCare">
 	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<div id="filters_container">
+					<ul id="filters">
+						<li>
+							<a class="active" href="<c:url value="/selfCare"/>" data-filter=".art">
+								<spring:message	code="carWash.selfCare" />
+							</a>
+						</li>
+						<li class="separator">/</li>
+						<li>
+							<a href="<c:url value="/selfServiceRequests"/>">
+								<spring:message code="carWash.selfCare.selfServiceRequests" />
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 		<div class="span8">
 			<h3>
 				<spring:message code="carWash.selfCare.personalInformation" />
@@ -122,8 +141,8 @@
 						alt="${user.picture.pictureName}">
 				</c:if>
 				<c:if test="${fn:length(user.picture.picture) == 0}">
-					<img height="64" width="64" src="<c:url value="/resources/img/default.jpg" />"
-						alt="default">
+					<img height="64" width="64"
+						src="<c:url value="/resources/img/default.jpg" />" alt="default">
 				</c:if>
 				<c:url value="/selfCare/uploadPicture" var="uploadPictureUrl" />
 				<form:form modelAttribute="user" action="${uploadPictureUrl}"

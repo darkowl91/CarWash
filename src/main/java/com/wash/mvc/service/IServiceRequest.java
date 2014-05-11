@@ -15,6 +15,8 @@ public interface IServiceRequest {
     public List<ServiceRequest> findToApprove();
 
     public ServiceRequest save(ServiceRequest serviceRequest);
+    
+    public List<ServiceRequest> findByUsername(String username);
 
     public void delete(Long id);
 }

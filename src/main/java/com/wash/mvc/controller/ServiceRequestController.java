@@ -1,18 +1,23 @@
 package com.wash.mvc.controller;
 
+import java.security.Principal;
+import java.util.Collections;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.wash.model.account.User;
 import com.wash.model.services.ServiceRequest;
 import com.wash.mvc.service.IService;
 import com.wash.mvc.service.IServiceRequest;
 import com.wash.mvc.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.security.Principal;
-import java.util.Collections;
 
 @Controller
 public class ServiceRequestController {
@@ -69,5 +74,17 @@ public class ServiceRequestController {
         request.setApproved(true);
         serviceRequest.save(request);
         return "redirect:/manageServiceRequestList?filterId=toApprove";
+    }
+    
+    @RequestMapping(value = "/removeSelfServiceRequest", method = RequestMethod.GET)
+    public String removeSelfServiceRequest(Long id) {
+        serviceRequest.delete(id);
+        return "redirect:/selfServiceRequests";
+    }
+    
+    @RequestMapping(value = "/selfServiceRequests", method = RequestMethod.GET)
+    public String viewSelfServiceRequests(Model model, Principal principal) {
+        model.addAttribute("requests", serviceRequest.findByUsername(principal.getName()));
+        return "carWash.selfServiceRequests";
     }
 }

@@ -3,6 +3,7 @@ package com.wash.mvc.service;
 import com.google.common.collect.Lists;
 import com.wash.model.services.ServiceRequest;
 import com.wash.repository.IServiceRequestRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,6 +41,10 @@ public class ServiceRequestImpl implements IServiceRequest {
     @Override
     public ServiceRequest save(ServiceRequest serviceRequest) {
         return repository.save(serviceRequest);
+    }
+    
+    public List<ServiceRequest> findByUsername(String username) {
+    	return repository.findByUsername(username);
     }
 
     @Override

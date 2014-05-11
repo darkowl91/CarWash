@@ -1,7 +1,40 @@
 #selfCare {
 	height: 540px;
 	margin-bottom: 90px;
-	margin-top: 90px;
+	margin-top: 120px;
+}
+
+#selfCare #filters {
+    list-style-type: none;
+    height: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    margin-top: -20px;
+}
+
+#selfCare #filters li {
+    display: inline-block;
+    font-size: 20px;
+    margin: 0px 6px;
+}
+
+#selfCare #filters li.separator {
+    color: #c0c0c0;
+    font-weight: lighter;
+}
+
+#selfCare #filters li a {
+    color: #3f3f3f;
+    font-style: italic;
+    -webkit-transition: color .2s;
+    -moz-transition: color .2s;
+    -ms-transition: color .2s;
+    transition: color .2s;
+}
+
+#selfCare #filters li a:hover,
+#selfCare #filters li a.active {
+    color: #1189d9;
 }
 
 #selfCare h3 {
