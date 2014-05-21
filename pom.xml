@@ -24,7 +24,8 @@
 		<org.apache.tiles-version>2.2.2</org.apache.tiles-version>		
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<liquibase.propertyFile>src/main/resources/schema/schema_install.properties</liquibase.propertyFile>
-	</properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     
     <dependencies>
         <dependency>
