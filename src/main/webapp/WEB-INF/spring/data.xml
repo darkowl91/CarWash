@@ -48,7 +48,7 @@
                 <prop key="hibernate.dialect">${dialect}</prop>
                 <prop key="hibernate.connection.CharSet">${charSet}</prop>
                 <prop key="hibernate.connection.characterEncoding">${charSet}</prop>
-                <prop key="hibernate.connection.useUnicode">${charSet}</prop>
+                <prop key="hibernate.connection.useUnicode">true</prop>
             </props>
 		</property>
 	</bean>
